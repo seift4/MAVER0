@@ -862,3 +862,109 @@ color: var(--bg-color);
 }
 
 
+
+
+
+@media (max-width: 768px){
+  body{
+    overflow: hidden;
+  }
+  
+  .home{
+    overflow: hidden;
+    width: 100%;
+
+  }
+  .home .nav{
+    gap: 0px;
+  }
+.sp{
+  font-size: 14px;
+}
+  .ull #b1{font-size: 15px;
+          color:var(--text-color);
+      background-color: var(--text-color);}
+        .ull #b2{font-size: 15px;
+          color:var(--text-color);}
+
+.work{
+  overflow: hidden;
+}
+
+          .aboute{
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+          }
+          .aboute .text{
+            position: relative;
+            bottom: 150px;
+            left: 77px;
+            margin-left:250px ;
+            width: 9%;
+          }
+          .nav a{
+            font-size: 14px;
+          }
+          .aboute .text h1{
+            font-size: 18px;
+          }
+    
+          .aboute .text p{
+            font-size: 14px;
+          }
+
+          .text2 h1{
+            width: 55%;
+          }
+
+          .aboute img{
+            position: absolute;
+            left: 400px;
+            width: 48%;
+          }
+
+
+
+          .service h1{
+            font-size: 22px;
+          }
+          .sir{
+            font-size: 15px;
+            margin-left: 40px;
+            
+          }
+
+          .s h2{
+            font-size: 15px;
+          }
+
+
+
+          .contact p{
+            font-size: 14px;
+          }
+          .contact h1{
+            font-size: 20px;
+          }
+          .div11 h1{
+            position: relative;
+            left: 40px;
+          }
+       
+          .div11 img{
+            position: relative;
+            left: 40px;
+            top:  -10px;
+            width: 195px;
+          }
+
+
+          .div1 .div11{
+            position: relative;
+            right: 40px;
+          }
+
+
+
+}
