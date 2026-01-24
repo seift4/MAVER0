@@ -32,6 +32,52 @@
 
 
 
+
+/* عرض الاسكرول */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* الخلفية */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+/* شكل الاسكرول نفسه */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--text-color));
+  border-radius: 20px;
+}
+
+/* عند الوقوف عليه */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,var(--text-color));
+}
+
+
+
+
+
+
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.9s ease;
+}
+
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
  #loader {
     position: fixed;
     top: 0;
@@ -80,6 +126,7 @@
     padding: 0;
 }
 html, body{
+      scroll-behavior: smooth;
        font-family: 'Sora', sans-serif;
     overflow-x: hidden;
     background-color:var(--bg-color); 
@@ -303,6 +350,7 @@ font-weight: 600;
 }
 
 .imgs img{
+    margin-left: 5px;
     height: 500px;
     width: 363px;
 }
@@ -328,7 +376,7 @@ font-weight: 600;
 }
 .img-box a{
 text-decoration: none;
-color: var(--bg-color);
+
 }
 
 .img-box p {
@@ -341,14 +389,85 @@ color: var(--bg-color);
 }
 
 .img-box svg{
+    fill: #1D293F;
 position: absolute;
-left: 200px;
-top: 10px;
+left: 180px;
+top: 5px;
 }
 
 
 
 
+
+
+
+
+
+.marquee-track {
+  display: flex;
+  gap: px; /* المسافة بين الصور */
+  animation: marqueeScroll 140s linear infinite;
+  white-space: nowrap;
+}
+
+.imgs {
+  overflow: hidden; /* نخفي الفائض */
+  width: 100%;
+}
+
+
+
+
+.img {
+  flex: 0 0 auto; /* يمنع تقلص الصورة */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 363px; /* نفس عرض الصور عندك */
+  margin-left: 5px;
+  transition: all 0.4s ease;
+  opacity: 0.8;
+}
+.img div{
+    width: 100%;
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+
+}
+
+
+.img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Hover لإيقاف الحركة عند الوقوف على الشريط */
+.imgs:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* الأنيميشن الرئيسي */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(80%);
+  }
+}
+
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .img {
+    min-width: 250px;
+  }
+}
 
 
 
@@ -561,8 +680,15 @@ display: block;
     
 }
 .sir div h2{
+    
     color: var(--text-color);
 }
+.sir .s a{
+
+    color: var(--text-color);
+
+}
+
 .toggle{
     cursor: pointer;
 }
@@ -624,6 +750,7 @@ display: block;
 
 }
 .div22{
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: start;

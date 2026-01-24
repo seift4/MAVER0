@@ -209,15 +209,36 @@ setLanguage(savedLang);
 
 
 
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+});
 
 
-  // خلي الGIF يشتغل أثناء اللودينج فقط
-  window.addEventListener('load', function() {
-    // إخفاء div الLoader بعد ما الصفحة تخلص تحميل
-    document.getElementById('loader').style.display = 'none';
-    // إظهار المحتوى
-    document.getElementById('content').style.display = 'block';
+
+
+
+
+
+
+
+
+
+
+
+  const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  const windowHeight = window.innerHeight;
+
+  reveals.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    const visiblePoint = 120;
+
+    if (elementTop < windowHeight - visiblePoint) {
+      el.classList.add("active");
+    }
   });
+});
 
 
 
@@ -232,6 +253,57 @@ setLanguage(savedLang);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const track = document.querySelector('.marquee-track');
+const imgs = Array.from(track.children);
+
+// حساب عرض الشريط الأصلي
+let trackWidth = 0;
+imgs.forEach(img => {
+  trackWidth += img.offsetWidth;
+});
+
+// نسخ العناصر لتغطية ضعف الشريط
+imgs.forEach(img => {
+  const clone = img.cloneNode(true);
+  track.appendChild(clone);
+});
+
+// الآن نضيف التحريك المستمر
+let x = 0;
+const speed = 1; // كل ما يكون أكبر، الحركة أسرع
+
+function animate() {
+  x -= speed;
+  if (x <= -trackWidth) x = 0; // إعادة التشغيل بدون فراغ
+  track.style.transform = `translateX(${x}px)`;
+  requestAnimationFrame(animate);
+}
+
+animate();
 
 
 
