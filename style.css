@@ -180,8 +180,6 @@ body{
   width: 100vw;
 
 }
-
-
 .home{
   margin:0px ;
   background-image: var(--ph);
@@ -194,24 +192,26 @@ body{
     flex-direction: column;
 }
 .nav{
-      position: sticky; /* خلي الـ nav ثابت */
-  top: 0;           /* يبقى في أعلى الصفحة */
   background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
   z-index: 999;     /* يفضل يظهر فوق أي عنصر تاني */
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 0px;
-    gap: 940px;
+    gap: 0px;
+    padding: 0;
 }
 
 .nav img{
+  
+  margin-left:20px ;
 width: 170px;
 }
 
 .nav ul{
+  margin-right:20px ;
     list-style: none;
     display: flex;
     gap: 10px;
@@ -223,7 +223,6 @@ width: 170px;
 
 
 .nv a{
-    
     padding-bottom: 7px;
     font-family: 'Sora', sans-serif;
     font-weight: 200; /* ExtraLight */
@@ -380,7 +379,6 @@ svg {
     width: 70px;
 }
 
-
 /* ///////////////////////////////////////////// */
 
 
@@ -474,8 +472,7 @@ top: 5px;
 .marquee-track {
   
   display: flex;
-  gap: px; /* المسافة بين الصور */
-  animation: marqueeScroll 140s linear infinite;
+  animation: marqueeScroll 80s linear infinite alternate;
   white-space: nowrap;
 }
 
@@ -483,10 +480,6 @@ top: 5px;
   overflow: hidden; /* نخفي الفائض */
   width: 100%;
 }
-
-
-
-
 .img {
   flex: 0 0 auto; /* يمنع تقلص الصورة */
   display: flex;
@@ -526,6 +519,16 @@ top: 5px;
     transform: translateX(80%);
   }
 }
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(80%);
+  }
+}
+
 
 
 
