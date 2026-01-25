@@ -34,23 +34,20 @@ toggleBtn.addEventListener("click", () => {
 
 
 
+document.querySelectorAll(".service-header").forEach(header => {
+  header.addEventListener("click", () => {
+    const item = header.parentElement;
 
+    // اقفل بس اللي في نفس العمود
+    item.parentElement
+      .querySelectorAll(".service-item")
+      .forEach(el => {
+        if (el !== item) el.classList.remove("active");
+      });
 
-  document.querySelectorAll('.sir a').forEach(link => {
-    link.addEventListener('click', () => {
-      const parentDiv = link.closest('div');
-      const p = parentDiv.querySelector('p');
-
-      if (p.style.display === 'block') {
-        p.style.display = 'none';
-      } else {
-        p.style.display = 'block';
-      }
-    });
+    item.classList.toggle("active");
   });
-
-
-
+});
 
 
 
@@ -309,3 +306,50 @@ animate();
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("click", function (e) {
+    const effect = document.getElementById("clickEffect");
+
+    effect.style.left = e.clientX + "px";
+    effect.style.top = e.clientY + "px";
+    effect.style.display = "block";
+
+    setTimeout(() => {
+        effect.style.display = "none";
+    }, 200);
+});
+
+
+
+document.addEventListener("click", function(e) {
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+    ripple.style.left = e.clientX + "px";
+    ripple.style.top = e.clientY + "px";
+
+    document.body.appendChild(ripple);
+
+    ripple.addEventListener("animationend", () => {
+        ripple.remove();
+    });
+});
