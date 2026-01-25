@@ -165,6 +165,7 @@
     margin: 0;
     padding: 0;
 }
+
 html, body{
       scroll-behavior: smooth;
        font-family: 'Sora', sans-serif;
@@ -198,14 +199,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    gap: 0px;
-    padding: 0;
+    margin-top: 10px;
+
 }
 
 .nav img{
-  
   margin-left:20px ;
 width: 170px;
 }
@@ -253,11 +251,11 @@ width: 170px;
 .lang ul{
 
     position: absolute;
-    right: 38px;
+    right: 13px;
     font-style: normal;
     list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 5px;
      padding-right: 10px;
     border-right: 1px solid var(--text-color);
 }
@@ -279,8 +277,8 @@ width: 170px;
 
 .ull{
   position: absolute;
-  right: 110px;
-  top:66px;
+  right: 77px;
+  top:55px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -376,6 +374,8 @@ svg {
 }
 
 .bottom img{
+  position: relative;
+  bottom: 10px;
     width: 70px;
 }
 
