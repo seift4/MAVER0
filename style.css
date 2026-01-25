@@ -278,7 +278,7 @@ width: 170px;
 .ull{
   position: absolute;
   right: 77px;
-  top:55px;
+  top:56px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -312,7 +312,7 @@ width: 170px;
 
 
 .text{
-    margin-top: 185px;
+    margin-top: 300px;
     width: 100%;
     display: flex;
     flex-direction:column ;
@@ -343,6 +343,11 @@ width: 170px;
 svg {
     fill: var(--text-color); /* اللون الأساسي */
 }
+
+
+
+
+
 
 
 
