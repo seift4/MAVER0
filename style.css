@@ -180,7 +180,10 @@ body{
   width: 100vw;
 
 }
+
+
 .home{
+  margin:0px ;
   background-image: var(--ph);
   background-size: cover;      /* تملى الشاشة */
   background-position: center; /* في النص */
@@ -195,18 +198,17 @@ body{
   top: 0;           /* يبقى في أعلى الصفحة */
   background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
   z-index: 999;     /* يفضل يظهر فوق أي عنصر تاني */
-  
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 80px;
-    margin-bottom: 30px;
-    gap: 740px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    gap: 940px;
 }
 
 .nav img{
-width: 200px;
+width: 170px;
 }
 
 .nav ul{
@@ -226,7 +228,7 @@ width: 200px;
     font-family: 'Sora', sans-serif;
     font-weight: 200; /* ExtraLight */
   text-transform: uppercase;
-    font-size: 17px;
+    font-size: 14px;
     text-decoration: none;
     color:var(--text-color);
 }
@@ -242,6 +244,7 @@ width: 200px;
 
 
 .lang{
+  margin-top:20PX ;
     display: flex;
     width: 100%;
 
@@ -251,7 +254,7 @@ width: 200px;
 .lang ul{
 
     position: absolute;
-    right: 83px;
+    right: 38px;
     font-style: normal;
     list-style: none;
     display: flex;
@@ -260,6 +263,7 @@ width: 200px;
     border-right: 1px solid var(--text-color);
 }
 .lang a{
+  font-size: 14px;
     cursor: pointer;
     text-decoration: none;
     color: var(--text-color);
@@ -276,8 +280,8 @@ width: 200px;
 
 .ull{
   position: absolute;
-  right: 99px;
-  top: 380px;
+  right: 110px;
+  top:66px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -287,17 +291,17 @@ width: 200px;
 }
 .ull .material-symbols-outlined{
     cursor: pointer;
+    font-size: 22px;
       
       border-radius: 50%;
 }
-.ull #b1{font-size: 22px;
+.ull #b1{font-size: 18px;
           color:var(--text-color);
       background-color: var(--text-color);
       border-bottom: 1px solid var(--text-color);
 }
 .ull .li{
-    padding-bottom: 10px;  
-    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 18px;  
 
 }
 
@@ -363,7 +367,9 @@ svg {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 80px;
+    margin-top: 100px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 .bottom p{
     color: var(--text-color);
