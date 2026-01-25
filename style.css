@@ -40,19 +40,6 @@
 
 
 
-
-
-.ripple {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background-color: var(--cy);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    pointer-events: none;
-    animation: ripple 0.6s ease-out;
-}
-
 @keyframes ripple {
     to {
         transform: translate(-50%, -50%) scale(15);
@@ -99,17 +86,6 @@
 
 
 
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.9s ease;
-}
-
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 
 
@@ -156,7 +132,8 @@
 
 
 *{
-   pointer-events: auto;
+       cursor: var(--text-color);
+
   transition: .5s;
      font-family: 'Sora', sans-serif;
     font-weight: 200; /* ExtraLight */
@@ -167,15 +144,18 @@
 }
 
 html, body{
+ 
       scroll-behavior: smooth;
        font-family: 'Sora', sans-serif;
     overflow-x: hidden;
     background-color:var(--bg-color); 
 }
 html{
+  
   background-color: var(--bg-color);
 }
 body{
+
 
   overflow: hidden;
   width: 100vw;
