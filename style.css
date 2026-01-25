@@ -192,6 +192,8 @@ body{
     height: 100vh;
     flex-direction: column;
 }
+
+
 .nav{
   background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
   z-index: 999;     /* يفضل يظهر فوق أي عنصر تاني */
@@ -212,7 +214,7 @@ width: 170px;
   margin-right:20px ;
     list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 .nv a:hover,
 .nv a.active { /* hover أو العنصر النشط */
@@ -243,9 +245,7 @@ width: 170px;
 .lang{
   margin-top:20PX ;
     display: flex;
-    width: 100%;
-
-    
+    width: 100%;    
 
 }
 .lang ul{
@@ -255,7 +255,7 @@ width: 170px;
     font-style: normal;
     list-style: none;
     display: flex;
-    gap: 5px;
+    gap: 7px;
      padding-right: 10px;
     border-right: 1px solid var(--text-color);
 }
@@ -277,8 +277,8 @@ width: 170px;
 
 .ull{
   position: absolute;
-  right: 77px;
-  top:56px;
+  right: 84px;
+  top:57px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -301,6 +301,25 @@ width: 170px;
     padding-bottom: 18px;  
 
 }
+.text svg {
+  position: relative;
+  top: 10px;
+  display: inline-block;
+  animation: floatArrow 1.5s ease-in-out infinite;
+}
+
+@keyframes floatArrow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 
 .ull #b2{
     font-size: 25px;
@@ -341,6 +360,7 @@ width: 170px;
 }
 
 svg {
+  
     fill: var(--text-color); /* اللون الأساسي */
 }
 
