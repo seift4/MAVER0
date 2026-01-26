@@ -139,10 +139,10 @@ body {
 
 /* تصميم الماوس الجديد */
 .cursor-dot {
-    width: 15px;
-    height: 15px;
-    background-color:#3E58D6; /* نفس درجة اللون الأزرق في الفيديو */
-    box-shadow: 4px 4px 8px #4a90e2, -4px -4px 8px  #4a90e2,-4px 4px 8px #4a90e2,4px -4px 8px #4a90e2;
+    width: 17px;
+    height: 17px;
+    background-color : var(--text-color); /* نفس درجة اللون الأزرق في الفيديو */
+    box-shadow: 4px 4px 8px var(--bg-color), -4px -4px 8px var(--bg-color),-4px 4px 8px var(--bg-color),4px -4px 8px var(--bg-color);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -155,10 +155,22 @@ body {
 
 /* تأثير عند المرور على روابط أو أزرار */
 .cursor-active {
+   box-shadow: 4px 4px 8px var(--text-color), -4px -4px 8px var(--text-color),-4px 4px 8px var(--text-color),4px -4px 8px var(--text-color);
+   
     transform: scale(3);
-    mix-blend-mode: difference; /* تأثير عكس الألوان لو حبيت */
-    background-color: #fff;
+    mix-blend-mode: color-burn; /* تأثير عكس الألوان لو حبيت */
+    background-color:var(--bg-color);
 }
+
+
+
+
+
+
+
+
+
+
 
 
 *{
@@ -205,6 +217,9 @@ body{
 
 
 .nav{
+  position: fixed;
+    width: 100%;
+    z-index: 1000;
   background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
   z-index: 999;     /* يفضل يظهر فوق أي عنصر تاني */
     width: 100%;
@@ -227,30 +242,64 @@ width: 170px;
     gap: 20px;
 }
 
+.nv{
+  margin-left: 40px;
+}
 
-
-.nv a{
+/* الخط اللي بيظهر تحت الكلمة */
+.nv a {
+  padding-bottom: 20px;
+    position: relative;
+    display: inline-block;
     padding-bottom: 7px;
     font-family: 'Sora', sans-serif;
-    font-weight: 200; /* ExtraLight */
-  text-transform: uppercase;
-    font-size: 14px;
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: 16px;
     text-decoration: none;
-    color:var(--text-color);
+    color: var(--text-color);
+    overflow: hidden; /* مهم جداً لإخفاء النص المتحرك */
+    transition: color 0.6s;
     
-    transition: 1s;
-}
-.nv a:hover{
-  color: var(--bg-color);
-    padding-bottom: 7px;
-    
-    border-bottom: 1px solid #3E58D6;
-    text-shadow: 1px 1px 1px #3E58D6 ,-1px -1px 1px #3E58D6 ,-1px 1px 1px #3E58D6 ,1px -1px 1px #3E58D6;
-
 }
 
+/* النص اللي بيظهر وقت الـ Hover */
+.nv a::after {
+  
+  padding-bottom: 5px;
+    content: attr(data-text); /* بياخد النص من الـ attribute اللي انت عامله */
+    position: absolute;
+    left: 0;
+    top: 90%; /* بيبدأ من تحت النص الأصلي */
+    width: 100%;
+    color: var(--text-color); /* اللون اللي هيظهر في الـ hover */
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
 
+/* تأثير الحركة عند الـ Hover */
+.nv a:hover {
+    color: transparent; /* بنخفي النص الأصلي عشان يظهر اللي تحته */
+}
 
+.nv a:hover::after {
+    transform: translateY(-100%); /* النص بيطلع لفوق يغطي مكان الأصلي */
+}
+
+/* الخط اللي بيظهر تحت الكلمة */
+.nv a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--text-color);
+    transition: width 0.4s ease;
+}
+
+.nv a:hover::before {
+    width: 100%;
+}
 
 
 
@@ -262,7 +311,7 @@ width: 170px;
 
 
 .lang{
-  margin-top:20PX ;
+  margin-top:63PX ;
     display: flex;
     width: 100%;    
 
@@ -286,6 +335,8 @@ width: 170px;
     font-weight: 100;
 
 }
+
+
 .lang a:hover{
     color: var(--bg-color);
     text-shadow: 1px 1px 1px #3E58D6 ,-1px -1px 1px #3E58D6 ,-1px 1px 1px #3E58D6 ,1px -1px 1px #3E58D6;

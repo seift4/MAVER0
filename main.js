@@ -57,6 +57,23 @@ toggleBtn.addEventListener("click", () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const cursorDot = document.querySelector(".cursor-dot");
 
 window.addEventListener("mousemove", (e) => {
@@ -87,6 +104,15 @@ window.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 });
+
+
+
+
+
+
+
+
+
 
 
 
