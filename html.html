@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Cursor Test</title>
+<style>
+
+</style>
+</head>
+<body>
+  <div class="custom-cursor"></div>
+
+  <script>
+    const cursor = document.querySelector(".custom-cursor");
+    document.addEventListener("mousemove", e => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  </script>
+
+  <style>
+    /* نخفي الماوس الافتراضي */
+    body, * {
+      cursor: none !important;
+    }
+
+    /* عنصر الماوس المخصص */
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 32px;   /* حجم المؤشر */
+      height: 32px;
+      background: url('imgs/Mous Point.png') center / contain no-repeat;
+      pointer-events: none;
+      z-index: 999999;  /* فوق كل العناصر */
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</body>
+
+</html>

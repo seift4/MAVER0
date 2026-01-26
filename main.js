@@ -5,7 +5,7 @@ const heroImg = document.getElementById("heroImg");
 // تحميل الحالة عند فتح الصفحة
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
-  if (logo) logo.src = "imgs/Logo For web-03.svg";
+  if (logo) logo.src = "imgs/Logo For web-02.svg";
   if (heroImg) heroImg.src = "imgs/Logo For web-03.svg";
 }
 
@@ -13,7 +13,7 @@ toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 
   if (document.body.classList.contains("dark-mode")) {
-    if (logo) logo.src = "imgs/Logo For web-03.svg";
+    if (logo) logo.src = "imgs/Logo For web-02.svg";
     if (heroImg) heroImg.src = "imgs/Logo For web-03.svg";
     localStorage.setItem("theme", "dark");
   } else {
@@ -23,6 +23,45 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
+
+
+
+
+
+
+
+
+
+const cursorDot = document.querySelector(".cursor-dot");
+
+window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // تحديث مكان الدائرة
+    // طرحنا 6 (نصف قطر الدائرة) عشان الماوس يكون في السنتر بالظبط
+    cursorDot.style.transform = `translate(${posX - 6}px, ${posY - 6}px)`;
+});
+
+// إضافة تأثير عند الدخول على العناصر القابلة للضغط (Optional)
+// اخترنا الروابط، الأزرار، وأي نص (p, h1, h2, span)
+const interactiveElements = document.querySelectorAll('a, button, p, h1, h2, span, li');
+
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursorDot.classList.add('cursor-active');
+    });
+    el.addEventListener('mouseleave', () => {
+        cursorDot.classList.remove('cursor-active');
+    });
+});
+ouseX = 0, mouseY = 0;
+let ballX = 0, ballY = 0;
+
+window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
 
 
 
@@ -65,9 +104,38 @@ document.querySelectorAll(".service-header").forEach(header => {
 
 
 
+// نحدد المسار اللي فيه الصور
+const traack = document.querySelector('.marquee-track');
+
+// ننسخ محتوى الصور عشان نعمل Loop مستمر
+const clone = traack.innerHTML;
+traack.innerHTML += clone; // بنضاعف الصور
 
 
 
+
+
+
+const section = document.querySelector('.home');
+
+section.addEventListener('mousemove', (e) => {
+    const { width, height, left, top } = section.getBoundingClientRect();
+
+    // إحداثيات الماوس داخل السكشن
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+
+    // النسب بين 0 و 1
+    const xPercent = x / width;
+    const yPercent = y / height;
+
+    // نحرك الباكجروند في كل الاتجاهات
+    const xMove = (xPercent - 0.5) * 10; // 30px يمكنك تغيير السرعة
+    const yMove = (yPercent - 0.5) * 10;
+
+    // الخلفية تتحرك بالنسبة للـ center
+    section.style.backgroundPosition = `calc(50% + ${xMove}px) calc(50% + ${yMove}px)`;
+});
 
 
 
@@ -205,15 +273,14 @@ setLanguage(savedLang);
 
 
 
-
-window.addEventListener("load", () => {
-  document.getElementById("loader").style.display = "none";
+// ننتظر تحميل الصفحة بالكامل
+window.addEventListener("load", function() {
+    // نضيف تأخير 2 ثانية قبل إخفاء الـ loader
+    setTimeout(function() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }, 2000); // 2000 ملي ثانية = 2 ثانية
 });
-
-
-
-
-
 
 
 
@@ -351,3 +418,27 @@ document.addEventListener("click", function(e) {
         ripple.remove();
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
