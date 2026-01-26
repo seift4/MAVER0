@@ -146,7 +146,16 @@ document.querySelectorAll(".service-header").forEach(header => {
 
 
 
-
+window.onscroll = function() {
+    var navbar = document.querySelector('.nav');
+    
+    // لو نزلنا أكتر من 50 بكسل ضيف الـ class، غير كدة شيله
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+};
 
 
 

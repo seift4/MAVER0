@@ -9,6 +9,7 @@
   --two:#45B1F8;
   --ph:url(imgs/BG-01.png);
   --cy:#1d293f55;
+  --nav:#eff4fa89;
 }
 .dark-mode {
   --bg-color: #1D293F;
@@ -21,6 +22,7 @@
   --black:#1D293F;
   --ph:url(imgs/BG-02.png);
   --cy:#eff4fa6a;
+    --nav:#1d293fa8;
 }
 
 
@@ -221,12 +223,13 @@ body{
     width: 100%;
     z-index: 1000;
   background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
-  z-index: 999;     /* يفضل يظهر فوق أي عنصر تاني */
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 15px;
+    top: 0px;
+    padding: 20px;
+ 
 
 }
 
@@ -242,13 +245,10 @@ width: 170px;
     gap: 20px;
 }
 
-.nv{
-  margin-left: 40px;
-}
+
 
 /* الخط اللي بيظهر تحت الكلمة */
 .nv a {
-  padding-bottom: 20px;
     position: relative;
     display: inline-block;
     padding-bottom: 7px;
@@ -258,34 +258,48 @@ width: 170px;
     font-size: 16px;
     text-decoration: none;
     color: var(--text-color);
-    overflow: hidden; /* مهم جداً لإخفاء النص المتحرك */
-    transition: color 0.6s;
-    
+    overflow: hidden; 
+    line-height: 1.2; /* زيادة بسيطة عشان العوجة متتقصش */
 }
 
-/* النص اللي بيظهر وقت الـ Hover */
+/* النص الأصلي */
+.nv a span {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    transform-origin: right; /* العوجة بتبدأ من اليمين */
+}
+
+/* النص الجديد (النسخة) */
 .nv a::after {
-  
-  padding-bottom: 5px;
-    content: attr(data-text); /* بياخد النص من الـ attribute اللي انت عامله */
+    content: attr(data-text);
     position: absolute;
     left: 0;
-    top: 90%; /* بيبدأ من تحت النص الأصلي */
+    top: 100%; 
     width: 100%;
-    color: var(--text-color); /* اللون اللي هيظهر في الـ hover */
-    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    color: var(--text-color);
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    transform-origin: left; /* العوجة بتبدأ من الشمال عشان العكس */
+
+  }
+
+/* --- التأثير عند الـ Hover --- */
+
+/* النص القديم يطلع لفوق ويتعوج يمين */
+.nv .nav-link:hover span {
+    transform: translateY(-100%) skewY(10deg);
 }
 
-/* تأثير الحركة عند الـ Hover */
-.nv a:hover {
-    color: transparent; /* بنخفي النص الأصلي عشان يظهر اللي تحته */
+/* النص الجديد يطلع من تحت ويتعوج شمال */
+.nv .nav-link:hover::after {
+    transform: translateY(-140%) skewY(0deg); /* بيرجع لوضعه الطبيعي */
 }
 
-.nv a:hover::after {
-    transform: translateY(-100%); /* النص بيطلع لفوق يغطي مكان الأصلي */
+/* وضع البداية للنص الجديد عشان يجي بـ "عوجة" */
+.nv .nav-link::after {
+    transform: skewY(10deg); /* بيبدأ معوج وهو تحت */
 }
 
-/* الخط اللي بيظهر تحت الكلمة */
+/* الخط السفلي (بدون تغيير) */
 .nv a::before {
     content: '';
     position: absolute;
@@ -296,15 +310,24 @@ width: 170px;
     background-color: var(--text-color);
     transition: width 0.4s ease;
 }
-
-.nv a:hover::before {
+.nv .nav-link:hover::before {
     width: 100%;
 }
 
+.nav.scrolled {
+    background-color: var(--nav); /* اللون الجديد اللي انت عايزه */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* اختيارى: ضل خفيف */
+}
 
 
+.la{
+  display: flex;
+  gap: 10px;
+}
+.li:hover{
+  color: var(--secound);
 
-
+}
 
 
 
@@ -318,14 +341,13 @@ width: 170px;
 }
 .lang ul{
 
-    position: absolute;
-    right: 17px;
+
     font-style: normal;
     list-style: none;
     display: flex;
     gap: 7px;
      padding-right: 10px;
-    border-right: 1px solid var(--text-color);
+
 }
 .lang a{
   font-size: 14px;
@@ -335,6 +357,7 @@ width: 170px;
     font-weight: 100;
 
 }
+
 
 
 .lang a:hover{
@@ -352,14 +375,13 @@ width: 170px;
 }
 
 .ull{
-  position: absolute;
-  right: 84px;
-  top:60px;
-    list-style: none;
+  height: 19px;
+   list-style: none;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    gap: 12px;
+padding-right: 10px;
+    gap: 3px;
+    border-right: solid var(--text-color);
 
 }
 .ull .material-symbols-outlined{
@@ -367,6 +389,9 @@ width: 170px;
     font-size: 22px;
       
       border-radius: 50%;
+}
+.material-symbols-outlined:hover{
+  color: var(--secound);
 }
 .ull #b1{font-size: 18px;
           color:var(--text-color);
@@ -377,6 +402,14 @@ width: 170px;
     padding-bottom: 18px;  
 
 }
+
+.ull a:hover{
+  color: var(--secound);
+}
+
+
+
+
 .text svg {
   position: relative;
   top: 10px;
