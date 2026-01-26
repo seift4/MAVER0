@@ -1,28 +1,53 @@
-const toggleBtn = document.getElementById("darkToggle");
-const logo = document.getElementById("logo");
-const heroImg = document.getElementById("heroImg");
+// كل الصور اللي عايز تتغير مع الثيم
+const themeImages = [
+  { 
+    id: "logo", 
+    light: "imgs/Logo For web-01.svg", 
+    dark:  "imgs/Logo For web-02.svg" 
+  },
+  { 
+    id: "heroImg", 
+    light: "imgs/Logo For web-02.svg", 
+    dark:  "imgs/Logo For web-03.svg" 
+  },
+  { 
+    id: "extraImg",               // ← أضف هنا
+    light: "imgs/Logo For web-01.svg",
+    dark:  "imgs/Logo For web-07.svg"
+  },
+    { 
+    id: "extra",               // ← أضف هنا
+    light: "imgs/Logo For web-01.svg",
+    dark:  "imgs/Logo For web-07.svg"
+  },
+  // ممكن تضيف كمان وكمان...
+];
 
-// تحميل الحالة عند فتح الصفحة
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-  if (logo) logo.src = "imgs/Logo For web-02.svg";
-  if (heroImg) heroImg.src = "imgs/Logo For web-03.svg";
+const toggleBtn = document.getElementById("darkToggle");
+
+// دالة تحديث كل الصور مرة واحدة
+function updateImages(isDark) {
+  themeImages.forEach(item => {
+    const el = document.getElementById(item.id);
+    if (el) {
+      el.src = isDark ? item.dark : item.light;
+    }
+  });
 }
 
+// تحميل عند الفتح
+const savedTheme = localStorage.getItem("theme");
+const isDark = savedTheme === "dark";
+if (isDark) document.body.classList.add("dark-mode");
+updateImages(isDark);
+
+// عند الضغط
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
-
-  if (document.body.classList.contains("dark-mode")) {
-    if (logo) logo.src = "imgs/Logo For web-02.svg";
-    if (heroImg) heroImg.src = "imgs/Logo For web-03.svg";
-    localStorage.setItem("theme", "dark");
-  } else {
-    if (logo) logo.src = "imgs/Logo For web-02.svg";
-    if (heroImg) heroImg.src = "imgs/Logo For web-03.svg";
-    localStorage.setItem("theme", "light");
-  }
+  const nowDark = document.body.classList.contains("dark-mode");
+  updateImages(nowDark);
+  localStorage.setItem("theme", nowDark ? "dark" : "light");
 });
-
 
 
 
