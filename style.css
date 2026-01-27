@@ -130,7 +130,6 @@ body {
     width: 17px;
     height: 17px;
     background-color : var(--text-color); /* نفس درجة اللون الأزرق في الفيديو */
-    box-shadow: 4px 4px 8px var(--bg-color), -4px -4px 8px var(--bg-color),-4px 4px 8px var(--bg-color),4px -4px 8px var(--bg-color);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -236,7 +235,7 @@ body{
 
 .nav img{
   position: relative;
-  bottom: 3px;
+  bottom: 0px;
   margin-left:23px ;
 width: 170px;
 }
@@ -247,6 +246,7 @@ width: 170px;
     display: flex;
     gap: 20px;
 }
+
 
 
 
@@ -306,7 +306,7 @@ width: 170px;
 .nv a::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    
     left: 0;
     width: 0;
     height: 1px;
@@ -366,6 +366,7 @@ width: 170px;
   background-color: #08193900;
   border:none;
   font-size: px;
+  color: var(--text-color);
 }
 .ull button:hover{
   border-bottom: solid  1px #1D293F; 
