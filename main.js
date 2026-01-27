@@ -146,6 +146,42 @@ document.querySelectorAll(".service-header").forEach(header => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 window.onscroll = function() {
     var navbar = document.querySelector('.nav');
     
@@ -303,9 +339,20 @@ function setLanguage(lang) {
     }
   });
 
-  document.documentElement.lang = lang;
+  // التحكم في اتجاه الصفحة
+  if (lang === "ar") {
+    document.documentElement.lang = "ar";
+    document.documentElement.dir = "rtl";
+    document.body.classList.add("rtl");
+  } else {
+    document.documentElement.lang = "en";
+    document.documentElement.dir = "ltr";
+    document.body.classList.remove("rtl");
+  }
+
   localStorage.setItem("lang", lang);
 }
+
 
 // =====================
 // أحداث الزرار
@@ -502,3 +549,82 @@ document.addEventListener("click", function(e) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const slider = document.querySelector('.imgs');
+const tack = document.querySelector('.marquee-track');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  tack.classList.add('paused'); // وقف الأنميشن أول ما يضغط
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  tack.classList.remove('paused'); // ارجع شغل الأنميشن لما يسيب
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  tack.classList.remove('paused');
+});
+
+slider.addEventListener('mousemove', (e) => {
+  if (!isDown) return; // لو مش ضاغط متعملش حاجة
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2; // سرعة الشد (ممكن تغير 2 دي)
+  slider.scrollLeft = scrollLeft - walk;
+});

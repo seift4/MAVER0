@@ -29,30 +29,16 @@
 
 
 
-
-
-#clickEffect {
-    position: fixed;
-    width: 150px;
-    pointer-events: none;
-    display: none;
-    transform: translate(-50%, -50%);
-    z-index: 99999;
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
 }
 
-
-
-@keyframes ripple {
-    to {
-        transform: translate(-50%, -50%) scale(15);
-        opacity: 0;
-    }
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
-
-
-
-
-
 
 
 
@@ -187,6 +173,9 @@ cursor: none;
 }
 
 html, body{
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;
  
       scroll-behavior: smooth;
        font-family: 'Sora', sans-serif;
@@ -204,7 +193,25 @@ body{
   width: 100vw;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 .home{
+position: fixed;
+top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1; /* رقم قليل عشان يبقى تحت */
   margin:0px ;
   background-image: var(--ph);
   background-size: cover;      /* تملى الشاشة */
@@ -221,7 +228,7 @@ body{
 .nav{
   position: fixed;
     width: 100%;
-    z-index: 1000;
+    z-index: 10000;
   background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
     width: 100%;
     display: flex;
@@ -234,6 +241,8 @@ body{
 }
 
 .nav img{
+  position: relative;
+  bottom: 3px;
   margin-left:23px ;
 width: 170px;
 }
@@ -320,7 +329,7 @@ width: 170px;
 }
 
 
-.la{
+.li{
   display: flex;
   gap: 10px;
 }
@@ -334,6 +343,7 @@ width: 170px;
 
 
 .lang{
+  
   margin-top:63PX ;
     display: flex;
     width: 100%;    
@@ -358,13 +368,24 @@ width: 170px;
 
 }
 
-
-
+.ull button{
+  background-color: #08193900;
+  border:none;
+  font-size: px;
+  color: var(--text-color);
+}
+.ull button:hover{
+  border-bottom: solid  1px #1D293F; 
+  color: var(--secound);
+  
+  text-shadow: 1px 1px 1px var(--text-color) ,-1px -1px 1px var(--text-color) ,-1px 1px 1px var(--text-color) ,1px -1px 1px var(--text-color);
+}
 .lang a:hover{
     color: var(--bg-color);
     text-shadow: 1px 1px 1px #3E58D6 ,-1px -1px 1px #3E58D6 ,-1px 1px 1px #3E58D6 ,1px -1px 1px #3E58D6;
 
     text-shadow: 1px 1px 1px var(--text-color) ,-1px -1px 1px var(--text-color) ,-1px 1px 1px var(--text-color) ,1px -1px 1px var(--text-color);
+
 }
 
 .p:hover{
@@ -375,19 +396,21 @@ width: 170px;
 }
 
 .ull{
+  
+  position: relative;
+  top: 2px;
   height: 19px;
    list-style: none;
     display: flex;
     flex-wrap: wrap;
 padding-right: 10px;
-    gap: 3px;
+    gap: 2px;
     border-right: solid var(--text-color);
 
 }
 .ull .material-symbols-outlined{
  
-    font-size: 22px;
-      
+    font-size: 22px; 
       border-radius: 50%;
 }
 .material-symbols-outlined:hover{
@@ -403,10 +426,12 @@ padding-right: 10px;
 
 }
 
-.ull a:hover{
-  color: var(--secound);
-}
 
+
+.nav-link{
+  position: relative;
+  top: 2px;
+}
 
 
 
@@ -620,15 +645,19 @@ svg {
 
 
 .work{
+  position: relative;
+  z-index: 2; /* رقم أعلى عشان يغطي الـ fixed */
+  margin-top: 100vh; /* ضروري جداً عشان يبدأ بعد ما السكشن الأول يخلص */
+  padding-left: 20px;
+  padding-right: 20px;
   overflow: hidden;
-    margin-top: 80px;
+  height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-left: 25px;
-    margin-bottom: 
-    100px;
+
+    background-color: var(--bg-color);
 }
 .work .p1{
     color: var(--text-color);
@@ -637,40 +666,6 @@ font-size: 30px;
 font-weight: 600;
 }
 
-.img-box {
-    display: flex;
-  position: relative;
-  width: 300px; /* عدل حسب الصورة */
-}
-.img-box img {
-  width: 100%;
-  display: block;
-
-}
-.img-box a{
-text-decoration: none;
-
-}
-
-.img-box p {
-    color: var(--black);
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-}
-.img-box p:hover{
-  text-shadow: 1px 1px 1px var(--text-color) ,-1px -1px 1px var(--text-color) ,-1px 1px 1px var(--text-color) ,1px -1px 1px var(--text-color);
-
-}
-
-.img-box svg{
-    fill: #1D293F;
-position: absolute;
-left: 180px;
-top: 5px;
-}
 
 
 
@@ -685,6 +680,13 @@ top: 5px;
     width: 100%;
     background-color: var(--bg-color); /* لون خلفية بسيط */
     padding: 50px 0;
+    cursor: grab; /* شكل الماوس وهو مستعد للشد */
+  user-select: none; /* عشان الكلام ميتحددش وأنت بتشد */
+    
+  
+}
+.imgs:active {
+  cursor: grabbing; /* شكل الماوس وأنت بتشد فعلاً */
 }
 
 /* المسار اللي بيتحرك */
@@ -707,29 +709,37 @@ top: 5px;
     transition: transform 0.3s ease;
 }
 .img img {
-  opacity: .8;
+  
+  opacity: .9;
+  height: 100%;
 
     width: 100%;
-    height: 450px; /* ارتفاع الصور لتبدو متناسقة */
+     /* ارتفاع الصور لتبدو متناسقة */
     object-fit: cover; /* لضمان عدم تشوه الصورة */
     display: block;
 }
 
 .img:hover {
   
-    transform: translateY(-10px); /* حركة تفاعلية عند الماوس */
+    transform: translateY(-50px); /* حركة تفاعلية عند الماوس */
 }
 .img img:hover{
+  height: 450px;
     opacity: 1;
 }
 
 
 /* تنسيق النصوص تحت الصورة */
 .img div {
+  background-color: #08193900;
+
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.img:hover div{
+opacity: 1;
 }
 
 .img p {
@@ -754,6 +764,9 @@ top: 5px;
     animation-play-state: paused;
 }
 
+.paused {
+  animation-play-state: paused !important;
+}
 
 
 
@@ -768,10 +781,13 @@ top: 5px;
 
 
 .aboute{
+  position: relative;
+  z-index: 2;
+  height: 100vh;
   overflow: hidden;
   width: 100%;
      font-family: 'Sora', sans-serif;
-    margin-left: 75px;
+
     display: flex;
     gap: 200px;
     background-color: var(--bg-color);
@@ -1059,6 +1075,9 @@ display: block;
 }
 
 .services {
+  position: relative;
+  z-index: 2;
+  height: 200vh;
           font-family: 'sona', sans-serif;
   font-weight: 300;   
   padding: 80px;
@@ -1264,9 +1283,15 @@ display: block;
 
 /* تنسيق السكشن الرئيسي */
 .contact {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+  height: 100vh;
     background-color:var(--bg-color); /* اللون السماوي الفاتح جداً من الصورة */
     color: var(--text-color);
-  margin-top: 20px;
+
   height: 70vh;
     padding: 80px 4% 40px;
     font-family: 'Inter', sans-serif; /* أو أي خط Sans-serif مريح */
@@ -1496,3 +1521,11 @@ display: block;
         font-size: 24px;
     }
 }
+
+
+
+
+
+
+
+
