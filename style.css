@@ -235,7 +235,7 @@ body{
 
 .nav img{
   position: relative;
-  bottom: 0px;
+  bottom: 1.5px;
   margin-left:23px ;
 width: 170px;
 }
@@ -303,7 +303,7 @@ width: 170px;
 }
 
 /* الخط السفلي (بدون تغيير) */
-.nv a::before {
+.nav-link a::before {
     content: '';
     position: absolute;
     
