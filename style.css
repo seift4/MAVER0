@@ -689,18 +689,18 @@ font-weight: 600;
 
 /* العنصر الفردي (الصورة والنص) */
 .img {
-  height: 50vh;
+  height: 420px;
     flex-shrink: 0;
     width: 350px; /* عرض مناسب زي الفيديو */
     margin: 0 15px;
     background: var(--text-color);
-    border-radius: 15px;
+
     overflow: hidden;
     box-shadow: 0 10px 20px var(--bg-color);
     transition: transform 0.3s ease;
 }
 .img img {
-  
+
   opacity: .9;
   height: 100%;
     width: 100%;
@@ -710,11 +710,12 @@ font-weight: 600;
 }
 
 .img:hover {
-  
+  height: 460px;
     transform: translateY(-50px); /* حركة تفاعلية عند الماوس */
 }
 .img img:hover{
-  height: 450px;
+    height: 400px;
+
     opacity: 1;
 }
 
