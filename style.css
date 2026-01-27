@@ -130,6 +130,7 @@ body {
     width: 17px;
     height: 17px;
     background-color : var(--text-color); /* نفس درجة اللون الأزرق في الفيديو */
+    box-shadow: 4px 4px 8px var(--bg-color), -4px -4px 8px var(--bg-color),-4px 4px 8px var(--bg-color),4px -4px 8px var(--bg-color);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -142,6 +143,7 @@ body {
 
 /* تأثير عند المرور على روابط أو أزرار */
 .cursor-active {
+   box-shadow: 4px 4px 8px var(--text-color), -4px -4px 8px var(--text-color),-4px 4px 8px var(--text-color),4px -4px 8px var(--text-color);
    
     transform: scale(3);
     mix-blend-mode: color-burn; /* تأثير عكس الألوان لو حبيت */
@@ -204,10 +206,6 @@ body{
 
 
 .home{
-
-  width: 100%;
-  height: 100vh;
-  z-index: 1; /* رقم قليل عشان يبقى تحت */
   margin:0px ;
   background-image: var(--ph);
   background-size: cover;      /* تملى الشاشة */
@@ -224,7 +222,7 @@ body{
 .nav{
   position: fixed;
     width: 100%;
-    z-index: 10000;
+    z-index: 1000;
   background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
     width: 100%;
     display: flex;
@@ -368,7 +366,6 @@ width: 170px;
   background-color: #08193900;
   border:none;
   font-size: px;
-  color: var(--text-color);
 }
 .ull button:hover{
   border-bottom: solid  1px #1D293F; 
@@ -640,17 +637,18 @@ svg {
 
 
 
-.work{ /* ضروري جداً عشان يبدأ بعد ما السكشن الأول يخلص */
+.work{
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
-  height: 100vh;
+    margin-top: 80px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-    background-color: var(--bg-color);
+    margin-left: 25px;
+    margin-bottom: 
+    100px;
 }
 .work .p1{
     color: var(--text-color);
@@ -673,7 +671,6 @@ font-weight: 600;
     width: 100%;
     background-color: var(--bg-color); /* لون خلفية بسيط */
     padding: 50px 0;
-    cursor: grab; /* شكل الماوس وهو مستعد للشد */
   user-select: none; /* عشان الكلام ميتحددش وأنت بتشد */
     
   
@@ -686,15 +683,15 @@ font-weight: 600;
 .marquee-track {
 
     display: flex;
-    width: 100%; /* بياخد حجمالصور الكلي */
-    animation: scroll 20s linear infinite; /* الحركة المستمرة */
+    width: max-content; /* بياخد حجمالصور الكلي */
+    animation: scroll 60s linear infinite; /* الحركة المستمرة */
 }
 
 /* العنصر الفردي (الصورة والنص) */
 .img {
+  height: 50vh;
     flex-shrink: 0;
     width: 350px; /* عرض مناسب زي الفيديو */
-    height: 50vh;
     margin: 0 15px;
     background: var(--text-color);
     border-radius: 15px;
@@ -702,7 +699,6 @@ font-weight: 600;
     box-shadow: 0 10px 20px var(--bg-color);
     transition: transform 0.3s ease;
 }
-
 .img img {
   
   opacity: .9;
@@ -714,13 +710,10 @@ font-weight: 600;
 }
 
 .img:hover {
-  height: 70%;
   
     transform: translateY(-50px); /* حركة تفاعلية عند الماوس */
 }
-
 .img img:hover{
-
   height: 450px;
     opacity: 1;
 }
@@ -729,7 +722,7 @@ font-weight: 600;
 /* تنسيق النصوص تحت الصورة */
 .img div {
   background-color: #08193900;
-  
+
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -778,12 +771,10 @@ opacity: 1;
 
 
 .aboute{
-
-  height: 100vh;
   overflow: hidden;
   width: 100%;
      font-family: 'Sora', sans-serif;
-
+    margin-left: 75px;
     display: flex;
     gap: 200px;
     background-color: var(--bg-color);
@@ -1071,8 +1062,6 @@ display: block;
 }
 
 .services {
-
-  height: 200vh;
           font-family: 'sona', sans-serif;
   font-weight: 300;   
   padding: 80px;
@@ -1278,15 +1267,9 @@ display: block;
 
 /* تنسيق السكشن الرئيسي */
 .contact {
-  position: relative;
-  z-index: 2;
-  height: 100vh;
-  position: relative;
-  z-index: 2;
-  height: 100vh;
     background-color:var(--bg-color); /* اللون السماوي الفاتح جداً من الصورة */
     color: var(--text-color);
-
+  margin-top: 20px;
   height: 70vh;
     padding: 80px 4% 40px;
     font-family: 'Inter', sans-serif; /* أو أي خط Sans-serif مريح */
