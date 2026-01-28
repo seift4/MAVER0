@@ -605,7 +605,7 @@ svg {
     }
 
     .img p {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     /* تسريع الحركة قليلاً في الموبايل لأن المسافة أصبحت أقصر */
@@ -619,6 +619,9 @@ svg {
     .img {
         width: 200px;
         height: 260px;
+    }
+    .img:hover{
+        height: 70%;
     }
     
     .work .p1 {
