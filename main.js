@@ -1,4 +1,7 @@
-// كل الصور اللي عايز تتغير مع الثيم
+/* ==========================================
+   1. تعريف مصفوفة الصور الخاصة بالثيم (Dark/Light)
+   هنا بنحدد IDs العناصر وصورها في الوضعين الفاتح والغامق
+   ========================================== */
 const themeImages = [
   { 
     id: "logo", 
@@ -11,21 +14,23 @@ const themeImages = [
     dark:  "imgs/Logo For web-03.svg" 
   },
   { 
-    id: "extraImg",               // ← أضف هنا
-    light: "imgs/Logo For web-01.svg",
-    dark:  "imgs/Logo For web-07.svg"
+    id: "extraImg", 
+    light: "imgs/Logo For web-01.svg", 
+    dark:  "imgs/Logo For web-07.svg" 
   },
-    { 
-    id: "extra",               // ← أضف هنا
-    light: "imgs/Logo For web-01.svg",
-    dark:  "imgs/Logo For web-07.svg"
-  },
-  // ممكن تضيف كمان وكمان...
+  { 
+    id: "extra", 
+    light: "imgs/Logo For web-01.svg", 
+    dark:  "imgs/Logo For web-07.svg" 
+  }
 ];
 
+/* ==========================================
+   2. وظائف تبديل الثيم وحفظ الإعدادات (Dark Mode)
+   الجزء ده مسئول عن تغيير الثيم وحفظ اختيار المستخدم في المتصفح
+   ========================================== */
 const toggleBtn = document.getElementById("darkToggle");
 
-// دالة تحديث كل الصور مرة واحدة
 function updateImages(isDark) {
   themeImages.forEach(item => {
     const el = document.getElementById(item.id);
@@ -35,13 +40,11 @@ function updateImages(isDark) {
   });
 }
 
-// تحميل عند الفتح
 const savedTheme = localStorage.getItem("theme");
 const isDark = savedTheme === "dark";
 if (isDark) document.body.classList.add("dark-mode");
 updateImages(isDark);
 
-// عند الضغط
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
   const nowDark = document.body.classList.contains("dark-mode");
@@ -49,44 +52,18 @@ toggleBtn.addEventListener("click", () => {
   localStorage.setItem("theme", nowDark ? "dark" : "light");
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ==========================================
+   3. تحريك مؤشر الماوس المخصص (Custom Cursor)
+   ده الجزء اللي بيخلي الدائرة تتبع الماوس وتكبر عند الوقوف على عناصر معينة
+   ========================================== */
 const cursorDot = document.querySelector(".cursor-dot");
 
 window.addEventListener("mousemove", (e) => {
     const posX = e.clientX;
     const posY = e.clientY;
-
-    // تحديث مكان الدائرة
-    // طرحنا 6 (نصف قطر الدائرة) عشان الماوس يكون في السنتر بالظبط
     cursorDot.style.transform = `translate(${posX - 6}px, ${posY - 6}px)`;
 });
 
-// إضافة تأثير عند الدخول على العناصر القابلة للضغط (Optional)
-// اخترنا الروابط، الأزرار، وأي نص (p, h1, h2, span)
 const interactiveElements = document.querySelectorAll('a, button, p, h1, h2, span, li');
 
 interactiveElements.forEach(el => {
@@ -97,7 +74,8 @@ interactiveElements.forEach(el => {
         cursorDot.classList.remove('cursor-active');
     });
 });
-ouseX = 0, mouseY = 0;
+
+let mouseX = 0, mouseY = 0;
 let ballX = 0, ballY = 0;
 
 window.addEventListener("mousemove", (e) => {
@@ -105,87 +83,24 @@ window.addEventListener("mousemove", (e) => {
     mouseY = e.clientY;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ==========================================
+   4. تفاعلات الخدمات (Accordion) والـ Navbar
+   مسئول عن فتح/إغلاق تفاصيل الخدمات وتغيير شكل الـ Nav عند السكرول
+   ========================================== */
 document.querySelectorAll(".service-header").forEach(header => {
   header.addEventListener("click", () => {
     const item = header.parentElement;
-
-    // اقفل بس اللي في نفس العمود
     item.parentElement
       .querySelectorAll(".service-item")
       .forEach(el => {
         if (el !== item) el.classList.remove("active");
       });
-
     item.classList.toggle("active");
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 window.onscroll = function() {
     var navbar = document.querySelector('.nav');
-    
-    // لو نزلنا أكتر من 50 بكسل ضيف الـ class، غير كدة شيله
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
@@ -193,66 +108,31 @@ window.onscroll = function() {
     }
 };
 
-
-
-
-
-
-
-
-// نحدد المسار اللي فيه الصور
+/* ==========================================
+   5. تحريك الخلفية وشريط الصور (Marquee & Parallax)
+   بيعمل تكرار لشريط الصور (Marquee) وبيحرك خلفية الهيرو مع حركة الماوس
+   ========================================== */
 const traack = document.querySelector('.marquee-track');
-
-// ننسخ محتوى الصور عشان نعمل Loop مستمر
-const clone = traack.innerHTML;
-traack.innerHTML += clone; // بنضاعف الصور
-
-
-
-
-
+const cloneHTML = traack.innerHTML;
+traack.innerHTML += cloneHTML;
 
 const section = document.querySelector('.home');
 
 section.addEventListener('mousemove', (e) => {
     const { width, height, left, top } = section.getBoundingClientRect();
-
-    // إحداثيات الماوس داخل السكشن
     const x = e.clientX - left;
     const y = e.clientY - top;
-
-    // النسب بين 0 و 1
     const xPercent = x / width;
     const yPercent = y / height;
-
-    // نحرك الباكجروند في كل الاتجاهات
-    const xMove = (xPercent - 0.5) * 10; // 30px يمكنك تغيير السرعة
+    const xMove = (xPercent - 0.5) * 10;
     const yMove = (yPercent - 0.5) * 10;
-
-    // الخلفية تتحرك بالنسبة للـ center
     section.style.backgroundPosition = `calc(50% + ${xMove}px) calc(50% + ${yMove}px)`;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// =====================
-// تعريف الترجمات
-// =====================
+/* ==========================================
+   6. نظام الترجمة (Multi-Language System)
+   بيحتوي على نصوص العربي والإنجليزي ودالة التحويل بين اللغات
+   ========================================== */
 const translations = {
   en: {
     about: "ABOUT",
@@ -328,9 +208,6 @@ const translations = {
   }
 };
 
-// =====================
-// وظيفة تغيير اللغة
-// =====================
 function setLanguage(lang) {
   document.querySelectorAll("[data-key]").forEach(el => {
     const key = el.dataset.key;
@@ -339,7 +216,6 @@ function setLanguage(lang) {
     }
   });
 
-  // التحكم في اتجاه الصفحة
   if (lang === "ar") {
     document.documentElement.lang = "ar";
     document.documentElement.dir = "rtl";
@@ -349,282 +225,123 @@ function setLanguage(lang) {
     document.documentElement.dir = "ltr";
     document.body.classList.remove("rtl");
   }
-
   localStorage.setItem("lang", lang);
 }
 
-
-// =====================
-// أحداث الزرار
-// =====================
 document.getElementById("en").onclick = () => setLanguage("en");
 document.getElementById("ar").onclick = () => setLanguage("ar");
 
-// =====================
-// تحميل اللغة المحفوظة
-// =====================
 const savedLang = localStorage.getItem("lang") || "en";
 setLanguage(savedLang);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ننتظر تحميل الصفحة بالكامل
+/* ==========================================
+   7. شاشة التحميل (Loader) وتأثيرات الظهور (Scroll Reveal)
+   بيخفي الـ Loader بعد ثانية وبيدي تأثير ظهور للعناصر لما تنزل بالصفحة
+   ========================================== */
 window.addEventListener("load", function() {
-    // نضيف تأخير 2 ثانية قبل إخفاء الـ loader
     setTimeout(function() {
         document.getElementById("loader").style.display = "none";
         document.getElementById("content").style.display = "block";
-    }, 1000); // 2000 ملي ثانية = 2 ثانية
+    }, 1000);
 });
 
-
-
-
-
-
-
-
-  const reveals = document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
   const windowHeight = window.innerHeight;
-
   reveals.forEach(el => {
     const elementTop = el.getBoundingClientRect().top;
     const visiblePoint = 120;
-
     if (elementTop < windowHeight - visiblePoint) {
       el.classList.add("active");
     }
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ==========================================
+   8. تحريك شريط الصور اللانهائي (Marquee Animation)
+   بيحسب عرض الصور وبيعمل حركة مستمرة لليسار
+   ========================================== */
 const track = document.querySelector('.marquee-track');
-const imgs = Array.from(track.children);
-
-// حساب عرض الشريط الأصلي
+const imgsList = Array.from(track.children);
 let trackWidth = 0;
-imgs.forEach(img => {
+
+imgsList.forEach(img => {
   trackWidth += img.offsetWidth;
 });
 
-// نسخ العناصر لتغطية ضعف الشريط
-imgs.forEach(img => {
+imgsList.forEach(img => {
   const clone = img.cloneNode(true);
   track.appendChild(clone);
 });
 
-// الآن نضيف التحريك المستمر
-let x = 0;
-const speed = 1; // كل ما يكون أكبر، الحركة أسرع
+let scrollX = 0;
+const speed = 1;
 
 function animate() {
-  x -= speed;
-  if (x <= -trackWidth) x = 0; // إعادة التشغيل بدون فراغ
-  track.style.transform = `translateX(${x}px)`;
+  scrollX -= speed;
+  if (scrollX <= -trackWidth) scrollX = 0;
+  track.style.transform = `translateX(${scrollX}px)`;
   requestAnimationFrame(animate);
 }
-
 animate();
 
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ==========================================
+   9. تأثيرات الضغط (Click Effects) ومنع القائمة اليمين
+   بيظهر تأثير بصري عند الكليك وبيمنع الـ Right Click لحماية المحتوى
+   ========================================== */
 document.addEventListener("click", function (e) {
     const effect = document.getElementById("clickEffect");
-
-    effect.style.left = e.clientX + "px";
-    effect.style.top = e.clientY + "px";
-    effect.style.display = "block";
-
-    setTimeout(() => {
-        effect.style.display = "none";
-    }, 200);
+    if (effect) {
+        effect.style.left = e.clientX + "px";
+        effect.style.top = e.clientY + "px";
+        effect.style.display = "block";
+        setTimeout(() => { effect.style.display = "none"; }, 200);
+    }
 });
-
-
 
 document.addEventListener("click", function(e) {
     const ripple = document.createElement("span");
     ripple.className = "ripple";
     ripple.style.left = e.clientX + "px";
     ripple.style.top = e.clientY + "px";
-
     document.body.appendChild(ripple);
-
-    ripple.addEventListener("animationend", () => {
-        ripple.remove();
-    });
+    ripple.addEventListener("animationend", () => { ripple.remove(); });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ==========================================
+   10. خاصية السحب اليدوي لشريط الصور (Drag to Scroll)
+   بيسمح لك تسحب الصور بالماوس ويوقف الحركة التلقائية وقت السحب
+   ========================================== */
 const slider = document.querySelector('.imgs');
-const tack = document.querySelector('.marquee-track');
+const marqueeTrack = document.querySelector('.marquee-track');
 let isDown = false;
 let startX;
 let scrollLeft;
 
 slider.addEventListener('mousedown', (e) => {
   isDown = true;
-  tack.classList.add('paused'); // وقف الأنميشن أول ما يضغط
+  marqueeTrack.classList.add('paused');
   startX = e.pageX - slider.offsetLeft;
   scrollLeft = slider.scrollLeft;
 });
 
 slider.addEventListener('mouseleave', () => {
   isDown = false;
-  tack.classList.remove('paused'); // ارجع شغل الأنميشن لما يسيب
+  marqueeTrack.classList.remove('paused');
 });
 
 slider.addEventListener('mouseup', () => {
   isDown = false;
-  tack.classList.remove('paused');
+  marqueeTrack.classList.remove('paused');
 });
 
 slider.addEventListener('mousemove', (e) => {
-  if (!isDown) return; // لو مش ضاغط متعملش حاجة
+  if (!isDown) return;
   e.preventDefault();
   const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; // سرعة الشد (ممكن تغير 2 دي)
+  const walk = (x - startX) * 2;
   slider.scrollLeft = scrollLeft - walk;
 });

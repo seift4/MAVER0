@@ -1,33 +1,30 @@
 :root {
   --bg-color: #EFF4FA;
-  --text-color:#1D293F;
+  --text-color: #1D293F;
   --card-color: #E0E8F5;
-  --first:#45B1F8;
-  --secound:#2643D1;
-  --black:#1D293F;
-  --one:#2643D1;
-  --two:#45B1F8;
-  --ph:url(imgs/BG-01.png);
-  --cy:#1d293f55;
-  --nav:#eff4fa89;
+  --first: #45B1F8;
+  --secound: #2643D1;
+  --black: #1D293F;
+  --one: #2643D1;
+  --two: #45B1F8;
+  --ph: url(imgs/BG-01.png);
+  --cy: #1d293f55;
+  --nav: #eff4fa89;
 }
+
 .dark-mode {
   --bg-color: #1D293F;
-  --text-color:#EFF4FA;
+  --text-color: #EFF4FA;
   --card-color: #1D293F;
-  --first:#2643D1;
-  --secound:#45B1F8;
-    --one:#2643D1;
-  --two:#45B1F8;
-  --black:#1D293F;
-  --ph:url(imgs/BG-02.png);
-  --cy:#eff4fa6a;
-    --nav:#1d293fa8;
+  --first: #2643D1;
+  --secound: #45B1F8;
+  --one: #2643D1;
+  --two: #45B1F8;
+  --black: #1D293F;
+  --ph: url(imgs/BG-02.png);
+  --cy: #eff4fa6a;
+  --nav: #1d293fa8;
 }
-
-
-
-
 
 .reveal {
   opacity: 0;
@@ -40,456 +37,305 @@
   transform: translateY(0);
 }
 
-
-
-
-
-
-
-
-
-/* عرض الاسكرول */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* الخلفية */
 ::-webkit-scrollbar-track {
   background: var(--bg-color);
 }
 
-/* شكل الاسكرول نفسه */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--text-color));
   border-radius: 20px;
 }
 
-/* عند الوقوف عليه */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg,var(--text-color));
+  background: linear-gradient(180deg, var(--text-color));
 }
 
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
+#loader img {
+  width: 600px;
+  height: 350px;
+}
 
+.hidden {
+  display: none;
+}
 
-
-
-
-
-
-
-
-
-
-
- #loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: var(--text-color);
-    background: var(--bg-color); /* ممكن تغير اللون */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-
-
-  /* GIF حجم مناسب */
-  #loader img {
-    width: 600px; /* أو أي حجم تحبه */
-    height: 350px;
-  }
-
-  /* بعد تحميل الصفحة */
-  .hidden {
-    display: none;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* إخفاء الماوس الأصلي */
 body {
-    cursor: none;
+  cursor: none;
 }
 
-/* تصميم الماوس الجديد */
 .cursor-dot {
-    width: 17px;
-    height: 17px;
-    background-color : var(--text-color); /* نفس درجة اللون الأزرق في الفيديو */
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* عشان ميعطلش الكليكات على الزراير */
-    z-index: 9999;
-    transition: transform 0.1s ease-out; /* لإعطاء نعومة خفيفة */
+  width: 17px;
+  height: 17px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
 
-  }
-
-/* تأثير عند المرور على روابط أو أزرار */
 .cursor-active {
-   box-shadow: 4px 4px 8px var(--text-color), -4px -4px 8px var(--text-color),-4px 4px 8px var(--text-color),4px -4px 8px var(--text-color);
-   
-    transform: scale(3);
-    mix-blend-mode: color-burn; /* تأثير عكس الألوان لو حبيت */
-    background-color:var(--bg-color);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-*{
-cursor: none;
-  transition: .5s;
-     font-family: 'Sora', sans-serif;
-    font-weight: 200; /* ExtraLight */
-    
-    letter-spacing: 1px;
-    margin: 0;
-    padding: 0;
-}
-
-html, body{
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none;     /* IE 10+ */
-  user-select: none;
- 
-      scroll-behavior: smooth;
-       font-family: 'Sora', sans-serif;
-    overflow-x: hidden;
-    background-color:var(--bg-color); 
-}
-html{
-  
+  box-shadow: 4px 4px 8px var(--text-color), -4px -4px 8px var(--text-color), -4px 4px 8px var(--text-color), 4px -4px 8px var(--text-color);
+  transform: scale(3);
+  mix-blend-mode: color-burn;
   background-color: var(--bg-color);
 }
-body{
 
 
+
+
+
+
+* {
+  cursor: none;
+  transition: .5s;
+  font-family: 'Sora', sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  scroll-behavior: smooth;
+  font-family: 'Sora', sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+}
+
+html {
+  background-color: var(--bg-color);
+}
+
+body {
   overflow: hidden;
   width: 100vw;
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.home{
-  margin:0px ;
+.home {
+  margin: 0;
   background-image: var(--ph);
-  background-size: cover;      /* تملى الشاشة */
-  background-position: center; /* في النص */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    flex-direction: column;
-    transition: background-position 0.05s ease-out;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  transition: background-position 0.05s ease-out;
 }
 
-
-.nav{
+.nav {
   position: fixed;
-    width: 100%;
-    z-index: 1000;
-  background-color: rgba(255, 255, 255, 0); /* أو أي لون للخلفية عشان يظهر فوق المحتوى */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    top: 0px;
-    padding: 20px;
- 
-
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  padding: 20px;
 }
 
-.nav img{
+.nav img {
   position: relative;
   bottom: 1.5px;
-  margin-left:23px ;
-width: 170px;
+  margin-left: 23px;
+  width: 170px;
 }
 
-.nav ul{
-  margin-right:25px ;
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.nav ul {
+  margin-right: 25px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-
-
-
-/* الخط اللي بيظهر تحت الكلمة */
 .nv a {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 7px;
-    font-family: 'Sora', sans-serif;
-    font-weight: 200;
-    text-transform: uppercase;
-    font-size: 16px;
-    text-decoration: none;
-    color: var(--text-color);
-    overflow: hidden; 
-    line-height: 1.2; /* زيادة بسيطة عشان العوجة متتقصش */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 7px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--text-color);
+  overflow: hidden;
+  line-height: 1.2;
 }
 
-/* النص الأصلي */
 .nv a span {
-    display: inline-block;
-    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
-    transform-origin: right; /* العوجة بتبدأ من اليمين */
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  transform-origin: right;
 }
 
-/* النص الجديد (النسخة) */
 .nv a::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 100%; 
-    width: 100%;
-    color: var(--text-color);
-    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
-    transform-origin: left; /* العوجة بتبدأ من الشمال عشان العكس */
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  color: var(--text-color);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  transform-origin: left;
+  transform: skewY(10deg);
+}
 
-  }
-
-/* --- التأثير عند الـ Hover --- */
-
-/* النص القديم يطلع لفوق ويتعوج يمين */
 .nv .nav-link:hover span {
-    transform: translateY(-100%) skewY(10deg);
+  transform: translateY(-100%) skewY(10deg);
 }
 
-/* النص الجديد يطلع من تحت ويتعوج شمال */
 .nv .nav-link:hover::after {
-    transform: translateY(-140%) skewY(0deg); /* بيرجع لوضعه الطبيعي */
+  transform: translateY(-140%) skewY(0deg);
 }
 
-/* وضع البداية للنص الجديد عشان يجي بـ "عوجة" */
-.nv .nav-link::after {
-    transform: skewY(10deg); /* بيبدأ معوج وهو تحت */
+.nv .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--text-color);
+  transition: width 0.4s ease;
 }
 
-/* الخط السفلي (بدون تغيير) */
-.nav-link a::before {
-    content: '';
-    position: absolute;
-    
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--text-color);
-    transition: width 0.4s ease;
-}
 .nv .nav-link:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .nav.scrolled {
-    background-color: var(--nav); /* اللون الجديد اللي انت عايزه */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* اختيارى: ضل خفيف */
+  background-color: var(--nav);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-
-.li{
+.li {
   display: flex;
   gap: 10px;
 }
-.li:hover{
+
+.li:hover {
   color: var(--secound);
-
 }
 
-
-
-
-
-.lang{
-  
-  margin-top:63PX ;
-    display: flex;
-    width: 100%;    
-
-}
-.lang ul{
-
-
-    font-style: normal;
-    list-style: none;
-    display: flex;
-    gap: 7px;
-     padding-right: 10px;
-
-}
-.lang a{
-  font-size: 14px;
-   
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 100;
-
-}
-
-.ull button{
-  background-color: #08193900;
-  border:none;
-  font-size: px;
+.ull button {
+  background-color: transparent;
+  border: none;
   color: var(--text-color);
+  cursor: pointer;
 }
-.ull button:hover{
-  border-bottom: solid  1px #1D293F; 
+
+.ull button:hover {
+  border-bottom: solid 1px #1D293F;
   color: var(--secound);
-  
-  text-shadow: 1px 1px 1px var(--text-color) ,-1px -1px 1px var(--text-color) ,-1px 1px 1px var(--text-color) ,1px -1px 1px var(--text-color);
-}
-.lang a:hover{
-    color: var(--bg-color);
-    text-shadow: 1px 1px 1px #3E58D6 ,-1px -1px 1px #3E58D6 ,-1px 1px 1px #3E58D6 ,1px -1px 1px #3E58D6;
-
-    text-shadow: 1px 1px 1px var(--text-color) ,-1px -1px 1px var(--text-color) ,-1px 1px 1px var(--text-color) ,1px -1px 1px var(--text-color);
-
+  text-shadow: 1px 1px 1px var(--text-color), -1px -1px 1px var(--text-color);
 }
 
-.p:hover{
-    color: var(--bg-color);
-    text-shadow: 1px 1px 1px #3E58D6 ,-1px -1px 1px #3E58D6 ,-1px 1px 1px #3E58D6 ,1px -1px 1px #3E58D6;
-
-  text-shadow: 1px 1px 1px var(--text-color) ,-1px -1px 1px var(--text-color) ,-1px 1px 1px var(--text-color) ,1px -1px 1px var(--text-color);
+.p:hover, .lang a:hover {
+  color: var(--bg-color);
+  text-shadow: 1px 1px 1px var(--text-color), -1px -1px 1px var(--text-color);
 }
 
-.ull{
-  
+.ull {
   position: relative;
   top: 2px;
   height: 19px;
-   list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-padding-right: 10px;
-    gap: 2px;
-    border-right: solid var(--text-color);
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 10px;
+  gap: 2px;
+  border-right: solid var(--text-color);
+}
 
+.ull .material-symbols-outlined {
+  font-size: 22px;
+  border-radius: 50%;
 }
-.ull .material-symbols-outlined{
- 
-    font-size: 22px; 
-      border-radius: 50%;
-}
-.material-symbols-outlined:hover{
+
+.material-symbols-outlined:hover {
   color: var(--secound);
 }
-.ull #b1{font-size: 18px;
-          color:var(--text-color);
-      background-color: var(--text-color);
-      border-bottom: 1px solid var(--text-color);
-}
-.ull .li{
-    padding-bottom: 18px;  
 
-}
-
-
-
-.nav-link{
+.nav-link {
   position: relative;
   top: 2px;
 }
 
+.text {
+  margin-top: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
 
+.text p {
+  font-size: 30px;
+  word-spacing: .5px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.sp {
+  font-family: 'Sora', sans-serif;
+  display: flex;
+}
+
+.sp h1 {
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+svg {
+  fill: var(--text-color);
+}
 
 .text svg {
   position: relative;
   top: 10px;
-  display: inline-block;
   animation: floatArrow 1.5s ease-in-out infinite;
 }
 
 @keyframes floatArrow {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-30px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
 }
 
-
-.ull #b2{
-    font-size: 25px;
-          color:var(--text-color);
-     font-weight: 100;
-}
-
-
-
-
-.text{
-    margin-top: 300px;
-    width: 100%;
-    display: flex;
-    flex-direction:column ;
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-}
-.text p{
-    font-size: 30px;
-    word-spacing: .5px;
-   font-family: 'Sora', sans-serif;
-  font-weight: 100;   
-  text-transform: uppercase;
-  color: var(--text-color); 
-}
-.sp{
-       font-family: 'Sora', sans-serif;
-    display: flex;
-
-}
-.sp h1{
-    color: var(--text-color);
-       font-family: 'Sora', sans-serif;
-    font-weight: 700;
-
-}
-
-svg {
-  
-    fill: var(--text-color); /* اللون الأساسي */
+.text a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 
@@ -500,595 +346,477 @@ svg {
 
 
 
-.text a{
-    color: var(--text-color);
-    text-decoration: none;
+/* --- الشاشات المتوسطة (Tablets) --- */
+@media screen and (max-width: 992px) {
+    .nav img {
+        width: 140px;
+        margin-left: 10px;
+    }
 
-    font-size: 20px;
-    font-weight: 300;
+    .nav ul {
+        gap: 15px;
+        margin-right: 10px;
+    }
 
+    .nv a {
+        font-size: 14px;
+    }
+
+    .text p {
+        font-size: 24px;
+    }
+
+    .sp h1 {
+        font-size: 28px;
+    }
 }
 
-
-
-
-@media (max-width: 768px) {
-
+/* --- الشاشات الصغيرة (Mobile) --- */
+@media screen and (max-width: 768px) {
     .nav {
-        padding: 15px 4% 0;
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 15px;
+        flex-direction: column; /* جعل اللوجو والقائمة فوق بعض أو يمكنك استخدام Menu icon */
+        gap: 15px;
+    }
+    .la{
+        position: relative;
+        bottom: 2px;
+    }
+    .ull li{
+        position: relative;
+        bottom: 2px;     
+
+    
+    }
+
+    /* إذا أردت إخفاء القائمة وتحويلها لـ Hamburger menu ستحتاج لـ JS، 
+       لكن هنا سنجعلها تنساب بشكل عرضي مرن */
+    .nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 0;
         gap: 10px;
     }
 
-    .nav img {
-        width: 140px;
-        margin: 0 auto 10px;
+    .text {
+        margin-top: 200px;
+        padding: 0 20px;
+        text-align: center;
     }
 
-    .nav ul.nv {
-        width: 100%;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
+    .sp {
+        flex-direction: column; /* جعل النصوص فوق بعضها في الموبايل */
+        align-items: center;
+    }
+
+    .text p {
+        font-size: 18px;
+    }
+
+    .sp h1 {
+        font-size: 22px;
+        margin-top: 5px;
+    }
+
+    .text a {
+        font-size: 16px;
+    }
+}
+
+/* --- الشاشات الصغيرة جداً --- */
+@media screen and (max-width: 480px) {
+    .nav{
+        
+    }
+    .nav img {
+     
+       
     }
 
     .nv a {
         font-size: 12px;
     }
-
-    .lang {
-        top: 18px;
-        right: 4%;
-    }
-
-    .lang ul {
-        gap: 8px;
-        padding-right: 10px;
-    }
-
-    .lang a {
-        font-size: 12px;
-    }
-
-    .ull {
-        top: 58px;
-        right: 4%;
-        gap: 12px;
-    }
-
-    .text {
-        gap: 30px;
-        padding: 0 6%;
-    }
-
-    .text p {
-        font-size: 1.7rem;
-    }
-
-    .sp h1 {
-        font-size: 3rem;
-    }
-
+    
     .text svg {
-        width: 32px;
-        height: 32px;
-    }
-
-    .text a.p {
-        font-size: 1.1rem;
+        width: 35px;
+        height: 35px;
     }
 }
-
-@media (max-width: 480px) {
-
-    .nav img {
-        width: 120px;
-    }
-
-    .nav ul.nv {
-        gap: 12px;
-    }
-
-    .nv a {
-        font-size: 11px;
-    }
-
-    .lang, .ull {
-        right: 3%;
-    }
-
-    .text {
-
-        gap: 20px;
-    }
-
-    .text p {
-        font-size: 1.45rem;
-    }
-
-    .sp{
-            display: flex;
-      flex-direction:column ;
-      gap: 20px;
-    }
-
-    .sp h1 {
-
-        font-size: 20px;
-    }
-    .sp p{
-      font-size: 16px;
-    }
-
-    .text svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    .text a.p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-}
-
-/* ///////////////////////////////////////////// */
-
-
-
-
-
-.work{
+/* //////////////////////////////////////////////////////// */
+.work {
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
-    margin-top: 80px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-left: 25px;
-    margin-bottom: 
-    100px;
-}
-.work .p1{
-    color: var(--text-color);
-    margin-top: 100px;
-font-size: 30px;
-font-weight: 600;
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 25px;
+  margin-bottom: 100px;
 }
 
-
-
-
-
-
-
-
-
+.work .p1 {
+  color: var(--text-color);
+  margin-top: 100px;
+  font-size: 30px;
+  font-weight: 600;
+}
 
 .imgs {
-    overflow: hidden; /* عشان الصور اللي بره الكادر متظهرش */
-    width: 100%;
-    background-color: var(--bg-color); /* لون خلفية بسيط */
-    padding: 50px 0;
-  user-select: none; /* عشان الكلام ميتحددش وأنت بتشد */
-    
-  
+  overflow: hidden;
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 50px 0;
+  user-select: none;
 }
+
 .imgs:active {
-  cursor: grabbing; /* شكل الماوس وأنت بتشد فعلاً */
+  cursor: grabbing;
 }
 
-/* المسار اللي بيتحرك */
 .marquee-track {
-
-    display: flex;
-    width: max-content; /* بياخد حجمالصور الكلي */
-    animation: scroll 60s linear infinite; /* الحركة المستمرة */
+  display: flex;
+  width: max-content;
+  animation: scroll 60s linear infinite;
 }
 
-/* العنصر الفردي (الصورة والنص) */
 .img {
   height: 420px;
-    flex-shrink: 0;
-    width: 350px; /* عرض مناسب زي الفيديو */
-    margin: 0 15px;
-    background: var(--text-color);
-
-    overflow: hidden;
-    box-shadow: 0 10px 20px var(--bg-color);
-    transition: transform 0.3s ease;
+  flex-shrink: 0;
+  width: 350px;
+  margin: 0 15px;
+  background: var(--text-color);
+  overflow: hidden;
+  box-shadow: 0 10px 20px var(--bg-color);
+  transition: transform 0.3s ease;
 }
-.img img {
 
+.img img {
   opacity: .9;
   height: 100%;
-    width: 100%;
-     /* ارتفاع الصور لتبدو متناسقة */
-    object-fit: cover; /* لضمان عدم تشوه الصورة */
-    display: block;
+  width: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .img:hover {
   height: 460px;
-    transform: translateY(-50px); /* حركة تفاعلية عند الماوس */
-}
-.img img:hover{
-    height: 400px;
-
-    opacity: 1;
+  transform: translateY(-50px);
 }
 
+.img img:hover {
+  height: 400px;
+  opacity: 1;
+}
 
-/* تنسيق النصوص تحت الصورة */
 .img div {
   background-color: #08193900;
-
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.img:hover div{
-opacity: 1;
+
+.img:hover div {
+  opacity: 1;
 }
 
 .img p {
-    margin: 0;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: var(--bg-color);
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: var(--bg-color);
 }
 
-/* حركة الـ Scroll */
 @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%); /* هنحرك نص المسار لأننا هنضاعف الصور بالـ JS */
-    }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* توقف الحركة عند وضع الماوس (اختياري) */
 .imgs:hover .marquee-track {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 .paused {
   animation-play-state: paused !important;
 }
 
+/* --- الشاشات المتوسطة (Tablets) --- */
+@media screen and (max-width: 992px) {
+    .work {
+        margin-left: 0; /* إلغاء الهامش الجانبي الكبير */
+        padding: 0 15px;
+    }
 
+    .img {
+        width: 280px; /* تصغير عرض الكارت قليلاً */
+        height: 350px;
+    }
 
+    .work .p1 {
+        font-size: 26px;
+        text-align: center;
+    }
+}
 
+/* --- الشاشات الصغيرة (Mobile) --- */
+@media screen and (max-width: 768px) {
+    .work {
+        margin-top: 40px;
+        margin-bottom: 50px;
+        margin-left: 0;
+        padding: 0 10px;
+    }
 
+    .work .p1 {
+        margin-top: 50px;
+        font-size: 22px;
+        text-align: center; 
+    }
 
+    .imgs {
+        padding: 30px 0; /* تقليل المسافات العمودية */
+    }
 
-/* 
+    /* ضبط حجم الكروت للموبايل */
+    .img {
+        width: 240px; 
+        height: 300px;
+        margin: 0 10px;
+    }
 
---------------------------------------------
- */
+    /* إلغاء تأثير الـ Hover القوي في الموبايل لأنه يسبب مشاكل في اللمس */
+    .img:hover {
+        height: 300px; /* يبقى كما هو */
+        transform: translateY(-10px); /* رفعة بسيطة جداً */
+    }
 
+    .img img:hover {
+        height: 100%; /* منع اهتزاز الصورة عند اللمس */
+    }
 
-.aboute{
+    .img div {
+        padding: 10px 15px;
+    }
+
+    .img p {
+        font-size: 14px;
+    }
+
+    /* تسريع الحركة قليلاً في الموبايل لأن المسافة أصبحت أقصر */
+    .marquee-track {
+        animation: scroll 30s linear infinite;
+    }
+}
+
+/* --- الشاشات الصغيرة جداً (Tiny Phones) --- */
+@media screen and (max-width: 480px) {
+    .img {
+        width: 200px;
+        height: 260px;
+    }
+    
+    .work .p1 {
+        font-size: 20px;
+    }
+}
+
+/* /////////////////////////////////////////////////////////// */
+.aboute {
   overflow: hidden;
   width: 100%;
-     font-family: 'Sora', sans-serif;
-    margin-left: 75px;
-    display: flex;
-    gap: 200px;
-    background-color: var(--bg-color);
+  font-family: 'Sora', sans-serif;
+  margin-left: 75px;
+  display: flex;
+  gap: 200px;
+  background-color: var(--bg-color);
 }
-.aboute .text{
+
+.aboute .text {
   margin-left: 110px;
- font-family: 'Sora', sans-serif;
-    position: relative;
-    bottom: 80px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;   
+  position: relative;
+  bottom: 80px;
+  font-weight: 300;
   text-transform: uppercase;
-    width: 40%;
-    display: flex;
-    gap: 50px;
-    flex-direction: column;
-}
-.aboute p{
-     font-family: 'Sora', sans-serif;
-        font-size: 24px;
-          font-family: 'Raleway', sans-serif;
-  font-weight: 500;   
-  text-transform: lowercase;
-
+  width: 40%;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
 }
 
-
-.hero p{font-family: 'Sora', sans-serif;}
-
-
-
-.text2{
-     font-family: 'Sora', sans-serif;
-
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-
-}
-.text2 h1{
-     font-family: 'Sora', sans-serif;
-    position: relative;
-    right: 102px;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 0;
-    width: 350px;
-color: var(--secound);}
-
-.text2 .p2 span{
-     font-family: 'Sora', sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.text2 .p2{
-     font-family: 'Sora', sans-serif;
-    position: relative;
-    right: 102px;
-    width: 500px;
+.aboute p, .text2 .p2, .text2 .p3, .hero p {
+  font-family: 'Sora', sans-serif;
   font-size: 18px;
-  line-height: 1.4;
-  margin: 0;
-  color: var(--text-color);
   font-weight: 500;
+  color: var(--text-color);
+}
+
+.text2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.text2 h1 {
+  position: relative;
+  right: 102px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 300;
+  width: 350px;
+  color: var(--secound);
+}
+
+.text2 .p2 {
+  position: relative;
+  right: 102px;
+  width: 500px;
+  line-height: 1.4;
   letter-spacing: .2px;
-  word-spacing: .5px;
 }
 
+.text2 .p2 span {
+  font-weight: 800;
+}
 
-.text2 .p3{
-     font-family: 'Sora', sans-serif;
-    position: relative;
-    right: 102px;
-    width: 500px;
-  font-size: 19px;
+.text2 .p3 {
+  position: relative;
+  right: 102px;
+  width: 500px;
   line-height: 1.4;
-  margin: 0;
-  color: var(--text-color);
-  font-weight: 500;
 }
 
-
-
-
-.abouteimg{
-
-    position: relative;
-    right: 70px;
-    width: 60%;
+.abouteimg {
+  position: relative;
+  right: 70px;
+  width: 60%;
 }
 
-
-
-
-.text .hero {
-    position: relative;
-    right: 160px;
-margin: 0;
-padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+.hero {
+  position: relative;
+  right: 160px;
 }
-
 
 .hero h1 {
   font-size: 25px;
   font-weight: 500;
-  
   color: var(--text-color);
   margin-bottom: 7px;
 }
 
-.hero .highlight {
-  color:var(--secound);
+.hero .highlight, .hero p .blu {
+  color: var(--secound);
 }
 
 .hero .line {
-display: block;
+  display: block;
   width: 280px;
   height: 25px;
-  background: linear-gradient(to right,var(--one) ,var(--two) , rgba(255, 255, 255, 0)  );
+  background: linear-gradient(to right, var(--one), var(--two), transparent);
   margin-bottom: 16px;
 }
 
-.hero p {position: relative;
-        width: 400px;
-    bottom: 40px;
-  font-size: 18px;
+.hero p {
+  position: relative;
+  width: 400px;
+  bottom: 40px;
   left: 200px;
   line-height: 1.4;
-  margin: 0;
-  color: var(--text-color);
-  font-weight: 500;
 }
-
-.hero p .blu {
-  color: var(--secound);
-  font-weight: 500;
-}
-
-
-
-
-
-@media (max-width: 1024px) {
+@media screen and (max-width: 992px) {
     .aboute {
-        padding: 100px 6% 60px;
-        gap: 60px;
-    }
-
-    .hero h1 {
-        font-size: 1.9rem;
-    }
-
-    .hero p.pp {
-        font-size: 1.15rem;
-    }
-
-    .text2 h1 {
-        font-size: 1.3rem;
-    }
-
-    .text2 .p2,
-    .text2 .p3 {
-        font-size: 1.05rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .aboute {
-        flex-direction: column;
-        align-items: center;
-        padding: 80px 5% 60px;
+        margin-left: 0; /* إلغاء الإزاحة الجانبية */
+        flex-direction: column; /* تحويل العناصر تحت بعضها */
         gap: 50px;
-        text-align: center;
+        padding: 40px 20px;
     }
 
     .aboute .text {
         width: 100%;
-        gap: 50px;
-    }
-
-    .hero {
+        margin-left: 0;
+        bottom: 0; /* إعادة النص لمكانه الطبيعي */
         align-items: center;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
         text-align: center;
     }
 
-    .hero .line {
-        width: 220px;
-        margin: 16px auto;
-    }
-
-    .hero p.pp {
-        font-size: 1.1rem;
+    .hero, .text2 h1, .text2 .p2, .text2 .p3 {
+        right: 0; /* إلغاء القيم السالبة */
         width: 100%;
-        max-width: 480px;
         text-align: center;
-    }
-
-    .text2 {
-        align-items: center;
-        gap: 28px;
-    }
-
-    .text2 h1 {
-        font-size: 1.25rem;
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .text2 .p2,
-    .text2 .p3 {
-        font-size: 1rem;
-        text-align: center;
-        max-width: 500px;
-        margin: 0 auto;
     }
 
     .abouteimg {
         width: 90%;
-        max-width: 420px;
-        margin: 20px auto 0;
+        right: 0;
+        margin: 0 auto;
+    }
+
+    .hero p {
+        left: 0; /* إلغاء إزاحة الـ 200px */
+        bottom: 0;
+        width: 100%;
+        margin-top: 20px;
     }
 }
 
-@media (max-width: 480px) {
-    .aboute {
-      margin-left: 20px;
-        padding: 60px 5% 40px;
-        gap: 20px;
-    }
-
+@media screen and (max-width: 768px) {
     .hero h1 {
-        font-size: 20px;
-        position: relative;
-        left: 40px;
+        font-size: 22px;
     }
 
     .hero .line {
-        width: 180px;
-        height: 16px;
+        margin: 10px auto; /* توسيط الخط الملون */
+        width: 200px;
     }
 
-    .hero p.pp {
-        font-size: 1rem;
-    }
     .text2 h1 {
-              position: relative;
-        right: 95px;
-        font-size: 1.1rem;
+        font-size: 16px;
+        padding: 0 10px;
     }
 
-    .text2 .p2,
-    .text2 .p3 {
-      justify-content: start;
-      align-items: start;
-              position: relative;
-               position: relative;
-        left: .5px;
-        flex-wrap: wrap;
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    .abouteimg {
-      position: relative;
-      left: 1px;
+    .aboute p, .text2 .p2, .text2 .p3, .hero p {
+        font-size: 15px; /* تصغير الخط قليلاً للموبايل */
         width: 100%;
-        max-width: 360px;
+    }
+
+    .text2 .p2, .text2 .p3 {
+        padding: 0 15px;
     }
 }
-/* 
-=-=-=--=-=-=----------------=-=-=
-*/
-
-
+/* //////////////////////////////////////////////////////////// */
 * {
   box-sizing: border-box;
   font-family: 'sona', sans-serif;
 }
 
 .services {
-          font-family: 'sona', sans-serif;
-  font-weight: 300;   
+  font-family: 'sona', sans-serif;
+  font-weight: 300;
   padding: 80px;
   background: var(--bg-color);
   color: var(--text-color);
 }
-.service-header span{
+
+.service-header span {
   color: var(--text-color);
 }
 
 .title {
-    color: var(--text-color);
+  color: var(--text-color);
   font-size: 32px;
   margin-bottom: 50px;
 }
 
 .services-grid {
-    color: var(--text-color);
+  color: var(--text-color);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px 80px;
 }
 
 .service-item {
-  border-bottom: 1px solid    var(--text-color);
+  border-bottom: 1px solid var(--text-color);
   padding-bottom: 15px;
 }
 
@@ -1120,7 +848,6 @@ display: block;
   line-height: 1.6;
 }
 
-/* Active State */
 .service-item.active .service-content {
   max-height: 200px;
 }
@@ -1129,12 +856,6 @@ display: block;
   transform: rotate(180deg);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
 .services-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1147,365 +868,301 @@ display: block;
   gap: 40px;
 }
 
-
-
-.photo{
-    margin-top: 100px;
-    margin-bottom: 100px;
-    width: 96.5%;
-    border-radius: 20px;
+.photo {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 96.5%;
+  border-radius: 20px;
   position: relative;
   left: 33px;
 }
+/* --- الشاشات المتوسطة (Tablets) --- */
+@media screen and (max-width: 992px) {
+    .services {
+        padding: 60px 40px; /* تقليل الـ padding الخارجي */
+    }
 
+    .services-cols {
+        gap: 40px; /* تقليل الفراغ بين الأعمدة */
+    }
 
-
-
-
-
-@media (max-width: 1024px) {
-  .services {
-    padding: 80px 6% 100px;
-  }
-
-  .title {
-    font-size: 2.8rem;
-    margin-bottom: 60px;
-  }
-
-  .services-cols {
-    gap: 50px 70px;
-  }
-
-  .service-header {
-    font-size: 1.25rem;
-  }
-
-  .service-content p {
-    font-size: 1rem;
-  }
+    .photo {
+        left: 0;
+        width: 100%;
+        margin-top: 60px;
+    }
 }
 
-@media (max-width: 768px) {
-  .services {
-    padding: 70px 5% 90px;
-  }
+/* --- الشاشات الصغيرة (Mobile) --- */
+@media screen and (max-width: 768px) {
+    .services {
+        padding: 40px 20px; /* مساحة مناسبة للموبايل */
+    }
 
-  .title {
-    font-size: 2.4rem;
-    margin-bottom: 50px;
-  }
+    .title {
+        font-size: 26px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
 
-  .services-cols {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
+    /* تحويل الشبكة من عمودين إلى عمود واحد */
+    .services-cols {
+        grid-template-columns: 1fr; 
+        gap: 0; /* سنعتمد على المسافات داخل الـ col */
+    }
 
-  .services-col {
-    gap: 45px;
-  }
+    .services-col {
+        gap: 0; /* تصفير الفراغ لجعل القائمة متصلة */
+    }
 
-  .service-item {
-    padding-bottom: 18px;
-  }
+    .service-header {
+        font-size: 16px;
+        padding: 20px 0;
+    }
 
-  .service-header {
-    font-size: 1.2rem;
-    padding: 20px 0;
-  }
+    .service-content p {
+        font-size: 14px;
+        padding-bottom: 10px;
+    }
 
-  .arrow {
-    font-size: 1.5rem;
-  }
-
-  .service-content p {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 18px 0 10px;
-  }
-
-  .service-item.active .service-content {
-    max-height: 400px;
-  }
+    /* ضبط الفيديو */
+    .photo {
+        margin: 50px 0;
+        left: 0;
+        width: 100%;
+        border-radius: 12px; /* تصغير الحواف لتناسب الشاشة الصغيرة */
+    }
 }
 
-@media (max-width: 480px) {
-  .services {
-    padding: 60px 5% 80px;
-  }
-
-  .title {
-    font-size: 2rem;
-    margin-bottom: 45px;
-  }
-
-  .service-header {
-    font-size: 1.1rem;
-    padding: 18px 0;
-  }
-
-  .service-content p {
-    font-size: 0.95rem;
-    line-height: 1.75;
-  }
-
-  .services-cols {
-    gap: 50px;
-  }
-  .photo{
-    margin: 0;
-    position: relative;
-    right: 50px;
-  }
+/* --- الشاشات الصغيرة جداً --- */
+@media screen and (max-width: 480px) {
+    .service-header span {
+        max-width: 80%; /* منع النص من الاصطدام بالسهم */
+        text-align: left;
+    }
 }
-
-
-
-
-
-
-
-/* ------------------------------------ */
-
-/* تنسيق السكشن الرئيسي */
+/*////////////////////////////////////////////////////////////////// */
 .contact {
-    background-color:var(--bg-color); /* اللون السماوي الفاتح جداً من الصورة */
-    color: var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin-top: 20px;
   height: 70vh;
-    padding: 80px 4% 40px;
-    font-family: 'Inter', sans-serif; /* أو أي خط Sans-serif مريح */
+  padding: 80px 4% 40px;
+  font-family: 'Inter', sans-serif;
 }
 
-/* الجزء العلوي من الفوتر */
 .div1 {
-  font-size: 16px;
   width: 100%;
-  margin-left:0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 1px solid var(--text-color); /* الخط الفاصل الهادئ */
-    padding-bottom: 60px;
-    justify-content: space-between;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--text-color);
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+.div11 {
+  position: relative;
+  right: 42px;
 }
 
 .div11 h1 {
-    font-size: 32px;
-    font-weight: 800;
-    max-width: 400px;
-    line-height: 1.1;
-    margin-bottom: 30px;
-
+  font-size: 32px;
+  font-weight: 800;
+  max-width: 400px;
+  line-height: 1.1;
+  margin-bottom: 30px;
 }
 
-.div11{
-  position: relative; right: 42px;
-}
-/* زر Start a conversation */
 .div11 p {
-  
   color: var(--black);
   font-size: 14px;
   position: absolute;
-    display: inline-block;
-    padding: 15px 35px;
-    border-radius: 5px;
-
-    transition: 0.3s;
-    z-index: 999;
+  display: inline-block;
+  padding: 15px 35px;
+  border-radius: 5px;
+  transition: 0.3s;
 }
 
-/* توزيع القوائم الجانبية (ABOUT, INSTAGRAM, etc) */
 .first {
-    display: flex;
-    gap: 190px; /* المسافة بين الأعمدة */
+  display: flex;
+  gap: 190px;
 }
 
 .div22 p {
-  font-size: 16px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-   
-    transition: color 0.3s;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+  cursor: pointer;
 }
 
 .div22 p:hover {
-    color: #4a90e2;
+  color: #4a90e2;
 }
 
-/* زر TOP */
 .div55 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 25px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
 }
-.div55 p{
+
+.div55 p, .div55 a {
   color: var(--black);
-  z-index: 99;
-}
-.div55 a{
-  
   position: relative;
-  bottom: 10px;
   z-index: 99;
 }
-.div55 img{
+
+.div55 a { bottom: 10px; }
+
+.div55 img {
   position: relative;
   bottom: 30px;
   width: 90px;
 }
 
-/* الجزء السفلي (حقوق الملكية واللوجو الصغير) */
 .div2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .div111 img {
   position: relative;
   right: 57px;
   width: 400px;
-    height: 60px; /* حجم اللوجو mavero */
+  height: 60px;
 }
 
 .secound {
-    display: flex;
-    gap: 145px;
-    align-items: center;
+  display: flex;
+  gap: 145px;
+  align-items: center;
 }
 
 .secound .div22 p {
-    font-size: 0.7rem; /* خط أصغر للجزء السفلي */
-    font-weight: 600;
-    margin-bottom: 0;
-    line-height: 1.4;
-
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.4;
   color: var(--text-color);
 }
 
-
-/* اللوجو الدائري في الزاوية */
 .div555 img {
-    width: 110px;
-    height: 150px;
+  width: 110px;
+  height: 150px;
 }
-
-/* Responsive: للموبايل */
-
-
-@media (max-width: 1024px) {
+/* --- الشاشات المتوسطة (Tablets) --- */
+@media screen and (max-width: 1024px) {
     .contact {
-        padding: 80px 6% 60px;
-    }
-
-    .div11 h1 {
-        font-size: 2.4rem;
+        height: auto; /* السماح للطول بالتمدد حسب المحتوى */
+        padding: 60px 5%;
     }
 
     .first {
-        gap: 80px;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact {
-        padding: 70px 5% 50px;
-        gap: 50px;
+        gap: 50px; /* تقليل الفراغ الكبير */
     }
 
-    .div1 {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 50px;
-        padding-bottom: 50px;
-    }
-
-    .div11 h1 {
-        font-size: 2.2rem;
-    }
-
-    .first {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .div22 {
-        min-width: auto;
-    }
-
-    .div2 {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .secound {
         gap: 40px;
     }
 
     .div111 img {
-        width: 180px;
+        width: 250px;
+        right: 0;
+    }
+}
+
+/* --- الشاشات الصغيرة (Mobile) --- */
+@media screen and (max-width: 768px) {
+    .contact {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    /* الجزء العلوي من الفوتر */
+    .div1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding-bottom: 40px;
+    }
+
+    .div11 {
+        right: 0; /* إلغاء الإزاحة */
+    }
+
+    .div11 h1 {
+        font-size: 26px;
+        margin-bottom: 50px;
+    }
+
+    .div11 p {
+        position: relative; /* تحويله من absolute ليكون تحت العنوان */
+        padding: 12px 25px;
+        display: inline-block;
+    }
+
+    /* إعادة ترتيب القوائم */
+    .first {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        width: 100%;
+    }
+
+    .div22 {
+        min-width: 120px; /* ضمان ترتيب العناصر بشكل متناسق */
+    }
+
+    /* الجزء السفلي من الفوتر */
+    .div2 {
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 20px;
+    }
+
+    .div111 img {
+        right: 0;
+        width: 100%; /* جعل اللوجو مرن */
+        height: auto;
     }
 
     .secound {
-        gap: 50px;
-        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
     }
 
     .div555 img {
         width: 80px;
+        height: auto;
     }
 }
 
-@media (max-width: 480px) {
-    .contact {
-        padding: 60px 5% 40px;
-    }
+/* --- تحسينات اللمس للشاشات الصغيرة جداً --- */
+@media screen and (max-width: 480px) {
+    .cursor-dot {
 
-    .div11 h1 {
-        font-size: 1.9rem;
-    }
-
-    .div11 p {
-        font-size: 1rem;
-    }
-
-    .div22 p {
-        font-size: 0.95rem;
-    }
-
-    .secound .div22 p {
-        font-size: 0.8rem;
-    }
-
-    .div111 img {
-        width: 160px;
-    }
-
-    .div555 img {
-        width: 70px;
-    }
-
-    .div55 a {
-        width: 45px;
-        height: 45px;
-    }
-
-    .div55 .material-symbols-outlined {
-        font-size: 24px;
-    }
+display: none;
 }
 
+.cursor-active {
+display: none;
+}
 
+    .first {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* تقسيم القوائم لعمودين */
+        text-align: left;
+    }
 
-
-
-
-
-
+    .div55 {
+        grid-column: span 2; /* زر TOP يأخذ العرض كاملاً */
+        margin-top: 20px;
+    }
+}
