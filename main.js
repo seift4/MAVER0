@@ -129,6 +129,108 @@ section.addEventListener('mousemove', (e) => {
     section.style.backgroundPosition = `calc(50% + ${xMove}px) calc(50% + ${yMove}px)`;
 });
 
+
+
+
+
+
+
+const vedSection = document.querySelector('.ved');
+const video = vedSection.querySelector('.parallax-media');
+
+vedSection.addEventListener('mousemove', (e) => {
+    const { width, height, left, top } = vedSection.getBoundingClientRect();
+    
+    // تحديد نقطة السنتر (المركز)
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    
+    // حساب بعد الماوس عن المركز
+    const mouseX = e.clientX - centerX;
+    const mouseY = e.clientY - centerY;
+    
+    // تحويل البعد لدرجات دوران (مثلاً بحد أقصى 15 درجة)
+    const rotateX = (-mouseY / (height / 2)) * 25; 
+    const rotateY = (mouseX / (width / 2)) * 25;
+
+    // تطبيق الدوران
+    video.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+// إرجاع الفيديو لحالته الطبيعية عند خروج الماوس
+vedSection.addEventListener('mouseleave', () => {
+    video.style.transform = `rotateX(0deg) rotateY(0deg)`;
+});
+
+///////////////////////////////////////////////////////////
+
+
+const modelViewer = document.querySelector("#myModel");
+
+    // عندما يدخل الماوس فوق الموديل
+    modelViewer.addEventListener('mouseenter', () => {
+        modelViewer.autoRotate = false;
+    });
+
+    // عندما يخرج الماوس من فوق الموديل
+    modelViewer.addEventListener('mouseleave', () => {
+        modelViewer.autoRotate = true;
+    });
+
+
+
+
+
+
+
+
+
+
+const modelViewe = document.querySelector('#myModel');
+
+    // نستخدم 'model-visibility' للتأكد أن الموديل ظهر فعلاً على الشاشة
+    modelViewe.addEventListener('load', () => {
+        
+        const applyGradient = async () => {
+            // الوصول للمواد بشكل آمن
+            const material = modelViewe.model.materials[0];
+            if (!material) return;
+
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+
+            // الألوان الخاصة بك
+            const gradient = ctx.createLinearGradient(0, 0, 0, 512);
+            gradient.addColorStop(0, '#0059ff');
+            gradient.addColorStop(0.3, '#54B6F5');
+            gradient.addColorStop(.6, '#D6E6F2');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 512, 512);
+
+            try {
+                const texture = await modelViewer.createTexture(canvas.toDataURL());
+                
+                // تفعيل التدريج والشفافية معاً
+                if (material.pbrMetallicRoughness.baseColorTexture) {
+                    material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
+                } else {
+                    // إذا لم يكن للموديل Texture أصلاً، نقوم بإنشائه
+                    material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
+                }
+                
+                material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.4]);
+                material.setAlphaMode("BLEND");
+                
+            } catch (error) {
+                console.error("فشل في تطبيق الألوان:", error);
+            }
+        };
+
+        applyGradient();
+    });
 /* ==========================================
    6. نظام الترجمة (Multi-Language System)
    بيحتوي على نصوص العربي والإنجليزي ودالة التحويل بين اللغات
