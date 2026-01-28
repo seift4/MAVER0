@@ -630,29 +630,21 @@ svg {
 
 
 .ved {
-  position: relative;
   width: 100%;
-  height: 60vh; /* أو الطول اللي تحبه */
+  height: 100vh; /* أو الطول اللي تحبه */
   overflow: hidden; /* ضروري جداً عشان الحركة متطلعش بره السكشن */
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(imgs/About\ V2.svg); /* خلفية احتياطية */
-    background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding-top:50px;
-  padding-bottom:50px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-origin: content-box; /* بيخلي الصورة تبدأ من منطقة المحتوى فقط */
-  background-clip: content-box;   /* بيقص أي زيادة من الصورة خارج منطقة المحتوى */
   perspective: 1000px;
   
 }
+.ved img{
+  width: 2000px;
+  position: absolute;
+}
 
 .parallax-media {
-  color: red;
 
   width: 400px;
 

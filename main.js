@@ -167,10 +167,7 @@ vedSection.addEventListener('mouseleave', () => {
 
 const modelViewer = document.querySelector("#myModel");
 
-    // عندما يدخل الماوس فوق الموديل
-    modelViewer.addEventListener('mouseenter', () => {
-        modelViewer.autoRotate = false;
-    });
+
 
     // عندما يخرج الماوس من فوق الموديل
     modelViewer.addEventListener('mouseleave', () => {
