@@ -321,27 +321,38 @@ let isDown = false;
 let startX;
 let scrollLeft;
 
-slider.addEventListener('mousedown', (e) => {
+// وظيفة لبدء السحب
+const startDragging = (e) => {
   isDown = true;
   marqueeTrack.classList.add('paused');
-  startX = e.pageX - slider.offsetLeft;
+  // تحديد نقطة البداية سواء ماوس أو لمس
+  startX = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
   scrollLeft = slider.scrollLeft;
-});
+};
 
-slider.addEventListener('mouseleave', () => {
+// وظيفة لإنهاء السحب
+const stopDragging = () => {
   isDown = false;
   marqueeTrack.classList.remove('paused');
-});
+};
 
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  marqueeTrack.classList.remove('paused');
-});
-
-slider.addEventListener('mousemove', (e) => {
+// وظيفة التحريك
+const move = (e) => {
   if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2;
+  e.preventDefault(); 
+  // تحديد الموقع الحالي سواء ماوس أو لمس
+  const x = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
+  const walk = (x - startX) * 2; // سرعة السحب
   slider.scrollLeft = scrollLeft - walk;
-});
+};
+
+// أحداث الماوس (للابتوب)
+slider.addEventListener('mousedown', startDragging);
+slider.addEventListener('mouseleave', stopDragging);
+slider.addEventListener('mouseup', stopDragging);
+slider.addEventListener('mousemove', move);
+
+// أحداث اللمس (للموبايل والتابلت)
+slider.addEventListener('touchstart', startDragging, { passive: false });
+slider.addEventListener('touchend', stopDragging);
+slider.addEventListener('touchmove', move, { passive: false });

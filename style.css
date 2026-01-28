@@ -425,9 +425,7 @@ svg {
 
 /* --- الشاشات الصغيرة جداً --- */
 @media screen and (max-width: 480px) {
-    .nav{
-        
-    }
+
     .nav img {
      
        
@@ -469,6 +467,12 @@ svg {
   background-color: var(--bg-color);
   padding: 50px 0;
   user-select: none;
+  overflow-x: auto; /* السماح بالتمرير */
+  scrollbar-width: none; /* إخفاء شريط التمرير في فايرفوكس */
+  -ms-overflow-style: none; /* إخفاء شريط التمرير في IE */
+}
+.imgs::-webkit-scrollbar {
+  display: none; /* إخفاء شريط التمرير في كروم وسفاري */
 }
 
 .imgs:active {
