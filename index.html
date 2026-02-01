@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link rel="icon" type="image/png" sizes="16x16" href="imgs/Logo For web-02.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="imgs/Logo For web-02.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="imgs/Logo For web-02.svg">
 
     <title>MAVERO</title>
 </head>
@@ -27,6 +30,15 @@
     <div id="loader">
         <a href="#"><img src="imgs/stroke Icon.gif" alt="Loading..."></a>
     </div>
+
+
+
+
+
+
+
+
+
 
     <section class="home" id="home">
         <div class="nav">
@@ -46,8 +58,8 @@
                     <li><button id="ar">AR</button></li>
                     <li><button id="en">EN</button></li>
                 </div>
-                <li><a href="#a" class="nav-link" data-text="about"><span>ABOUT</span></a></li>
                 <li><a href="#w" class="nav-link" data-text="works"><span>WORKS</span></a></li>
+                <li><a href="#a" class="nav-link" data-text="about"><span>ABOUT</span></a></li>
                 <li><a href="#service" class="nav-link" data-text="servics"><span>SERVICES</span></a></li>
                 <li><a href="#contact" class="nav-link" data-text="careers"><span>CAREERS</span></a></li>
             </ul>
@@ -61,18 +73,16 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px">
                 <path d="M469.5-748v494L228-496.5 212-480l268 268 268-268-16-16.5L491.5-254v-494h-22Z" />
             </svg>
-            <a href="#w" class="p" data-key="viewWorks">VIEW SELECTED WORKS</a>
+       <div class="p-container">
+    <a href="#w" class="p" data-key="viewWorks">=VIEW SELECTED WORKS</a>
+  </div>
         </div>
     </section>
 
-    <section class="work" id="works">
-        <p class="p1" data-key="selectWorks">Selected Works</p>
+    <section class="work" id="w" >
+        <p class="p1" data-key="selectWorks" >Selected Works</p>
         <div class="imgs">
             <div class="marquee-track">
-                <div class="img" id="w">
-                    <img src="imgs/menera-02.jpg.png" draggable="false">
-                    <div><p>Menera</p><p>2025</p></div>
-                </div>
                 <div class="img">
                     <img src="imgs/pics for web-01.png" draggable="false">
                     <div><p>ALBA</p><p>2024</p></div>
@@ -97,6 +107,11 @@
                     <img src="imgs/img4.png" draggable="false">
                     <div><p>Digital Experience</p><p>2026</p></div>
                 </div>
+                <div class="img" >
+                    <img src="imgs/menera-02.jpg.png" draggable="false">
+                    <div><p>Menera</p><p>2025</p></div>
+                </div>
+                
                 <div class="img">
                     <img src="imgs/Florausin.png" draggable="false">
                     <div><p>Floraison</p><p>2023</p></div>
@@ -108,9 +123,9 @@
 
 
 
-<section class="ved">
-    <img src="imgs/About V2.svg">
-    <model-viewer class="parallax-media"
+<section class="ved" id="a">
+    <img c src="imgs/About V2.svg">
+    <model-viewer class="parallax-media "
     id="myModel"
         src="3D/22222-v1.glb" 
         alt="A 3D model" 
@@ -127,28 +142,7 @@
 
 
 
-<section class="aboute" id="aboute">
 
-    
-        <div class="text">
-            <section class="hero" id="a">
-                <h1 data-key="weAre">WE ARE NOT A <span class="highlight reveal">DRAGONFLY.</span></h1>
-                <div class="line reveal"></div>
-                <p class="pp">
-                    <span class="blu reveal">We are inspired</span><br>
-                    by its vision, precision,<br>
-                    lightness, and quiet strength.
-                </p>
-            </section>
-
-            <div class="text2 reveal">
-                <h1 data-key="buildBrands">WE BUILD BRANDS WITH CLARITY PURPOSE, AND DIRECTION.</h1>
-                <p class="p2 reveal"><span>MAVERO</span> is a branding and creative direction agency helping businesses define who they are, how they speak, and how they grow.</p>
-                <p class="p3 reveal" data-key="workWith">We work with founders and teams who understand that a brand is more than visuals, it’s a system of decisions, behaviors, and meaning.</p>
-            </div>
-        </div>
-        <img class="abouteimg" src="imgs/about.png" draggable="false">
-    </section>
 
     <section class="services reveal" id="service">
         <h2 class="title">SERVICES</h2>
@@ -201,17 +195,23 @@
                 </div>
             </div>
         </div>
-        <video class="photo reveal" autoplay loop muted playsinline>
+
+    </section>
+
+
+<section class="v">            <video class="photo reveal" autoplay loop muted playsinline>
             <source src="imgs/Pattern.mp4" draggable="false" type="video/mp4">
         </video>
-    </section>
+</section>
+
+
+
 
     <section class="contact reveal" id="contact">
         <div class="div1">
             <div class="div11">
                 <h1>Connect With Us</h1>
                 <p>Request A Services</p>
-                <img src="imgs/Logo For web-04.svg" draggable="false">
             </div>
             <div class="first reveal">
                 <div class="div22" id="r2">
@@ -221,7 +221,8 @@
                     <p>INSTAGRAM</p><p>LINKED IN</p><p>X</p>
                 </div>
                 <div class="div22" id="r7">
-                    <p>CAIRO, EGYPT</p>
+                   <div> <p>CAIRO, EGYPT</p><p>emad@maveroagency.com</p><p>00201060981508</p></div>
+                   <div><p>DUBAI, UAE</p> <p>Coming Soon</p></div>
                 </div>
                 <div class="div55">
                     <a><span class="material-symbols-outlined">arrow_insert</span></a>
@@ -241,8 +242,8 @@
                     <p>AUTHORITY FOR INVESTMENT</p>
                 </div>
                 <div class="div22">
-                    <p>TAX N:</p>
-                    <p>L775 605-794</p>
+                    <p>TAX NUMBER:</p>
+                    <p>778-695-557</p>
                 </div>
                 <div class="div22">
                     <p>2026©</p>

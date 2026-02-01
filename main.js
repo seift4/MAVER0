@@ -1,3 +1,32 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section"); // تأكد أن السكاشن مستخدمة tag <section> أو عدل الاختيار
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.6, // السيكشن يعتبر نشط لما يظهر 60% منه في الشاشة
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // إزالة active من كل اللينكات
+                navLinks.forEach((link) => link.classList.remove("active"));
+                
+                // إضافة active للينك اللي بيشاور على السيكشن الحالي
+                const activeId = entry.target.getAttribute("id");
+                const activeLink = document.querySelector(`.nav-link[href="#${activeId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add("active");
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+});
+
 /* ==========================================
    1. تعريف مصفوفة الصور الخاصة بالثيم (Dark/Light)
    هنا بنحدد IDs العناصر وصورها في الوضعين الفاتح والغامق
