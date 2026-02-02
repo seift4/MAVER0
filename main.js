@@ -51,6 +51,11 @@ const themeImages = [
     id: "extra", 
     light: "imgs/Logo For web-01.svg", 
     dark:  "imgs/Logo For web-07.svg" 
+  },
+  { 
+    id: "about", 
+    light: "imgs/About -01.svg", 
+    dark:  "imgs/About V-02.svg" 
   }
 ];
 
@@ -247,7 +252,7 @@ const modelViewe = document.querySelector('#myModel');
                     material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
                 }
                 
-                material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.4]);
+                material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.3]);
                 material.setAlphaMode("BLEND");
                 
             } catch (error) {
@@ -257,6 +262,7 @@ const modelViewe = document.querySelector('#myModel');
 
         applyGradient();
     });
+
 /* ==========================================
    6. نظام الترجمة (Multi-Language System)
    بيحتوي على نصوص العربي والإنجليزي ودالة التحويل بين اللغات
@@ -344,23 +350,30 @@ function setLanguage(lang) {
     }
   });
 
+  const toggleBtn = document.getElementById("langToggle");
+
   if (lang === "ar") {
     document.documentElement.lang = "ar";
     document.documentElement.dir = "rtl";
     document.body.classList.add("rtl");
+    toggleBtn.textContent = "EN"; // لما يبقى عربي
   } else {
     document.documentElement.lang = "en";
     document.documentElement.dir = "ltr";
     document.body.classList.remove("rtl");
+    toggleBtn.textContent = "AR"; // لما يبقى إنجليزي
   }
+
   localStorage.setItem("lang", lang);
 }
 
-document.getElementById("en").onclick = () => setLanguage("en");
-document.getElementById("ar").onclick = () => setLanguage("ar");
+document.getElementById("langToggle").addEventListener("click", () => {
+  const currentLang = localStorage.getItem("lang") || "en";
+  const newLang = currentLang === "en" ? "ar" : "en";
+  setLanguage(newLang);
+});
 
-const savedLang = localStorage.getItem("lang") || "en";
-setLanguage(savedLang);
+
 
 /* ==========================================
    7. شاشة التحميل (Loader) وتأثيرات الظهور (Scroll Reveal)
