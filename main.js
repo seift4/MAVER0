@@ -121,26 +121,32 @@ window.addEventListener("mousemove", (e) => {
    4. تفاعلات الخدمات (Accordion) والـ Navbar
    مسئول عن فتح/إغلاق تفاصيل الخدمات وتغيير شكل الـ Nav عند السكرول
    ========================================== */
-document.querySelectorAll(".service-header").forEach(header => {
-  header.addEventListener("click", () => {
-    const item = header.parentElement;
-    item.parentElement
-      .querySelectorAll(".service-item")
-      .forEach(el => {
-        if (el !== item) el.classList.remove("active");
-      });
-    item.classList.toggle("active");
-  });
-});
+document.querySelectorAll('.service-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const currentItem = header.parentElement;
+        const currentArrow = header.querySelector('.arrow');
+        const isActive = currentItem.classList.contains('active');
 
-window.onscroll = function() {
-    var navbar = document.querySelector('.nav');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-};
+        // 1. قفل أي عنصر آخر مفتوح حالياً
+        document.querySelectorAll('.service-item').forEach(item => {
+            if (item !== currentItem) {
+                item.classList.remove('active');
+                // نرجع شكل السهم الأصلي للعناصر المقفولة
+                const otherArrow = item.querySelector('.arrow');
+                if (otherArrow) otherArrow.textContent = 'stat_minus_1';
+            }
+        });
+
+        // 2. تبديل حالة العنصر اللي ضغطت عليه
+        if (!isActive) {
+            currentItem.classList.add('active');
+            currentArrow.textContent = 'remove'; // يتحول لـ داش
+        } else {
+            currentItem.classList.remove('active');
+            currentArrow.textContent = 'stat_minus_1'; // يرجع سهم
+        }
+    });
+});
 
 /* ==========================================
    5. تحريك الخلفية وشريط الصور (Marquee & Parallax)
@@ -158,7 +164,7 @@ section.addEventListener('mousemove', (e) => {
     const y = e.clientY - top;
     const xPercent = x / width;
     const yPercent = y / height;
-    const xMove = (xPercent - 0.5) * 10;
+    const xMove = (xPercent - 0.5) * 6;
     const yMove = (yPercent - 0.5) * 10;
     section.style.backgroundPosition = `calc(50% + ${xMove}px) calc(50% + ${yMove}px)`;
 });
@@ -252,7 +258,7 @@ const modelViewe = document.querySelector('#myModel');
                     material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
                 }
                 
-                material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.3]);
+                material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.25]);
                 material.setAlphaMode("BLEND");
                 
             } catch (error) {
