@@ -1,20 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section"); // تأكد أن السكاشن مستخدمة tag <section> أو عدل الاختيار
+    const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".nav-link");
 
     const observerOptions = {
         root: null,
         rootMargin: "0px",
-        threshold: 0.6, // السيكشن يعتبر نشط لما يظهر 60% منه في الشاشة
+        threshold: 0.6,
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // إزالة active من كل اللينكات
                 navLinks.forEach((link) => link.classList.remove("active"));
                 
-                // إضافة active للينك اللي بيشاور على السيكشن الحالي
                 const activeId = entry.target.getAttribute("id");
                 const activeLink = document.querySelector(`.nav-link[href="#${activeId}"]`);
                 if (activeLink) {
@@ -26,50 +24,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sections.forEach((section) => observer.observe(section));
 });
+
 window.addEventListener('scroll', function() {
   const nav = document.querySelector('.nav');
-  if (window.scrollY > 50) { // لو نزل أكتر من 50 بكسل
+  if (window.scrollY > 50) {
     nav.classList.add('scrolled');
   } else {
     nav.classList.remove('scrolled');
   }
 });
-/* ==========================================
-   1. تعريف مصفوفة الصور الخاصة بالثيم (Dark/Light)
-   هنا بنحدد IDs العناصر وصورها في الوضعين الفاتح والغامق
-   ========================================== */
+
 const themeImages = [
-  { 
-    id: "logo", 
-    light: "imgs/Logo For web-01.svg", 
-    dark:  "imgs/Logo For web-02.svg" 
-  },
-  { 
-    id: "heroImg", 
-    light: "imgs/color glass effect (1).mp4", 
-    dark:  "imgs/color glass effect.mp4" 
-  },
-  { 
-    id: "extraImg", 
-    light: "imgs/Logo For web-01.svg", 
-    dark:  "imgs/Logo For web-07.svg" 
-  },
-  { 
-    id: "extra", 
-    light: "imgs/Logo For web-01.svg", 
-    dark:  "imgs/Logo For web-07.svg" 
-  },
-  { 
-    id: "about", 
-    light: "imgs/About -01.svg", 
-    dark:  "imgs/About V-02.svg" 
-  }
+  { id: "logo", light: "imgs/Logo For web-01.svg", dark:  "imgs/Logo For web-02.svg" },
+  { id: "heroImg", light: "imgs/color glass effect (1).mp4", dark:  "imgs/color glass effect.mp4" },
+  { id: "extraImg", light: "imgs/Logo For web-01.svg", dark:  "imgs/Logo For web-07.svg" },
+  { id: "extra", light: "imgs/Logo For web-01.svg", dark:  "imgs/Logo For web-07.svg" },
+  { id: "about", light: "imgs/About -01.svg", dark:  "imgs/About V-02.svg" }
 ];
 
-/* ==========================================
-   2. وظائف تبديل الثيم وحفظ الإعدادات (Dark Mode)
-   الجزء ده مسئول عن تغيير الثيم وحفظ اختيار المستخدم في المتصفح
-   ========================================== */
 const toggleBtn = document.getElementById("darkToggle");
 
 function updateImages(isDark) {
@@ -93,10 +65,6 @@ toggleBtn.addEventListener("click", () => {
   localStorage.setItem("theme", nowDark ? "dark" : "light");
 });
 
-/* ==========================================
-   3. تحريك مؤشر الماوس المخصص (Custom Cursor)
-   ده الجزء اللي بيخلي الدائرة تتبع الماوس وتكبر عند الوقوف على عناصر معينة
-   ========================================== */
 const cursorDot = document.querySelector(".cursor-dot");
 
 window.addEventListener("mousemove", (e) => {
@@ -124,41 +92,30 @@ window.addEventListener("mousemove", (e) => {
     mouseY = e.clientY;
 });
 
-/* ==========================================
-   4. تفاعلات الخدمات (Accordion) والـ Navbar
-   مسئول عن فتح/إغلاق تفاصيل الخدمات وتغيير شكل الـ Nav عند السكرول
-   ========================================== */
 document.querySelectorAll('.service-header').forEach(header => {
     header.addEventListener('click', () => {
         const currentItem = header.parentElement;
         const currentArrow = header.querySelector('.arrow');
         const isActive = currentItem.classList.contains('active');
 
-        // 1. قفل أي عنصر آخر مفتوح حالياً
         document.querySelectorAll('.service-item').forEach(item => {
             if (item !== currentItem) {
                 item.classList.remove('active');
-                // نرجع شكل السهم الأصلي للعناصر المقفولة
                 const otherArrow = item.querySelector('.arrow');
                 if (otherArrow) otherArrow.textContent = 'stat_minus_1';
             }
         });
 
-        // 2. تبديل حالة العنصر اللي ضغطت عليه
         if (!isActive) {
             currentItem.classList.add('active');
-            currentArrow.textContent = 'remove'; // يتحول لـ داش
+            currentArrow.textContent = 'remove';
         } else {
             currentItem.classList.remove('active');
-            currentArrow.textContent = 'stat_minus_1'; // يرجع سهم
+            currentArrow.textContent = 'stat_minus_1';
         }
     });
 });
 
-/* ==========================================
-   5. تحريك الخلفية وشريط الصور (Marquee & Parallax)
-   بيعمل تكرار لشريط الصور (Marquee) وبيحرك خلفية الهيرو مع حركة الماوس
-   ========================================== */
 const traack = document.querySelector('.marquee-track');
 const cloneHTML = traack.innerHTML;
 traack.innerHTML += cloneHTML;
@@ -176,127 +133,101 @@ section.addEventListener('mousemove', (e) => {
     section.style.backgroundPosition = `calc(50% + ${xMove}px) calc(50% + ${yMove}px)`;
 });
 
-
-
-
-
-
-
 const vedSection = document.querySelector('.ved');
 const video = vedSection.querySelector('.parallax-media');
 
 vedSection.addEventListener('mousemove', (e) => {
     const { width, height, left, top } = vedSection.getBoundingClientRect();
     
-    // تحديد نقطة السنتر (المركز)
     const centerX = left + width / 2;
     const centerY = top + height / 2;
     
-    // حساب بعد الماوس عن المركز
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
     
-    // تحويل البعد لدرجات دوران (مثلاً بحد أقصى 15 درجة)
     const rotateX = (-mouseY / (height / 2)) * 25; 
     const rotateY = (mouseX / (width / 2)) * 25;
 
-    // تطبيق الدوران
     video.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 });
 
-// إرجاع الفيديو لحالته الطبيعية عند خروج الماوس
 vedSection.addEventListener('mouseleave', () => {
     video.style.transform = `rotateX(0deg) rotateY(0deg)`;
 });
 
-///////////////////////////////////////////////////////////
-
-
 const modelViewer = document.querySelector("#myModel");
 
-
-
-    // عندما يخرج الماوس من فوق الموديل
-    modelViewer.addEventListener('mouseleave', () => {
-        modelViewer.autoRotate = true;
-    });
-
-
-
-
-
-
-
-
-
+modelViewer.addEventListener('mouseleave', () => {
+    modelViewer.autoRotate = true;
+});
 
 const modelViewe = document.querySelector('#myModel');
 
-    // نستخدم 'model-visibility' للتأكد أن الموديل ظهر فعلاً على الشاشة
-    modelViewe.addEventListener('load', () => {
-        
-        const applyGradient = async () => {
-            // الوصول للمواد بشكل آمن
-            const material = modelViewe.model.materials[0];
-            if (!material) return;
+modelViewe.addEventListener('load', () => {
+    
+    const applyGradient = async () => {
+        const material = modelViewe.model.materials[0];
+        if (!material) return;
 
-            const canvas = document.createElement('canvas');
-            canvas.width = 512;
-            canvas.height = 512;
-            const ctx = canvas.getContext('2d');
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 512;
+        const ctx = canvas.getContext('2d');
 
-            // الألوان الخاصة بك
-            const gradient = ctx.createLinearGradient(0, 0, 0, 512);
-            gradient.addColorStop(0, '#0059ff');
-            gradient.addColorStop(0.3, '#54B6F5');
-            gradient.addColorStop(.6, '#D6E6F2');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 512);
+        gradient.addColorStop(0, '#0059ff');
+        gradient.addColorStop(0.3, '#54B6F5');
+        gradient.addColorStop(.6, '#D6E6F2');
 
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, 512, 512);
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 512, 512);
 
-            try {
-                const texture = await modelViewer.createTexture(canvas.toDataURL());
-                
-                // تفعيل التدريج والشفافية معاً
-                if (material.pbrMetallicRoughness.baseColorTexture) {
-                    material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-                } else {
-                    // إذا لم يكن للموديل Texture أصلاً، نقوم بإنشائه
-                    material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-                }
-                
-                material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.25]);
-                material.setAlphaMode("BLEND");
-                
-            } catch (error) {
-                console.error("فشل في تطبيق الألوان:", error);
+        try {
+            const texture = await modelViewer.createTexture(canvas.toDataURL());
+            
+            if (material.pbrMetallicRoughness.baseColorTexture) {
+                material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
+            } else {
+                material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
             }
-        };
+            
+            material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.25]);
+            material.setAlphaMode("BLEND");
+            
+        } catch (error) {
+            console.error("فشل في تطبيق الألوان:", error);
+        }
+    };
 
-        applyGradient();
-    });
+    applyGradient();
+});
 
-/* ==========================================
-   6. نظام الترجمة (Multi-Language System)
-   بيحتوي على نصوص العربي والإنجليزي ودالة التحويل بين اللغات
-   ========================================== */
 const translations = {
   en: {
-    about: "ABOUT",
+    home: "HOME",
     works: "WORKS",
+    about: "ABOUT",
     services: "SERVICES",
-    careers: "CAREERS",
+    contact: "CONTACT US",
     heroText: "MODERN VISION, ",
-    heroText2:"REAL IDENTITY",
+    heroText2: "REAL IDENTITY",
     viewWorks: "VIEW SELECTED WORKS",
     selectWorks: "Selected Works",
-    weAre: "WE ARE NOT A DRAGONFLY.",
+    viewAll: "View All",
+    weAre: "WE ARE NOT A <span class='highlight'>DRAGONFLY.</span>",
     inspired: "We are inspired by its vision, precision, lightness, and quiet strength.",
     buildBrands: "WE BUILD BRANDS WITH CLARITY, PURPOSE, AND DIRECTION.",
     maverro: "MAVERO is a branding and creative direction agency helping businesses define who they are, how they speak, and how they grow.",
-    workWith: "We work with founders and teams who understand that a brand is more than visuals, it’s a system of decisions, behaviors, and meaning.",
+    workWith: "We work with founders and teams who understand that a brand is more than visuals — it’s a system of decisions, behaviors, and meaning.",
+    servicesTitle: "Services",
+    strategy:       "01 — Strategy",
+    brandIdentity:  "02 — Brand Identity",
+    creativeDir:    "03 — Creative Direction",
+    visualSystems:  "04 — Visual Systems",
+    brandGuidelines:"05 — Brand Guidelines",
+    brandApps:      "06 — Brand Applications",
+    request: "Request",
     connect: "Connect With Us",
-    request: "Request A Services",
     aboutFooter: "ABOUT",
     worksFooter: "WORKS",
     servicesFooter: "SERVICES",
@@ -306,52 +237,56 @@ const translations = {
     linkedIn: "LINKED IN",
     x: "X",
     location: "CAIRO, EGYPT",
+    dubai: "DUBAI, UAE",
+    comingSoon: "Coming Soon",
     top: "TOP",
-    registered: "REGISTERED WITH THE GENERAL AUTHORITY FOR INVESTMENT",
-    taxN: "TAX N: L775 605-794",
+    registered: "REGISTERED WITH THE GENERAL AUTHORITY FOR INVESTMENT®",
+    taxN: "TAX NUMBER: L775 605-794",
     rights: "2026© ALL RIGHTS RESERVED",
-    servicesTitle: "Services",
-    strategy: "01—Strategy",
-    brandIdentity: "02—Brand Identity",
-    visualSystems: "04 — Visual Systems",
-    brandGuidelines: "05 — Brand Guidelines",
-    brandApps: "06 — Brand Applications"
+    letsMaveroIt: "Let's Mavero It"
   },
+
   ar: {
-    about: "من نحن",
+    home: "الرئيسية",
     works: "أعمالنا",
+    about: "من نحن",
     services: "خدماتنا",
-    careers: "وظائف",
-    heroText2:"هوية حقيقية",
+    contact: "تواصل معنا",
     heroText: "رؤية عصرية، ",
+    heroText2: "هوية حقيقية",
     viewWorks: "عرض الأعمال المختارة",
     selectWorks: "أعمال مختارة",
-    weAre: "نحن لسنا <span class='highlight'>اليعسوب.</span>",
-    inspired: "نستوحي إلهامنا من الرؤية والدقة والخفة والقوة الهادئة.",
-    buildBrands: "نُبني العلامات التجارية بوضوح وغرض واتجاه.",
-    maverro: "MAVERO هي وكالة للعلامة التجارية والإبداع تساعد الشركات على تحديد هويتها وطريقة تواصلها ونموها.",
-    workWith: "نعمل مع المؤسسين والفرق الذين يفهمون أن العلامة التجارية أكثر من مجرد شكل، إنها نظام من القرارات والسلوكيات والمعنى.",
+    viewAll: "عرض الكل",
+    weAre: "نحن لسنا <span class='highlight'>يعسوب.</span>",
+    inspired: "نستوحي من رؤيته ودقته وخفته وقوته الهادئة.",
+    buildBrands: "نبني العلامات التجارية بوضوح وهدف واتجاه.",
+    maverro: "MAVERO وكالة متخصصة في بناء العلامات التجارية والإخراج الإبداعي، نساعد الشركات على تحديد هويتها، طريقة تواصلها، وكيفية نموها.",
+    workWith: "نتعاون مع مؤسسين وفرق تدرك أن العلامة التجارية أكثر من مجرد شكل بصري، إنها نظام من القرارات والسلوكيات والمعاني.",
+    servicesTitle: "الخدمات",
+    strategy:       "01 — الاستراتيجية",
+    brandIdentity:  "02 — هوية العلامة التجارية",
+    creativeDir:    "03 — الإخراج الإبداعي",
+    visualSystems:  "04 — الأنظمة البصرية",
+    brandGuidelines:"05 — دليل استخدام العلامة",
+    brandApps:      "06 — تطبيقات العلامة",
+    request: "اطلب الخدمة",
     connect: "تواصل معنا",
-    request: "طلب خدمة",
     aboutFooter: "من نحن",
     worksFooter: "أعمالنا",
     servicesFooter: "خدماتنا",
-    careersFooter: "وظائف",
+    careersFooter: "الوظائف",
     pricingFooter: "التسعير",
-    instagram: "إنستجرام",
+    instagram: "إنستغرام",
     linkedIn: "لينكد إن",
     x: "إكس",
     location: "القاهرة، مصر",
-    top: "الأعلى",
-    registered: "مسجل لدى الهيئة العامة للاستثمار",
+    dubai: "دبي، الإمارات",
+    comingSoon: "قريباً",
+    top: "للأعلى",
+    registered: "مسجلة لدى الهيئة العامة للاستثمار",
     taxN: "الرقم الضريبي: L775 605-794",
-    rights: "2026© جميع الحقوق محفوظة",
-    servicesTitle: "الخدمات",
-    strategy: "01—استراتيجية",
-    brandIdentity: "02—هوية العلامة التجارية",
-    visualSystems: "04 — الأنظمة البصرية",
-    brandGuidelines: "05 — دليل العلامة التجارية",
-    brandApps: "06 — تطبيقات العلامة التجارية"
+    rights: "© 2026 جميع الحقوق محفوظة",
+    letsMaveroIt: "خلينا نعملها مع MAVERO"
   }
 };
 
@@ -369,12 +304,12 @@ function setLanguage(lang) {
     document.documentElement.lang = "ar";
     document.documentElement.dir = "rtl";
     document.body.classList.add("rtl");
-    toggleBtn.textContent = "EN"; // لما يبقى عربي
+    toggleBtn.textContent = "EN";
   } else {
     document.documentElement.lang = "en";
     document.documentElement.dir = "ltr";
     document.body.classList.remove("rtl");
-    toggleBtn.textContent = "AR"; // لما يبقى إنجليزي
+    toggleBtn.textContent = "AR";
   }
 
   localStorage.setItem("lang", lang);
@@ -386,12 +321,6 @@ document.getElementById("langToggle").addEventListener("click", () => {
   setLanguage(newLang);
 });
 
-
-
-/* ==========================================
-   7. شاشة التحميل (Loader) وتأثيرات الظهور ( Reveal)
-   بيخفي الـ Loader بعد ثانية وبيدي تأثير ظهور للعناصر لما تنزل بالصفحة
-   ========================================== */
 window.addEventListener("load", function() {
     setTimeout(function() {
         document.getElementById("loader").style.display = "none";
@@ -412,10 +341,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-/* ==========================================
-   8. تحريك شريط الصور اللانهائي (Marquee Animation)
-   بيحسب عرض الصور وبيعمل حركة مستمرة لليسار
-   ========================================== */
 const track = document.querySelector('.marquee-track');
 const imgsList = Array.from(track.children);
 let trackWidth = 0;
@@ -440,10 +365,6 @@ function animate() {
 }
 animate();
 
-/* ==========================================
-   9. تأثيرات الضغط (Click Effects) ومنع القائمة اليمين
-   بيظهر تأثير بصري عند الكليك وبيمنع الـ Right Click لحماية المحتوى
-   ========================================== */
 document.addEventListener("click", function (e) {
     const effect = document.getElementById("clickEffect");
     if (effect) {
@@ -465,48 +386,37 @@ document.addEventListener("click", function(e) {
 
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-/* ==========================================
-   10. خاصية السحب اليدوي لشريط الصور (Drag to Scroll)
-   بيسمح لك تسحب الصور بالماوس ويوقف الحركة التلقائية وقت السحب
-   ========================================== */
 const slider = document.querySelector('.imgs');
 const marqueeTrack = document.querySelector('.marquee-track');
 let isDown = false;
 let startX;
 let scrollLeft;
 
-// وظيفة لبدء السحب
 const startDragging = (e) => {
   isDown = true;
   marqueeTrack.classList.add('paused');
-  // تحديد نقطة البداية سواء ماوس أو لمس
   startX = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
   scrollLeft = slider.scrollLeft;
 };
 
-// وظيفة لإنهاء السحب
 const stopDragging = () => {
   isDown = false;
   marqueeTrack.classList.remove('paused');
 };
 
-// وظيفة التحريك
 const move = (e) => {
   if (!isDown) return;
   e.preventDefault(); 
-  // تحديد الموقع الحالي سواء ماوس أو لمس
   const x = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
-  const walk = (x - startX) * 2; // سرعة السحب
+  const walk = (x - startX) * 2;
   slider.scrollLeft = scrollLeft - walk;
 };
 
-// أحداث الماوس (للابتوب)
 slider.addEventListener('mousedown', startDragging);
 slider.addEventListener('mouseleave', stopDragging);
 slider.addEventListener('mouseup', stopDragging);
 slider.addEventListener('mousemove', move);
 
-// أحداث اللمس (للموبايل والتابلت)
 slider.addEventListener('touchstart', startDragging, { passive: false });
 slider.addEventListener('touchend', stopDragging);
 slider.addEventListener('touchmove', move, { passive: false });
