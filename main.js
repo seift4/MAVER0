@@ -26,7 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sections.forEach((section) => observer.observe(section));
 });
-
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('.nav');
+  if (window.scrollY > 50) { // لو نزل أكتر من 50 بكسل
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
 /* ==========================================
    1. تعريف مصفوفة الصور الخاصة بالثيم (Dark/Light)
    هنا بنحدد IDs العناصر وصورها في الوضعين الفاتح والغامق
@@ -39,8 +46,8 @@ const themeImages = [
   },
   { 
     id: "heroImg", 
-    light: "imgs/Logo For web-02.svg", 
-    dark:  "imgs/Logo For web-03.svg" 
+    light: "imgs/color glass effect (1).mp4", 
+    dark:  "imgs/color glass effect.mp4" 
   },
   { 
     id: "extraImg", 
@@ -164,8 +171,8 @@ section.addEventListener('mousemove', (e) => {
     const y = e.clientY - top;
     const xPercent = x / width;
     const yPercent = y / height;
-    const xMove = (xPercent - 0.5) * 6;
-    const yMove = (yPercent - 0.5) * 10;
+    const xMove = (xPercent - 0.5) * 5;
+    const yMove = (yPercent - 0.5) * 12;
     section.style.backgroundPosition = `calc(50% + ${xMove}px) calc(50% + ${yMove}px)`;
 });
 
@@ -382,7 +389,7 @@ document.getElementById("langToggle").addEventListener("click", () => {
 
 
 /* ==========================================
-   7. شاشة التحميل (Loader) وتأثيرات الظهور (Scroll Reveal)
+   7. شاشة التحميل (Loader) وتأثيرات الظهور ( Reveal)
    بيخفي الـ Loader بعد ثانية وبيدي تأثير ظهور للعناصر لما تنزل بالصفحة
    ========================================== */
 window.addEventListener("load", function() {

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 70.47 35">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53.43 35">
   <defs>
     <style>
       .cls-1 {
         fill: url(#linear-gradient);
       }
     </style>
-    <linearGradient id="linear-gradient" x1="-47.41" y1="17.5" x2="187.79" y2="17.5" gradientTransform="translate(17.73 52.73) rotate(-90)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="-40.49" y1="17.5" x2="150.77" y2="17.5" gradientTransform="translate(9.21 44.21) rotate(-90)" gradientUnits="userSpaceOnUse">
       <stop offset=".15" stop-color="#2643d1"/>
       <stop offset=".29" stop-color="#45b1f8"/>
       <stop offset=".29" stop-color="#49b2f7"/>
-      <stop offset=".34" stop-color="#70c1f6"/>
-      <stop offset=".39" stop-color="#93cef5"/>
-      <stop offset=".44" stop-color="#b0d9f4"/>
-      <stop offset=".5" stop-color="#c7e1f4"/>
-      <stop offset=".57" stop-color="#d9e8f3"/>
-      <stop offset=".65" stop-color="#e6edf3"/>
-      <stop offset=".76" stop-color="#edf0f3"/>
-      <stop offset="1" stop-color="#f0f1f3"/>
+      <stop offset=".31" stop-color="#70c1f6"/>
+      <stop offset=".33" stop-color="#93cef5"/>
+      <stop offset=".35" stop-color="#b0d9f4"/>
+      <stop offset=".38" stop-color="#c7e1f4"/>
+      <stop offset=".41" stop-color="#d9e8f3"/>
+      <stop offset=".44" stop-color="#e6edf3"/>
+      <stop offset=".49" stop-color="#edf0f3"/>
+      <stop offset=".59" stop-color="#f0f1f3"/>
     </linearGradient>
   </defs>
-  <rect class="cls-1" x="20.17" y="-15.35" width="30.12" height="65.7" transform="translate(52.73 -17.73) rotate(90)"/>
+  <rect class="cls-1" x="9.08" y="-9.21" width="35.26" height="53.43" transform="translate(44.21 -9.21) rotate(90)"/>
 </svg>
