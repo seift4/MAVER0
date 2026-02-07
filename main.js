@@ -63,6 +63,11 @@ const themeImages = [
     id: "about", 
     light: "imgs/About -01.svg", 
     dark:  "imgs/About V-02.svg" 
+  },
+    { 
+    id: "color", 
+    light: "imgs/color1.mp4", 
+    dark:  "imgs/color2.mp4" 
   }
 ];
 
@@ -105,7 +110,7 @@ window.addEventListener("mousemove", (e) => {
     cursorDot.style.transform = `translate(${posX - 6}px, ${posY - 6}px)`;
 });
 
-const interactiveElements = document.querySelectorAll('a, button, p, h1, h2, span, li');
+const interactiveElements = document.querySelectorAll('a, video, button, p, h1, h2, span, li');
 
 interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -163,7 +168,7 @@ const traack = document.querySelector('.marquee-track');
 const cloneHTML = traack.innerHTML;
 traack.innerHTML += cloneHTML;
 
-const section = document.querySelector('.home');
+const section = document.querySelector('.dv');
 
 section.addEventListener('mousemove', (e) => {
     const { width, height, left, top } = section.getBoundingClientRect();
@@ -209,322 +214,59 @@ vedSection.addEventListener('mouseleave', () => {
     video.style.transform = `rotateX(0deg) rotateY(0deg)`;
 });
 
-///////////////////////////////////////////////////////////
-
-
-const modelViewer = document.querySelector("#myModel");
 
 
 
-    // عندما يخرج الماوس من فوق الموديل
-    modelViewer.addEventListener('mouseleave', () => {
-        modelViewer.autoRotate = true;
+
+
+
+
+
+
+// بنختار كل العناصر اللي واخدة كلاس dv
+const cards = document.querySelectorAll('.dv');
+
+cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const { width, height, left, top } = card.getBoundingClientRect();
+        
+        // حساب نقطة السنتر لكل كارت لوحده
+        const centerX = left + width / 2;
+        const centerY = top + height / 2;
+        
+        // حساب بعد الماوس عن مركز الكارت الحالي
+        const mouseX = e.clientX - centerX;
+        const mouseY = e.clientY - centerY;
+        
+        // حساب الزوايا
+        const rotateX = (-mouseY / (height / 2)) * 25; 
+        const rotateY = (mouseX / (width / 2)) * 25;
+
+        // تطبيق التأثير
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
-
-
-
-
-
-
-
-
-
-const modelViewe = document.querySelector('#myModel');
-
-    // نستخدم 'model-visibility' للتأكد أن الموديل ظهر فعلاً على الشاشة
-    modelViewe.addEventListener('load', () => {
-        
-        const applyGradient = async () => {
-            // الوصول للمواد بشكل آمن
-            const material = modelViewe.model.materials[0];
-            if (!material) return;
-
-            const canvas = document.createElement('canvas');
-            canvas.width = 512;
-            canvas.height = 512;
-            const ctx = canvas.getContext('2d');
-
-            // الألوان الخاصة بك
-            const gradient = ctx.createLinearGradient(0, 0, 0, 512);
-            gradient.addColorStop(0, '#0059ff');
-            gradient.addColorStop(0.3, '#54B6F5');
-            gradient.addColorStop(.6, '#D6E6F2');
-
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, 512, 512);
-
-            try {
-                const texture = await modelViewer.createTexture(canvas.toDataURL());
-                
-                // تفعيل التدريج والشفافية معاً
-                if (material.pbrMetallicRoughness.baseColorTexture) {
-                    material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-                } else {
-                    // إذا لم يكن للموديل Texture أصلاً، نقوم بإنشائه
-                    material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-                }
-                
-                material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0.25]);
-                material.setAlphaMode("BLEND");
-                
-            } catch (error) {
-                console.error("فشل في تطبيق الألوان:", error);
-            }
-        };
-
-        applyGradient();
+    // إرجاع الكارت لوضعه الأصلي عند خروج الماوس
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
     });
-
-/* ==========================================
-   6. نظام الترجمة (Multi-Language System)
-   بيحتوي على نصوص العربي والإنجليزي ودالة التحويل بين اللغات
-   ========================================== */
-
-// ملف الترجمة - يحتوي على جميع النصوص للغتين
-const translations = {
-    en: {
-        // زر التبديل
-        "langToggle": "AR",
-        
-        // التنقل
-        "nav.home": "HOME",
-        "nav.works": "WORKS",
-        "nav.about": "ABOUT",
-        "nav.services": "SERVICES",
-        "nav.contact": "CONTACT US",
-        
-        // القسم الرئيسي
-        "home.modern": "MODERN VISION",
-        "home.real": ", REAL IDENTITY",
-        "home.view": "VIEW SELECTED WORKS",
-        
-        // أعمال مختارة
-        "works.selected": "Selected Works",
-        "works.viewAll": "View All",
-        
-        // خدمات
-        "services.title": "Services",
-        "services.subtitle": "From strategy to systems, we build brands with clarity and intention.",
-        "services.extended": "Extended Services",
-        "services.extendedSubtitle": "We don’t offer services. We extend brand systems across touchpoints.",
-        "services.includes": "Includes:",
-        "services.discuss": "Let's Discuss",
-        
-        // الخدمة 1: الاستراتيجية
-        "services.strategy.title": "01 — Strategy",
-        "services.strategy.heading": "Define before design",
-        "services.strategy.description": "We start by defining the brand before shaping it. This phase focuses on clarity, positioning, and decision-making, setting a solid foundation that guides every visual and verbal outcome.",
-        "services.strategy.item1": "Brand positioning",
-        "services.strategy.item2": "Purpose, vision, and mission",
-        "services.strategy.item3": "Target audience & insights",
-        "services.strategy.item4": "Brand personality & values",
-        "services.strategy.item5": "Core brand narrative",
-        
-        // الخدمة 2: الهوية البصرية
-        "services.identity.title": "02 — Brand Identity",
-        "services.identity.heading": "A visual foundation built on meaning",
-        "services.identity.description": "We translate strategy into a distinctive and intentional visual identity. Every element is designed to communicate purpose, not decoration.",
-        "services.identity.item1": "Logo system",
-        "services.identity.item2": "Typography system",
-        "services.identity.item3": "Color system",
-        "services.identity.item4": "Core visual principles",
-        
-        // الخدمة 3: الأنظمة البصرية
-        "services.visual.title": "04 — Visual Systems",
-        "services.visual.heading": "Structure that scales",
-        "services.visual.description": "Beyond the logo, we design visual systems that allow the brand to grow consistently across platforms and contexts.",
-        "services.visual.item1": "Graphic systems & layouts",
-        "services.visual.item2": "Patterns and brand assets",
-        "services.visual.item3": "Image direction",
-        "services.visual.item4": "Motion principles",
-        
-        // الخدمة 4: الإرشادات
-        "services.guidelines.title": "05 — Brand Guidelines",
-        "services.guidelines.heading": "Consistency with clarity",
-        "services.guidelines.description": "We document the brand into a clear, usable system that ensures internal and external consistency over time.",
-        "services.guidelines.item1": "Logo usage rules",
-        "services.guidelines.item2": "Color & typography usage",
-        "services.guidelines.item3": "Visual system guidelines",
-        "services.guidelines.item4": "Do's & Don'ts",
-        "services.guidelines.item5": "Handoff-ready documentation",
-        
-        // الخدمة 5: موقع الويب
-        "services.website.title": "01 — Brand-led Website Experience",
-        "services.website.heading": "Digital expression of the brand system",
-        "services.website.description": "We design websites as an extension of the brand, not just interfaces. The focus is on clarity, structure, and brand presence, not complex product UX.",
-        "services.website.item1": "Brand-driven UI direction",
-        "services.website.item2": "Visual hierarchy & layout logic",
-        "services.website.item3": "Landing pages & brand websites",
-        "services.website.item4": "Design-ready handoff for development",
-        
-        // الخدمة 6: الحركة
-        "services.motion.title": "02 — Brand Motion Direction",
-        "services.motion.heading": "Movement with intention",
-        "services.motion.description": "We define how the brand moves subtly, clearly, and with purpose. Motion is used to enhance recognition, not distract from meaning.",
-        "services.motion.item1": "Logo animation",
-        "services.motion.item2": "Motion principles (timing, easing, rhythm)",
-        "services.motion.item3": "Short brand motion assets",
-        
-        // الاتصال
-        "contact.lets": "Let's Mavero It",
-        "contact.coming": "Coming Soon",
-        "contact.top": "TOP",
-        "contact.rights": "ALL RIGHTS RESERVED"
-    },
-    
-    ar: {
-        // زر التبديل
-        "langToggle": "EN",
-        
-        // التنقل
-        "nav.home": "الرئيسية",
-        "nav.works": "الأعمال",
-        "nav.about": "من نحن",
-        "nav.services": "الخدمات",
-        "nav.contact": "اتصل بنا",
-        
-        // القسم الرئيسي
-        "home.modern": "رؤية حديثة",
-        "home.real": "، هوية حقيقية",
-        "home.view": "عرض الأعمال المختارة",
-        
-        // أعمال مختارة
-        "works.selected": "أعمال مختارة",
-        "works.viewAll": "عرض الكل",
-        
-        // خدمات
-        "services.title": "الخدمات",
-        "services.subtitle": "من الاستراتيجية إلى الأنظمة، نبني علامات تجارية بوضوح وهدف.",
-        "services.extended": "خدمات ممتدة",
-        "services.extendedSubtitle": "نحن لا نقدم خدمات فقط، بل نوسع أنظمة العلامات التجارية عبر نقاط الاتصال.",
-        "services.includes": "يشمل:",
-        "services.discuss": "لنتحدث",
-        
-        // الخدمة 1: الاستراتيجية
-        "services.strategy.title": "01 — الاستراتيجية",
-        "services.strategy.heading": "تحديد قبل التصميم",
-        "services.strategy.description": "نبدأ بتحديد العلامة التجارية قبل تشكيلها. تركز هذه المرحلة على الوضوح والتpositioning واتخاذ القرارات، مما يضع أساسًا متينًا يوجه كل نتيجة بصرية ولفظية.",
-        "services.strategy.item1": "تحديد مكانة العلامة التجارية",
-        "services.strategy.item2": "الغرض، الرؤية، والرسالة",
-        "services.strategy.item3": "الجمهور المستهدف والرؤى",
-        "services.strategy.item4": "شخصية وقيم العلامة التجارية",
-        "services.strategy.item5": "السرد الأساسي للعلامة التجارية",
-        
-        // الخدمة 2: الهوية البصرية
-        "services.identity.title": "02 — الهوية البصرية",
-        "services.identity.heading": "أساس بصري مبني على المعنى",
-        "services.identity.description": "نترجم الاستراتيجية إلى هوية بصرية متميزة وهادفة. كل عنصر مصمم لنقل الغرض، وليس للزينة.",
-        "services.identity.item1": "نظام الشعار",
-        "services.identity.item2": "نظام الطباعة",
-        "services.identity.item3": "نظام الألوان",
-        "services.identity.item4": "المبادئ البصرية الأساسية",
-        
-        // الخدمة 3: الأنظمة البصرية
-        "services.visual.title": "04 — الأنظمة البصرية",
-        "services.visual.heading": "هيكل قابل للتوسع",
-        "services.visual.description": "أبعد من الشعار، نصمم أنظمة بصرية تسمح للعلامة التجارية بالنمو بشكل متسق عبر المنصات والسياقات المختلفة.",
-        "services.visual.item1": "أنظمة وتخطيطات جرافيك",
-        "services.visual.item2": "أنماط وأصول العلامة التجارية",
-        "services.visual.item3": "توجيه الصور",
-        "services.visual.item4": "مبادئ الحركة",
-        
-        // الخدمة 4: الإرشادات
-        "services.guidelines.title": "05 — إرشادات العلامة التجارية",
-        "services.guidelines.heading": "الاتساق مع الوضوح",
-        "services.guidelines.description": "نوثق العلامة التجارية في نظام واضح وقابل للاستخدام يضمن الاتساق الداخلي والخارجي مع مرور الوقت.",
-        "services.guidelines.item1": "قواعد استخدام الشعار",
-        "services.guidelines.item2": "استخدام الألوان والطباعة",
-        "services.guidelines.item3": "إرشادات النظام البصري",
-        "services.guidelines.item4": "ما يجب فعله وما لا يجب فعله",
-        "services.guidelines.item5": "وثائق جاهزة للتسليم",
-        
-        // الخدمة 5: موقع الويب
-        "services.website.title": "01 — تجربة موقع ويب بقيادة العلامة التجارية",
-        "services.website.heading": "تعبير رقمي عن نظام العلامة التجارية",
-        "services.website.description": "نصمم المواقع كامتداد للعلامة التجارية، وليس كواجهات فقط. التركيز على الوضوح والهيكل ووجود العلامة التجارية، وليس تجربة مستخدم معقدة.",
-        "services.website.item1": "توجيه واجهة المستخدم بقيادة العلامة التجارية",
-        "services.website.item2": "التسلسل الهرمي البصري ومنطق التخطيط",
-        "services.website.item3": "صفحات الهبوط ومواقع العلامات التجارية",
-        "services.website.item4": "تسليم جاهز للتصميم للتطوير",
-        
-        // الخدمة 6: الحركة
-        "services.motion.title": "02 — توجيه حركة العلامة التجارية",
-        "services.motion.heading": "حركة بهدف",
-        "services.motion.description": "نحدد كيف تتحرك العلامة التجارية بدقة ووضوح وهدف. تُستخدم الحركة لتعزيز التمييز، وليس لإلهاء عن المعنى.",
-        "services.motion.item1": "تحريك الشعار",
-        "services.motion.item2": "مبادئ الحركة (التوقيت، التخفيف، الإيقاع)",
-        "services.motion.item3": "أصول الحركة القصيرة للعلامة التجارية",
-        
-        // الاتصال
-        "contact.lets": "لنقم بها مع مافيرو",
-        "contact.coming": "قريبًا",
-        "contact.top": "للأعلى",
-        "contact.rights": "جميع الحقوق محفوظة"
-    }
-};
-
-// الحالة الحالية للغة
-let currentLang = 'en';
-
-// دالة لتحميل الترجمة
-function loadLanguage(lang) {
-    currentLang = lang;
-    
-    // تحديث زر التبديل
-    document.getElementById('langToggle').textContent = translations[lang].langToggle;
-    
-    // تحديث جميع العناصر التي تحتوي على data-i18n
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            // التحقق من نوع العنصر
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translations[lang][key];
-            } else if (element.tagName === 'IMG') {
-                element.alt = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
-        }
-    });
-    
-    // تحديث سمة dir للصفحة
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = lang;
-    
-    // حفظ اللغة في localStorage
-    localStorage.setItem('preferredLang', lang);
-    
-    // تحديث فئات CSS للاتجاه
-    document.body.classList.toggle('rtl', lang === 'ar');
-    document.body.classList.toggle('ltr', lang !== 'ar');
-}
-
-// دالة لتبديل اللغة
-function toggleLanguage() {
-    const newLang = currentLang === 'en' ? 'ar' : 'en';
-    loadLanguage(newLang);
-}
-
-// تهيئة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', () => {
-    // التحقق من اللغة المحفوظة أو استخدام لغة المتصفح
-    const savedLang = localStorage.getItem('preferredLang');
-    const browserLang = navigator.language.startsWith('ar') ? 'ar' : 'en';
-    const initialLang = savedLang || browserLang;
-    
-    // تحميل اللغة الأولية
-    loadLanguage(initialLang);
-    
-    // إضافة مستمع حدث لزر التبديل
-    document.getElementById('langToggle').addEventListener('click', toggleLanguage);
 });
 
-// جعل الدوال متاحة عالمياً (اختياري)
-window.toggleLanguage = toggleLanguage;
-window.loadLanguage = loadLanguage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ==========================================
    7. شاشة التحميل (Loader) وتأثيرات الظهور ( Reveal)
