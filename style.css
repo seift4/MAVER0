@@ -109,6 +109,29 @@ body {
   background-color: var(--bg-color);
 }
 
+
+/* الكلاس اللي هيتضاف لما نلمس الفيديو */
+.cursor-dot.cursor-video {
+  width: 90px; /* كبرنا الحجم عشان يشيل الكلمة */
+  height: 70px;
+  background-color: var(--text-color); /* أو اللون اللي تحبه */
+  mix-blend-mode: normal; /* عشان الكلمة تبان بوضوح */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  
+}
+
+/* إضافة كلمة VIEW باستخدام pseudo-element */
+.cursor-dot.cursor-video::before {
+  content: 'VIEW';
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--bg-color);
+  letter-spacing: 1px;
+}
+
 * {
   cursor: none;
   transition: .5s;
@@ -149,16 +172,8 @@ body {
   transition: background-position 0.05s ease-out;
 }
 
-.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -2;
-    
+.back-video {
+  width: 100%;
 }
 .nav {
   position: fixed;
@@ -317,12 +332,12 @@ body {
     .nv a {
         font-size: 14px;
     }
-    .text p {
-        font-size: 24px;
-    }
-    .sp h1 {
-        font-size: 28px;
-    }
+    .back-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
 }
 
 @media screen and (max-width: 768px) {
@@ -345,35 +360,29 @@ body {
         margin-right: 0;
         gap: 10px;
     }
-    .text {
-        margin-top: 200px;
-        padding: 0 20px;
-        text-align: center;
-    }
-    .sp {
-        flex-direction: column; 
-        align-items: center;
-    }
-    .text p {
-        font-size: 18px;
-    }
-    .sp h1 {
-        font-size: 22px;
-        margin-top: 5px;
-    }
-    .text a {
-        font-size: 16px;
-    }
+    
+    .back-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
 }
 
 @media screen and (max-width: 480px) {
+  
     .nv a {
+      position: relative;
+      right: 10px;
         font-size: 12px;
+        gap: 5px;
+        margin: 0px 5px;
+        margin-right: 5px;
     }
-    .text svg {
-        width: 35px;
-        height: 35px;
-    }
+        .back-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: fill;
+}
 }
 
 .work {
@@ -395,9 +404,8 @@ body {
 }
 
 .work .p1 {
-  color: var(--text-color);
-  margin-top: 100px;
-  font-size: 30px;
+    color: var(--text-color);
+  font-size: 40px;
   font-weight: 600;
 }
 
@@ -478,10 +486,6 @@ body {
 
 .imgs:hover .marquee-track {
   animation-play-state: paused;
-}
-
-.paused {
-  animation-play-state: paused !important;
 }
 
 
@@ -605,6 +609,15 @@ a{
 }
 
 
+/* التخلص من أي علامات تظهر في متصفحات Webkit (Chrome, Safari, Edge) */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+}
 
 .parallax-media {
   width: 400px;
@@ -669,7 +682,6 @@ a{
 
 
 .services {
-  
   z-index: 99999;
   margin-left: 54PX;
     background-color: var(--bg-color);
@@ -698,6 +710,7 @@ a{
   width: 170px;
   height: 170px;
 }
+
 .ser{
   margin-bottom: 40px;
   display: flex;
@@ -736,6 +749,7 @@ a{
 }
 
 .f1{
+  
   width: 377.088px;
 height: 182.936px;
 
@@ -833,6 +847,21 @@ height: 182.936px;
 .f33 p{
   width: 100px;
 }
+.f1 .s{
+  position: relative;
+  left: 10px;
+
+}.f2 .s{
+  position: relative;
+  left: 10px;
+
+}
+
+.f3 .s{
+  position: relative;
+  left: 10px;
+
+}
 
 
 
@@ -873,9 +902,6 @@ a{
 
 
 
-
-
-
 .parallax {
   width: 377px;
   object-fit: cover;
@@ -886,98 +912,118 @@ a{
 
 
 
+/* --- Media Queries لسكشن Services --- */
 
-
-
-
-
-
-
-/* --- الشاشات المتوسطة (Tablets) --- */
-@media screen and (max-width: 1024px) {
+@media (max-width: 1150px) {
+    .row1 {
+        flex-wrap: wrap; /* السماح للعناصر بالنزول تحت بعضها */
+        justify-content: center;
+    }
     .services {
-        margin-left: 0; /* إلغاء الهامش الثابت */
+        height: auto; /* السماح بتمدد السكشن */
+        padding: 50px 0;
+        margin-left: 0;
         width: 100%;
-        padding: 40px 20px;
-        height: auto; /* السماح للطول بالتمدد */
-    }
-
-    .services-cols {
-        gap: 40px; /* تقليل الفجوة الكبيرة */
-    }
-
-    .photo {
-        left: 0;
-        width: 100%;
-        border-radius: 30px;
     }
 }
 
-/* --- الشاشات الصغيرة (Mobile) --- */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .services .title {
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 30px;
+        font-size: 32px;
     }
 
-    /* تحويل الأعمدة لعمود واحد */
-    .services-cols {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .services-col {
-        width: 100%;
-        flex: none;
-    }
-
-    .service-item {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .service-header {
-        font-size: 17px;
-    }
-
-    .service-content p {
-        font-size: 14px;
-    }
-
-    /* تعديل زر الـ CTA ليناسب اللمس */
-    .cta span {
+    .services .textt {
         font-size: 16px;
+        width: 90%;
+        text-align: center;
     }
 
-    .cta:before {
-        width: 40px;
-        height: 40px;
+    .ser {
+        gap: 20px;
     }
 
-    /* تعديل القسم الذي يحتوي على الفيديو/الصورة */
-    .v {
+    /* تحويل الصفوف لتصبح عمودية تماماً */
+    .row1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* تعديل أحجام حاويات الـ SVG */
+    .row1 .dv, .f1, .f11, .f2, .f22, .f3, .f33 {
+        width: 320px; /* تصغير العرض ليتناسب مع الموبايل */
+        height: 140px;
+    }
+
+    .f1 svg, .f11 svg, .f2 svg, .f22 svg, .f3 svg, .f33 svg {
+        width: 100%; /* جعل الـ SVG يملأ الحاوية الجديدة */
+        height: 100%;
+    }
+
+    /* ضبط النصوص داخل الكروت */
+    .s h1 {
+        font-size: 18px;
+        width: auto;
         height: auto;
-        padding: 20px 0;
     }
 
-    .photo {
+    .s p {
+        font-size: 12px;
+        width: 130px;
+    }
+
+    .services img {
+        width: 100px; /* تصغير الصور/الأيقونات */
+        height: 100px;
+    }
+
+    /* ضبط المسافات الداخلية */
+    .f1 .s, .f2 .s, .f3 .s {
         left: 0;
-        width: 100%;
-        border-radius: 20px;
+        padding-left: 15px;
     }
 }
 
-/* --- الشاشات الصغيرة جداً --- */
-@media screen and (max-width: 480px) {
-    .service-header {
-        padding: 10px 0;
+@media (max-width: 480px) {
+    .row1 .dv, .f1, .f2, .f3 {
+        width: 380px; /* تصغير إضافي للموبايلات الصغيرة */
+    }
+    .dv svg{
+
+   width: 100%; 
+    }
+    .s{
+    width: 170px;
+    height: 70px;
     }
     
-    .arrow {
-        font-size: 1.2rem;
+    .services img {
+        width: 90px;
+        height: 90px;
+    }
+
+    /* تعديل زر More Details */
+    .view2 p {
+        font-size: 18px;
+    }
+    
+    /* إلغاء تأثير الـ Hover المعقد في الموبايل لضمان سهولة الضغط */
+    .view2:hover p, .view2:hover span {
+        transform: none;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 .logos{
   width: 100%;
   height: 70vh;
@@ -1027,11 +1073,110 @@ height: 210px;
   width: 220px;
 }
 
+.logo-marquee1 {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    white-space: nowrap; /* يمنع نزول الصور لسطر جديد */
+}
+
+.marquee-track1 {
+      background-color: var(--contact2);
+
+    display: inline-flex; /* مهم جداً ليكون العرض على قد المحتوى بالضبط */
+    align-items: center;
+    gap: 60px;
+    animation: marqueeScroll 55s linear infinite;
+}
+
+.marquee-track1 img {
+    width: 210px;
+      height: auto;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    filter: grayscale(100%); /* اختياري: تجعل الصور أبيض وأسود وتلون عند الـ hover */
+    opacity: 0.7;
+}
+
+/* الأنيماشين السحري */
+@keyframes marqueeScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* نتحرك بمقدار نصف عرض التراك الكلي (لأننا ضاعفنا المحتوى بالـ JS) */
+        transform: translateX(-50%);
+    }
+}
+.marquee-track1 img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* توقف عند اللمس */
+.logo-marquee1:hover .marquee-track1 {
+    animation-play-state: paused;
+}
 
 
 
 
 
+/* --- Media Queries لقسم Logos --- */
+
+@media (max-width: 1024px) {
+    .logos h1 {
+        font-size: 32px;
+        width: 80%; /* جعل العرض مرن بدل ثابت */
+    }
+}
+
+@media (max-width: 768px) {
+    .logos {
+        height: auto; /* السماح بتمدد السكشن */
+        padding: 40px 0;
+        gap: 15px;
+    }
+
+    .logos h1 {
+        font-size: 26px;
+        width: 90%;
+        height: auto; /* إلغاء الارتفاع الثابت */
+        word-spacing: normal;
+    }
+
+    .logos p {
+        font-size: 16px;
+        width: 85%; /* نص مرن للموبايل */
+        margin-top: 5px;
+    }
+
+    /* تصغير حجم الشعارات في الموبايل */
+    .marquee-track1 img {
+        width: 120px; /* حجم أنسب للموبايل */
+        gap: 30px; /* تقليل المسافة بين الشعارات */
+    }
+
+    .marquee-track1 {
+        gap: 30px;
+        animation-duration: 30s; /* تسريع الحركة قليلاً لأن المسافة أصبحت أقصر */
+    }
+    
+    .i_m {
+        width: 130px; /* تصغير الصورة المميزة أيضاً */
+    }
+}
+
+@media (max-width: 480px) {
+    .logos h1 {
+        font-size: 22px;
+    }
+
+    .marquee-track1 img {
+        width: 100px;
+    }
+}
 
 
 
@@ -1240,36 +1385,6 @@ line-height: normal;
   color: var(--text-color);
 }
 
-
-@media (max-width: 768px) {
-    [dir="rtl"] .contact {
-        padding: 40px 4% 20px;
-        gap: 50px;
-    }
-    
-    [dir="rtl"] .div1 {
-        flex-direction: column-reverse; /* عكس اتجاه العمود */
-        align-items: flex-end; /* محاذاة للنهاية */
-    }
-    
-    [dir="rtl"] .first {
-        flex-direction: column; /* تحويل إلى عمود في الشاشات الصغيرة */
-        align-items: flex-end; /* محاذاة للنهاية */
-        gap: 30px;
-    }
-    
-    [dir="rtl"] .div2 {
-        flex-direction: column-reverse; /* عكس اتجاه العمود */
-        align-items: flex-end; /* محاذاة للنهاية */
-    }
-    
-    [dir="rtl"] .secound {
-        flex-direction: column; /* تحويل إلى عمود في الشاشات الصغيرة */
-        align-items: flex-end; /* محاذاة للنهاية */
-        gap: 30px;
-    }
-}
-/* --- الشاشات المتوسطة (Tablets) --- */
 @media screen and (max-width: 1024px) {
     .contact {
         height: auto; /* السماح بتمدد الطول */
@@ -1384,3 +1499,737 @@ line-height: normal;
         font-size: 12px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------ABOUT_WEB--------------------------*/
+
+
+
+        .img1_aboute{
+            margin: 0;
+        width: 100%;
+        height: 600px;
+        }
+        .about_web{
+            margin-top: 70px;
+            margin-left: 100px;
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            gap: 100px;
+            
+        }
+        .about_web .divv1{
+            display: flex;
+width: 597px;
+padding: 20px 10px;
+justify-content: center;
+align-items: center;
+gap: 28px;
+background: var(--Gradient-01, linear-gradient(90deg, #2643D1 0%, #45B1F8 52.7%, #E0E8F5 105.41%), #D9D9D9);
+height: 90px;
+        }
+
+
+
+
+        
+      .about_web .divv1 h1{
+color: var(--BG-01, #EFF4FA);
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+        }
+
+
+        
+        .about_web .divv2{
+color: var(--text-color);
+text-align: justify;
+width: 685px;
+height: 332px;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+display: flex;
+flex-direction: column;
+gap: 15px;
+        }
+
+
+        .about_web .divv2 p{
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+        }
+
+
+
+        .about_web .divv2 span{
+            color: var(--Electric-Blue, #2643D1);
+
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+        }
+
+
+
+
+.img2_about{
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 0px;
+}
+
+
+
+/* --- Media Queries لسكشن About Web والصور --- */
+
+@media (max-width: 1200px) {
+    .about_web {
+        margin-left: 50px; /* تقليل الهامش في الشاشات المتوسطة */
+        gap: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about_web {
+        flex-direction: column; /* تحويل العناصر تحت بعض */
+        height: auto;
+        margin-left: 0;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .about_web .divv1, 
+    .about_web .divv2 {
+        width: 100%; /* جعل العناصر تأخذ العرض الكامل */
+        max-width: 600px;
+    }
+
+    .about_web .divv2 {
+        height: auto;
+        text-align: center; /* توسيط النص للموبايل */
+    }
+}
+
+@media (max-width: 768px) {
+    .img1_aboute {
+        height: 300px; /* تصغير ارتفاع الصورة الأولى */
+        object-fit: fill;
+    }
+
+    .about_web {
+    margin-right: 15px;
+        margin-top: 40px;
+        gap: 30px;
+        padding: 5px;
+        
+    height: 80vh;
+    }
+
+    .about_web .divv1 {
+        height: auto;
+        padding: 15px;
+    }
+    
+
+    .about_web .divv1 h1 {
+       width: 85%;
+        font-size: 24px; /* تصغير حجم العنوان */
+    }
+
+    .about_web .divv2 p, 
+    .about_web .divv2 span {
+    width: 85%;
+        font-size: 16px; /* حجم خط مريح للقراءة على الجوال */
+    }
+
+    .img2_about {
+        height: 100vh; /* تقليل ارتفاع الصورة الثانية لأن 100vh مبالغ فيه للجوال */
+        object-fit: fill;
+    }
+}
+
+@media (max-width: 480px) {
+.img1_aboute{
+margin-top: 110px;}
+
+    .about_web .divv1 h1 {
+        font-size: 20px;
+    }
+    
+    .img1_aboute {
+        height: 200px;
+    }
+    .about_web{
+    height: 60vh;}
+    .divv2{
+    flex-wrap: wrap;
+    margin: 0px;
+    }
+    .divv2 p{
+    position: relative;
+    left: 40px;
+width: 100%;
+}
+.divv2 span{
+
+    position: relative;
+    left: 40px;
+
+    }
+.img2_about{
+margin: 0;
+height: 100vh;
+  object-fit: fill;
+}
+
+}
+/* ---------------------------------------------------------------*/
+
+/*-------------------------SERVICE_WEB------------------------*/
+
+
+    .service_web{
+        
+        margin: 70px;
+        display: flex;
+        gap: 100px;
+        justify-content: center;
+
+    }
+    .service_1{
+      margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 200px;
+    }
+
+
+
+.dvv img{
+  width: 170px;
+  height: 170px;
+  z-index: 12;
+}
+
+    
+.dvv{
+
+  width: 360px;
+  height: 173px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ss{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;z-index: 12;
+
+}
+.ss h1{
+  font-size: 24px;
+  font-weight: 700;
+  width: 153px;
+  height: 48px;
+}
+.ss p{
+  width: 170px;
+  font-size: 14px;
+}
+
+.ff1{
+  
+  width: 377.088px;
+height: 182.936px;
+
+}
+
+.ff1 svg{
+  width: 377.088px;
+height: 182.936px;
+  position: absolute;
+  z-index: 1;
+
+}
+.ff11{
+  width: 377.088px;
+height: 182.936px;
+
+}
+
+.ff11 svg{
+  width: 377.088px;
+height: 182.936px;
+  position: absolute;
+  z-index: 1;
+
+}
+
+
+
+
+.ff2{
+  width: 377.088px;
+height: 182.936px;
+
+}
+
+.ff2 svg{
+  width: 377.088px;
+height: 182.936px;
+  position: absolute;
+  z-index: 1;
+
+}
+.ff22{
+  width: 377.088px;
+height: 182.936px;
+
+}
+
+.ff22 svg{
+  width: 377.088px;
+height: 182.936px;
+  position: absolute;
+  z-index: 1;
+
+}
+
+
+
+
+.ff3{
+  width: 377.088px;
+height: 182.936px;
+
+}
+
+.ff3 svg{
+  width: 377.088px;
+height: 182.936px;
+  position: absolute;
+  z-index: 1;
+
+}
+.ff33{
+  width: 377.088px;
+height: 182.936px;
+
+}
+
+.ff33 svg{
+  width: 377.088px;
+height: 182.936px;
+  position: absolute;
+  z-index: 1;
+
+}
+
+
+.ff11 p{
+  width: 105px;
+}
+.ff22 p{
+  width: 145px;
+}
+
+.ff33 p{
+  width: 100px;
+}
+.ff1 .s{
+  position: relative;
+  left: 10px;
+
+}.ff2 .s{
+  position: relative;
+  left: 10px;
+
+}
+
+.ff3 .s{
+  position: relative;
+  left: 10px;
+
+}
+
+.service_2{
+    display: flex;
+    flex-direction: column;
+}
+
+.ser_2 {
+    /* وضع الـ SVG كخلفية */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='991' height='310' viewBox='0 0 991 310' fill='none'%3E%3Cpath d='M961.707 4.52239e-06L28.3031 0.000516184C23.0191 0.00051908 17.9497 2.09163 14.2024 5.81708L5.89929 14.0718C2.12323 17.8258 0 22.9306 0 28.2552V281.746C0 287.071 2.12324 292.175 5.89931 295.929L14.2024 304.184C17.9497 307.91 23.0191 310.001 28.3031 310.001L961.707 310C966.991 310 972.06 307.909 975.808 304.183L984.111 295.929C987.887 292.175 990.01 287.07 990.01 281.745L990.01 28.2547C990.01 22.93 987.887 17.8252 984.111 14.0712L975.808 5.81655C972.06 2.09111 966.991 0 961.707 4.52239e-06Z' fill='%23E0E8F5'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 40px 60px;
+    
+    
+    display: flex;
+    align-items: center;
+    min-height: 300px; /* نفس ارتفاع الـ SVG الأصلي */
+    max-width: 901px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.ser_3{
+  width: 100%;
+  height: 100%;
+}
+.ser_3 p {
+    color: #1a2b3c; /* لون تقريبي من الصورة */
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 80%;
+    margin-top: 10px;
+}
+
+.ser_3 h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.ser_3 ul {
+    list-style: none; /* عشان نشيل النقط بتاعة القائمة */
+    padding: 0;
+}
+
+.ser_3 li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #334155;
+}
+
+
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@media (max-width: 1024px) {
+    /* 1. تحويل الحاوية الرئيسية إلى Flexbox عمودي */
+    .service_web {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        gap: 0; /* سنتحكم في المسافات من الداخل */
+    }
+
+    /* 2. جعل الحاويات الداخلية شفافة هيكلياً */
+    /* هذا يجعل الأبناء (الكروت والتفاصيل) يظهرون كأنهم في حاوية واحدة */
+    .service_1, .service_2 {
+        display: contents;
+    }
+
+    /* 3. تنسيق الكروت (التي كانت داخل service_1) */
+    .dvv {
+        width: 100% !important;
+        max-width: 377px;
+        margin: 0 auto;
+        /* ترتيب تلقائي مبدئي */
+    }
+
+    /* 4. تنسيق صناديق التفاصيل (التي كانت داخل service_2) */
+    .ser_2 {
+        width: 100% !important;
+        max-width: 100%;
+        padding: 30px 20px;
+        min-height: auto;
+        margin-bottom: 50px; /* مسافة قبل الخدمة التالية */
+        background-size: 100% 100%;
+    }
+
+    /* 5. السحر: الترتيب اليدوي بدون تعديل الـ HTML */
+    
+    /* ترتيب الكروت (الفردي) */
+    .service_1 .dvv:nth-child(1) { order: 1; }
+    .service_1 .dvv:nth-child(2) { order: 3; }
+    .service_1 .dvv:nth-child(3) { order: 5; }
+    .service_1 .dvv:nth-child(4) { order: 7; }
+    .service_1 .dvv:nth-child(5) { order: 9; }
+    .service_1 .dvv:nth-child(6) { order: 11; }
+
+    /* ترتيب صناديق التفاصيل (الزوجي) لتقع أسفل كل كارت */
+    .service_2 .ser_2:nth-child(1) { order: 2; }
+    .service_2 .ser_2:nth-child(2) { order: 4; }
+    .service_2 .ser_2:nth-child(3) { order: 6; }
+    .service_2 .ser_2:nth-child(4) { order: 8; }
+    .service_2 .ser_2:nth-child(5) { order: 10; }
+    .service_2 .ser_2:nth-child(6) { order: 12; }
+
+    /* تعديلات بسيطة للموبايل لضمان التناسق */
+    .dvv svg {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .ser_3 p {
+        max-width: 100%;
+        font-size: 17px;
+    }
+}
+/* --- Media Queries لسكشن Service_web المتكامل --- */
+
+/* 1. الشاشات المتوسطة (Tablets) */
+@media (max-width: 1024px) {
+    .service_web {
+        display: flex;
+        flex-direction: column;
+        margin: 40px 20px;
+        gap: 0;
+        height: auto;
+    }
+
+    /* فك الحاويات للترتيب الحر */
+    .service_1, .service_2 {
+        display: contents;
+    }
+
+    /* تنسيق الكروت */
+    .dvv {
+        width: 100% !important;
+        max-width: 377px;
+        margin: 0 auto;
+    }
+
+    /* تنسيق التفاصيل */
+    .ser_2 {
+        width: 100% !important;
+        max-width: 90%;
+        margin: 10px auto 60px auto; /* مسافة تحت كل قسم */
+        padding: 40px 30px;
+        height: auto;
+        min-height: auto;
+        background-size: 100% 100%;
+        align-items: center; /* توسيط المحتوى داخلياً */
+        text-align: center;
+    }
+
+    .ser_3 p {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .ser_3 ul {
+        display: inline-block;
+        text-align: left; /* القائمة تظل يسار لسهولة القراءة */
+    }
+
+    /* --- السحر: الترتيب التبادلي --- */
+    .service_1 .dvv:nth-child(1) { order: 1; }
+    .service_2 .ser_2:nth-child(1) { order: 2; }
+    
+    .service_1 .dvv:nth-child(2) { order: 3; }
+    .service_2 .ser_2:nth-child(2) { order: 4; }
+    
+    .service_1 .dvv:nth-child(3) { order: 5; }
+    .service_2 .ser_2:nth-child(3) { order: 6; }
+    
+    .service_1 .dvv:nth-child(4) { order: 7; }
+    .service_2 .ser_2:nth-child(4) { order: 8; }
+    
+    .service_1 .dvv:nth-child(5) { order: 9; }
+    .service_2 .ser_2:nth-child(5) { order: 10; }
+    
+    .service_1 .dvv:nth-child(6) { order: 11; }
+    .service_2 .ser_2:nth-child(6) { order: 12; }
+}
+
+/* 2. الشاشات الأصغر (Mobiles) */
+@media (max-width: 768px) {
+    .service_web {
+        margin: 20px 10px;
+    }
+
+
+    .ser_2 {
+        padding: 30px 20px;
+        background-size: cover; /* لضمان شكل الخلفية */
+        border-radius: 15px; /* لمسة جمالية بديلة للـ SVG إذا لم يظهر كاملاً */
+    }
+
+    .ser_3 h1 {
+        font-size: 20px;
+    }
+
+    .ser_3 p {
+        font-size: 16px;
+    }
+}
+
+/* 3. الشاشات الصغيرة جداً (Small Mobiles) */
+@media (max-width: 480px) {
+    .service_web {
+        margin-top: 50px;
+    }
+
+
+
+    .ser_2 {
+        margin-bottom: 40px;
+    }
+
+    .cta span {
+        font-size: 12px;
+    }
+
+}
+
+
+/* --- Responsive Design --- */
+
+/* للتابلت (Tablets) */
+@media (max-width: 992px) {
+    .ser_2 {
+        padding: 40px 50px;
+        min-height: auto; /* السماح بتمدد الارتفاع حسب النص */
+    }
+    .ser_3 p {
+        font-size: 17px;
+    }
+}
+
+/* للموبايل (Mobile) */
+@media (max-width: 768px) {
+    .ser_2 {
+        padding: 30px 25px; /* تقليل padding الجوانب لزيادة مساحة النص */
+        background-size: cover; /* لضمان شكل الخلفية حتى لو طال النص */
+        align-items: flex-start; /* تحويل العناصر لليسار لسهولة القراءة */
+    }
+    .ser_3{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    }
+
+    .ser_3 p {
+        font-size: 16px;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .ser_3 h1 {
+        font-size: 20px;
+    }
+
+    .cta {
+        margin-top: 20px;
+        align-self: flex-end; /* إبقاء الزر جهة اليمين */
+    }
+}
+
+/* للموبايلات الصغيرة جداً */
+@media (max-width: 480px) {
+    .ser_2 {
+        padding: 25px 20px;
+    }
+    .ser_3 p {
+        font-size: 14px;
+    }
+}
+/* ---------------------------------------------------------------*/
+
