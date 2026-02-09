@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,13 +14,12 @@
   <meta property="og:url" content="https://maveroagency.com">
 
 
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-   
+   <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="imgs/Logo For web-06.svg"> 
    <link rel="icon" href="imgs/Logo For web-06.svg" type="image/png">
    <link rel="icon" type="image/png" sizes="16x16" href="imgs/Logo For web-06.svg">
@@ -38,14 +36,85 @@
   }
   </script>
 
+  <style>
+
+
+
+
+
+  </style>
+
 </head>
-
 <body>
-
+    
 
 <div class="cursor-dot"></div>
-<div id="loader">
-    <a href="#"><img src="imgs/stroke Icon.gif" alt="Loading..."></a>
+    <div id="loader">
+        <a href="#"><img src="imgs/stroke Icon.gif" alt="Loading..."></a>
+    </div>
+    <div class="nav">
+        <a href="index.html#home">
+            <img id="extraImg" src="imgs/Logo For web-01.svg" draggable="false">
+        </a>
+        <ul class="nv">
+            <li><a href="index.html#home" class="nav-link" data-text="HOME"><span>HOME</span></a></li>
+            <li><a href="index.html#w" class="nav-link" data-text="works"><span>WORKS</span></a></li>
+            <li><a href="about.html" class="nav-link" data-text="about"><span>ABOUT</span></a></li>
+            <li><a href="service.html" class="nav-link active" data-text="services"><span>SERVICES</span></a></li>
+            <li class="li">
+                <a id="darkToggle">
+                    <span class="material-symbols-outlined arrow">hdr_weak</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="works_web" >
+    <h1>Selectef Works</h1>
+
+
+    <div class="work_1">
+
+
+        <div
+         class="work_img"><img src="imgs/pics for web-01.png">
+         <div><p>ALBA</p><p>2024</p></div>
+        </div>
+        <div class="work_img"><img src="imgs/Square pics-02.png">
+        <div><p>Eventers</p><p>2024</p></div>
+      </div>
+        <div class="work_img"><img src="imgs/Rectangle 18.png">
+        <div><p>Digital Experience</p><p>2026</p></div>
+    </div>
+        <div class="work_img"><img src="imgs/Florausin.png">
+        <div><p>Floraison</p><p>2023</p></div>
+</div>
+        <div class="work_img"><img src="imgs/menera-01.jpg.png">
+        <div><p>Menera</p><p>2025</p></div>
+    </div>
+        <div class="work_img"><img src="imgs/Square pics-01.png">
+     <div><p>Eventers</p><p>2024</p></div>
+        </div>
+
+
+    </div>
+
 </div>
 
 
@@ -59,65 +128,13 @@
 
 
 
-        <div class="nav">
-            <a href="#home">
-                <img id="extraImg" src="imgs/Logo For web-01.svg" draggable="false">
-            </a>
-
-            <ul class="nv">
-<li><a href="index.html#home" class="nav-link" data-text="HOME"><span>HOME</span></a></li>
-<li><a href="index.html#w" class="nav-link" data-text="works"><span>WORKS</span></a></li>
-<li><a href="index.html#a" class="nav-link" data-text="about"><span>ABOUT</span></a></li>
-<li><a href="index.html#service" class="nav-link" data-text="servics"><span>SERVICES</span></a></li>
-<li><a href="index.html#contact" class="nav-link" data-text="CONTACT US"><span>Contact Us</span></a></li>
-                <div class="la">
-                    <li class="li">
-                        <a id="darkToggle">
-                            <span class="material-symbols-outlined arrow">hdr_weak</span>
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </div>
 
 
 
-
-
-
-
-
-<!------------------------------------------------------------>
 
 
 
     
-        
-    <img class="img1_aboute" src="imgs/Rectangle 22.png"> 
-
-    <section class="about_web reveal" id="a">
-       <div class="divv1"> <h1>strategic Creative Agency</h1> </div>
-
-        <div class="divv2">
-            <p>We help founders and growing brands move from chaos to clarity by building structured brand systems with intention. We believe clarity is not about simplicity, it’s about understanding. That’s why we define before we design, and build systems before visuals.</p>
-        <p>
-Our work focuses on alignment,
-structure, and long-term thinking.
-</p>
-<p>Not trends. Not noise. Not decoration.</p>
-<span>We exists to bring focus,
-direction, and meaning to brands that
-want to grow with confidence.</span>
-        </div>
-
-    </section>
-
- 
-    <img class="img2_about reveal" src="imgs/Rectangle 23.png">
-
-    <!------------------------------------------------------------>
-
-
 
     <section class="contact reveal" id="contact">
         <div class="div1">
@@ -183,9 +200,19 @@ want to grow with confidence.</span>
 
 
 
-    
 
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    <script src="main.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="main.js">
+    
+    
+</script>
 </body>
 </html>

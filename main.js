@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // تأثيرات الكرسر عند الحوم فوق العناصر التفاعلية
-        const interactives = document.querySelectorAll('a, button, .dv, video, .nav-link');
+        const interactives = document.querySelectorAll('a, button, h1, p, h2, .dv, video, .nav-link');
         interactives.forEach(el => {
             el.addEventListener('mouseenter', () => cursorDot.classList.add('cursor-active'));
             el.addEventListener('mouseleave', () => cursorDot.classList.remove('cursor-active'));
@@ -173,6 +173,13 @@ videoElement.addEventListener('mouseenter', () => {
 videoElement.addEventListener('mouseleave', () => {
     cursorDot.classList.remove('cursor-video');
 });
+
+
+
+
+
+
+
 });
 
 // منع القائمة اليمين (اختياري)

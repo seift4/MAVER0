@@ -752,28 +752,19 @@ video::-webkit-media-controls-start-playback-button {
   
   width: 377.088px;
 height: 182.936px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='%23BBBDBF'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+    background-size: 100% 100%; /* عشان يملأ السكشن مهما كان حجمه */
 
-}
+  }
 
-.f1 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: -1;
-
-}
 .f11{
   width: 377.088px;
 height: 182.936px;
-
-}
-
-.f11 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: -1;
-
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='0' y1='71.468' x2='337.088' y2='71.468' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2345B1F8'/%3E%3Cstop offset='1' stop-color='%23EFF4FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 
@@ -782,27 +773,18 @@ height: 182.936px;
 .f2{
   width: 377.088px;
 height: 182.936px;
-
-}
-
-.f2 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: -1;
-
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='%23A4E3A4'/%3E%3C/svg%3E");
+    
+    background-size: 100% 100%; /* تمدد كامل */
+    background-repeat: no-repeat;
 }
 .f22{
   width: 377.088px;
 height: 182.936px;
-
-}
-
-.f22 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: -1;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='71.468' x2='337.088' y2='71.468' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23A4E3A4'/%3E%3Cstop offset='1' stop-color='%23EFF4FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    
+    background-size: 100% 100%; /* ليمتد الشكل ليغطي كامل السكشن */
+    background-repeat: no-repeat;
 
 }
 
@@ -812,29 +794,29 @@ height: 182.936px;
 .f3{
   width: 377.088px;
 height: 182.936px;
-
+background-color: #F27864;
+    
+    /* استخدام الـ SVG كـ Mask لقص السكشن */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z'/%3E%3C/svg%3E");
+    
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
 }
 
-.f3 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: -1;
 
-}
 .f33{
   width: 377.088px;
 height: 182.936px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='url(%23grad)'/%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0' y1='71.468' x2='337.088' y2='71.468' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F17864'/%3E%3Cstop offset='1' stop-color='%23EFF4FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
 }
 
-.f33 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: -1;
-
-}
 
 
 .f11 p{
@@ -1303,6 +1285,8 @@ line-height: normal;
 }
 
 .secound {
+  position: relative;
+  left: 20px;
   margin-top: 20px;
   display: flex;
   gap: 175px;
@@ -1315,7 +1299,7 @@ line-height: normal;
   font-weight: 200;
 }
 
-.c1{
+.c3{
   position: absolute;
   right: 1000px;
   width: 390px;
@@ -1368,7 +1352,10 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 }
-
+.c1{
+  position: relative;
+  right: 34px;
+}
 .r1{
   position: relative;
   left: 46px;
@@ -1405,41 +1392,39 @@ line-height: normal;
         width: auto;
     }
 }
-
-/* --- الشاشات الصغيرة (Mobile) --- */
-@media screen and (max-width: 768px) {
+/* ضبط عام للموبايل والشاشات الصغيرة */
+@media screen and (max-width: 992px) {
     .contact {
-        margin-top: 50px;
         height: auto;
-        padding: 40px 20px;
-        text-align: center;
+        padding: 60px 20px;
+        gap: 40px;
+        margin-top: 50px;
+        justify-content: flex-start;
     }
 
-    /* 1. الجزء العلوي (العنوان واللوجو) */
+    /* الجزء العلوي - العنوان والروابط */
     .div1 {
         flex-direction: column;
         align-items: center;
-        padding-bottom: 30px;
+        gap: 40px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        text-align: center;
     }
 
     .div11 {
-        right: 0;
-        margin-bottom: 40px;
+        right: 0; /* إلغاء الإزاحة */
+        width: 100%;
+        max-width: 300px; /* تحديد عرض مناسب للموبايل */
+        height: auto;
+        padding: 15px;
     }
 
     .div11 h1 {
-        position: static; /* جعل العنوان يظهر بشكل طبيعي */
-        font-size: 24px;
-        margin: 0 auto 20px;
-        color: var(--text-color);
+        font-size: 28px;
     }
 
-    .div11 img {
-        width: 100%; /* جعل اللوجو مرن */
-        max-width: 300px;
-    }
-
-    /* 2. الروابط والمعلومات (first) */
+    /* الروابط الأساسية */
     .first {
         flex-direction: column;
         align-items: center;
@@ -1447,59 +1432,79 @@ line-height: normal;
         width: 100%;
     }
 
-    .first div {
-        width: 100%;
+    /* إلغاء القيم المطلقة تماماً */
+    .c1, .c2, .c3 {
+        position: static !important; 
+        width: 100% !important;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        right: auto;
     }
 
-    /* 3. الجزء السفلي (الحقوق والبيانات الضريبية) */
+    .c3 div {
+        margin-bottom: 15px;
+    }
+
+    .first div:not(:nth-child(4)) {
+        width: 100%;
+    }
+
+    /* زر TOP */
+    .c4 {
+        height: auto;
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+
+    /* الجزء السفلي - الحقوق واللوجو الكبير */
     .div2 {
         flex-direction: column;
-        gap: 30px;
+        gap: 40px;
+        align-items: center;
     }
 
     .div111 img {
         right: 0;
+        top: 0;
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
         height: auto;
     }
 
     .secound {
         flex-direction: column;
-        margin-top: 20px;
-        gap: 20px;
-    }
-
-    /* إلغاء كل القيم المطلقة المعقدة */
-    .c1, .c4 p, .c4 a, .r1 {
-        position: static;
-        width: 100%;
+        left: 0;
+        gap: 25px;
+        margin-top: 0;
         text-align: center;
     }
 
-    .c4 a {
-        font-size: 28px;
-        display: block;
-        margin-top: 10px;
+    .r1, .r2, .r3 {
+        position: static;
+        width: 100%;
+        left: 0;
     }
 
-    .r1 {
-        left: 0;
+    .r4 video {
+        width: 100px;
+        height: auto;
     }
 }
 
-/* --- الشاشات الصغيرة جداً --- */
+/* تحسينات إضافية للموبايلات الصغيرة جداً */
 @media screen and (max-width: 480px) {
     .div11 h1 {
-        font-size: 20px;
+        font-size: 24px;
     }
+
     
     .secound div p {
         font-size: 12px;
     }
 }
-
 
 
 
@@ -1746,14 +1751,14 @@ height: 100vh;
 
     .service_web{
         
-        margin: 70px;
+        margin:120px 70px;
         display: flex;
         gap: 100px;
         justify-content: center;
 
     }
     .service_1{
-      margin-top: 15px;
+      margin-top: 17px;
         display: flex;
         flex-direction: column;
         gap: 200px;
@@ -1797,27 +1802,21 @@ height: 100vh;
   
   width: 377.088px;
 height: 182.936px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='%23BBBDBF'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+    background-size: 100% 100%; /* عشان يملأ السكشن مهما كان حجمه */
+
 
 }
 
-.ff1 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: 1;
 
-}
 .ff11{
   width: 377.088px;
 height: 182.936px;
-
-}
-
-.ff11 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: 1;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='0' y1='71.468' x2='337.088' y2='71.468' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2345B1F8'/%3E%3Cstop offset='1' stop-color='%23EFF4FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
 }
 
@@ -1827,29 +1826,24 @@ height: 182.936px;
 .ff2{
   width: 377.088px;
 height: 182.936px;
-
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='%23A4E3A4'/%3E%3C/svg%3E");
+    
+    background-size: 100% 100%; /* تمدد كامل */
+    background-repeat: no-repeat;
 }
 
-.ff2 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: 1;
 
-}
 .ff22{
   width: 377.088px;
 height: 182.936px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='71.468' x2='337.088' y2='71.468' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23A4E3A4'/%3E%3Cstop offset='1' stop-color='%23EFF4FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    
+    background-size: 100% 100%; /* ليمتد الشكل ليغطي كامل السكشن */
+    background-repeat: no-repeat;
+
 
 }
 
-.ff22 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: 1;
-
-}
 
 
 
@@ -1857,29 +1851,30 @@ height: 182.936px;
 .ff3{
   width: 377.088px;
 height: 182.936px;
+background-color: #F27864;
+    
+    /* استخدام الـ SVG كـ Mask لقص السكشن */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z'/%3E%3C/svg%3E");
+    
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
 
 }
 
-.ff3 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: 1;
 
-}
 .ff33{
   width: 377.088px;
 height: 182.936px;
-
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='338' height='143' viewBox='0 0 338 143' fill='none'%3E%3Cpath d='M308.814 0H28.2745C22.9834 0 17.908 2.09663 14.1595 5.83079L5.885 14.0736C2.11768 17.8265 2.31504e-06 22.9252 2.19203e-06 28.2428L0 114.693C0 120.011 2.11768 125.11 5.885 128.862L14.1595 137.105C17.908 140.839 22.9834 142.936 28.2745 142.936H308.814C314.105 142.936 319.18 140.839 322.929 137.105L331.203 128.862C334.97 125.11 337.088 120.011 337.088 114.693L337.088 28.2428C337.088 22.9252 334.97 17.8265 331.203 14.0736L322.929 5.83079C319.18 2.09663 314.105 0 308.814 0Z' fill='url(%23grad)'/%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0' y1='71.468' x2='337.088' y2='71.468' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F17864'/%3E%3Cstop offset='1' stop-color='%23EFF4FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
-.ff33 svg{
-  width: 377.088px;
-height: 182.936px;
-  position: absolute;
-  z-index: 1;
 
-}
 
 
 .ff11 p{
@@ -2233,3 +2228,160 @@ height: 182.936px;
 }
 /* ---------------------------------------------------------------*/
 
+
+
+/* --------------------WORKS_WEB------------------------------------*/
+.works_web{
+     
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 80px;
+     flex-wrap: wrap;
+     gap: 60px;
+
+}
+.works_web h1{
+       
+       color: var(--text-color);
+text-align: center;
+width: 491px;
+height: 48px;
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.work_1{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+gap: 40px;
+}
+
+.work_img{
+width: 430px;
+height: 460px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.work_img div{width: 100%;
+position: relative;
+bottom: 30px;
+display: flex;
+justify-content: space-around;
+font-size: 20px;
+font-weight: 400;
+color:var(--bg-color);
+background-color: var(--text-color);
+padding: 10px 0px;
+opacity: 0;
+transition: .5s;
+}
+
+ .works_web .work_1 img{
+     width: 430px;
+height: 460px;
+border-radius: 6px;
+
+
+   
+}
+.work_img:hover {
+transform: translateY(-10%);
+
+}
+.work_img:hover div{
+opacity: 1;
+
+}
+
+
+
+
+
+/* --- الشاشات المتوسطة (Tablets) --- */
+@media screen and (max-width: 1024px) {
+    .works_web {
+        margin: 40px 20px; /* تقليل الهامش الخارجي */
+    }
+
+    .work_img, .works_web .work_1 img {
+        width: 340px; /* تصغير حجم الكروت قليلاً */
+        height: 380px;
+    }
+}
+
+/* --- الشاشات الصغيرة (Mobile) --- */
+@media screen and (max-width: 768px) {
+    .works_web {
+        margin: 40px 10px;
+        gap: 30px;
+    }
+
+    .works_web h1 {
+        font-size: 28px;
+        width: 100%; /* جعل العنوان يأخذ العرض المتاح */
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .work_1 {
+        gap: 20px;
+    }
+
+    /* جعل الكارت مرن تماماً */
+    .work_img {
+        width: 100%; /* يأخذ عرض الشاشة المتاح */
+        max-width: 400px; /* لا يتخطى هذا الحجم */
+        height: auto; /* يترك الطول يتحدد حسب الصورة */
+    }
+
+    .works_web .work_1 img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5; /* يحافظ على نسبة الأبعاد الأصلية */
+        object-fit: cover;
+    }
+
+    /* تحسين ظهور النصوص في الموبايل */
+    .work_img div {
+        position: static; /* إلغاء التموضع المطلق ليظهر تحت الصورة دائماً */
+        opacity: 1; /* جعل النصوص ظاهرة دائماً في الموبايل لأن الهوفر غير موجود */
+        background-color: transparent;
+        color: var(--text-color);
+        font-size: 16px;
+        padding: 10px 5px;
+        justify-content: space-between;
+    }
+
+    /* إلغاء تأثير الرفع القوي عند اللمس لتجنب اهتزاز الشاشة */
+    .work_img:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- الشاشات الصغيرة جداً --- */
+@media screen and (max-width: 480px) {
+    .works_web h1 {
+        font-size: 22px;
+    }
+    .work_img{
+      border-radius: 0px;
+    }
+    .work_img div{
+      position: relative;
+      bottom: 20px;
+      width: 96.5%;
+      background-color: var(--text-color);
+      color: var(--bg-color);
+
+    }
+
+    .work_img div p {
+        font-size: 14px;
+    }
+}
