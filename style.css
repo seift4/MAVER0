@@ -10,10 +10,11 @@
   --black: #1D293F;
   --one: #2643D1;
   --two: #45B1F8;
-  --ph: url(imgs/BG-01.png);
+  --ph: url(imgs/Rectangle 11.png);
   --cy: #1d293f55;
   --nav: #eff4fac6;
-  --service:#E0E8F5
+  --service:#E0E8F5;
+  --bg-section: url("imgs/Rectangle\ 11.png");
 }
 
 .dark-mode {
@@ -32,6 +33,7 @@
   --cy: #eff4fa6a;
   --nav: #1d293fa8;
   --service:#EFF4FA;
+    --bg-section: url("imgs/Rectangle\ 11\ \(1\).png");
 }
 
 
@@ -172,9 +174,16 @@ body {
   position: relative; /* ضروري جداً ليكون الفيديو خلف المحتوى داخل هذا القسم فقط */
   overflow: hidden;   /* لمنع ظهور أي حواف زائدة للفيديو */
   transition: background-position 0.05s ease-out;
+background-image: var(--bg-section);  /* الخواص دي أساسية لأي خلفية سكشن */
+    background-size: cover;        /* عشان الصورة تغطي السكشن بالكامل بدون فراغات */
+    background-position: center;   /* عشان الصورة تتوسط السكشن */
+    background-repeat: no-repeat;  /* عشان الصورة ميتكررش شكلها لو السكشن طويل */
+
+
 }
 
 .back-video {
+
   width: 100%;
 }
 .nav {
@@ -406,7 +415,7 @@ right: 142px;
         margin-right: 5px;
     }
         .back-video {
-          margin-top: 100px;
+          margin-top: 80px;
 
   object-fit: cover;
   height: 39vh;
@@ -1354,7 +1363,7 @@ line-height: normal;
 }
 
 .div2 {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1397,6 +1406,8 @@ line-height: normal;
     color: #1D293F;
 }
 .c4{
+  position: relative;
+  left: 20PX;
   display: flex;
 width: 86px;
 height: 45px;

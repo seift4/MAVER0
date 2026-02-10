@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         themeImages.forEach(item => {
             const el = document.getElementById(item.id);
             if (el) {
-                // إذا كان العنصر فيديو، نغير المصدر ونعيد التحميل
                 if (el.tagName === 'VIDEO') {
                     const source = el.querySelector('source');
                     if (source) source.src = isDark ? item.dark : item.light;
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cursorDot.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
         });
 
-        // تأثيرات الكرسر عند الحوم فوق العناصر التفاعلية
         const interactives = document.querySelectorAll('a, button, h1, p, h2, .dv, video, .nav-link');
         interactives.forEach(el => {
             el.addEventListener('mouseenter', () => cursorDot.classList.add('cursor-active'));
@@ -55,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. تأثير الـ 3D Card (يعمل في أي صفحة تحتوي على كلاس .pr)
+    // 3. تأثير الـ 3D Card
     const cards = document.querySelectorAll('.pr');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -84,16 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
     window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); // لتشغيلها عند تحميل الصفحة مباشرة
+    revealOnScroll();
 
-    // 5. الـ Marquee (الصور المتحركة - تعمل فقط إذا وجد التراك)
+    // 5. الـ Marquee
     const marqueeTrack = document.querySelector('.marquee-track');
     if (marqueeTrack) {
         const content = marqueeTrack.innerHTML;
-        marqueeTrack.innerHTML += content; // تكرار المحتوى لعمل Loop
-        
+        marqueeTrack.innerHTML += content;
         let scrollX = 0;
-
         const animate = () => {
             scrollX -= 0.5;
             if (Math.abs(scrollX) >= marqueeTrack.scrollWidth / 2) scrollX = 0;
@@ -121,85 +117,72 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
     }
-    // 8. تفعيل الروابط عند الوصول للسكشن (Active Link on Scroll & Page)
-const sections = document.querySelectorAll("section[id]"); 
-const navLinks = document.querySelectorAll(".nav-link");
 
-// وظيفة لتحديث الحالة بناءً على اسم الملف أو الـ ID
-function updateActiveLink() {
-    const currentPath = window.location.pathname.split("/").pop() || "index.html";
-    const currentHash = window.location.hash;
+    // 8. تفعيل الروابط عند الوصول للسكشن
+    const sections = document.querySelectorAll("section[id]"); 
+    const navLinks = document.querySelectorAll(".nav-link");
 
-    navLinks.forEach(link => {
-        const linkHref = link.getAttribute("href");
-        link.classList.remove("active");
-
-        // 1. التحقق من الصفحات المنفصلة (about.html, service.html)
-        if (linkHref === currentPath && !currentHash) {
-            link.classList.add("active");
-        }
-        
-        // 2. التحقق من الروابط التي تحتوي على Hash (مثل index.html#w)
-        if (currentHash && linkHref.includes(currentHash)) {
-            link.classList.add("active");
-        }
-    });
-}
-
-// أولاً: تشغيل التحديث عند تحميل الصفحة
-updateActiveLink();
-
-// ثانياً: مراقبة السكاشن لتفعيل الروابط أثناء السكرول (للصفحة الرئيسية)
-if (sections.length > 0) {
-    const observerOptions = {
-        root: null,
-        threshold: 0.6 // تفعيل الرابط عندما يظهر 60% من السكشن
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute("id");
-                
-                navLinks.forEach(link => {
-                    link.classList.remove("active");
-                    // مطابقة الرابط مع الـ ID الحالي
-                    if (link.getAttribute("href").includes(`#${id}`)) {
-                        link.classList.add("active");
-                    }
-                });
+    function updateActiveLink() {
+        const currentPath = window.location.pathname.split("/").pop() || "index.html";
+        const currentHash = window.location.hash;
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute("href");
+            link.classList.remove("active");
+            if (linkHref === currentPath && !currentHash) {
+                link.classList.add("active");
+            }
+            if (currentHash && linkHref.includes(currentHash)) {
+                link.classList.add("active");
             }
         });
-    }, observerOptions);
+    }
+    updateActiveLink();
 
-    sections.forEach(section => sectionObserver.observe(section));
-}
+    if (sections.length > 0) {
+        const observerOptions = { root: null, threshold: 0.6 };
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("href").includes(`#${id}`)) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        sections.forEach(section => sectionObserver.observe(section));
+    }
+    window.addEventListener("hashchange", updateActiveLink);
 
-// تحديث الحالة عند تغيير الـ Hash يدوياً (مثلاً عند الضغط على الرابط)
-window.addEventListener("hashchange", updateActiveLink);
-    //9. vid--> view
-    const videoElement = document.querySelector('#color'); // الفيديو بتاعك
+    // 9. vid--> view (الكرسر المخصص للفيديو)
+    const videoElement = document.querySelector('#color');
+    if (videoElement) {
+        videoElement.addEventListener('mouseenter', () => cursorDot.classList.add('cursor-video'));
+        videoElement.addEventListener('mouseleave', () => cursorDot.classList.remove('cursor-video'));
+    }
 
-// لما الماوس يدخل على الفيديو
-videoElement.addEventListener('mouseenter', () => {
-    cursorDot.classList.add('cursor-video');
+    // 10. فيديو الترحيب (يشتغل مرة واحدة ثم يختفي)
+    const welcomeVideo = document.querySelector('.back-video');
+    if (welcomeVideo) {
+        // نضمن إن الـ loop مقفول برمجياً للتأكد
+        welcomeVideo.loop = false;
+        
+        welcomeVideo.addEventListener('ended', () => {
+            // تأثير اختفاء ناعم
+            welcomeVideo.style.transition = "opacity 1s ease";
+            welcomeVideo.style.opacity = "0";
+            
+            // حذف العنصر تماماً بعد ثانية من الانتهاء
+            setTimeout(() => {
+                welcomeVideo.remove();
+            }, 1000);
+        });
+    }
+
 });
 
-// لما الماوس يخرج من الفيديو
-videoElement.addEventListener('mouseleave', () => {
-    cursorDot.classList.remove('cursor-video');
-});
-
-
-
-
-
-
-
-});
-
-// منع القائمة اليمين (اختياري)
+// منع القائمة اليمين
 document.addEventListener('contextmenu', event => event.preventDefault());
-
-
-
