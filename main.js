@@ -121,46 +121,62 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
     }
-    
-    // 8. تفعيل الروابط عند الوصول للسكشن (Active Link on Scroll)
-    const sections = document.querySelectorAll("section[id]"); // نراقب فقط السكشنز التي تملك ID
-    const navLinks = document.querySelectorAll(".nav-link");
+    // 8. تفعيل الروابط عند الوصول للسكشن (Active Link on Scroll & Page)
+const sections = document.querySelectorAll("section[id]"); 
+const navLinks = document.querySelectorAll(".nav-link");
 
-    // أولاً: تحديد الصفحة الحالية لتفعيل رابطها تلقائياً
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+// وظيفة لتحديث الحالة بناءً على اسم الملف أو الـ ID
+function updateActiveLink() {
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const currentHash = window.location.hash;
+
     navLinks.forEach(link => {
-        if (link.getAttribute("href") === currentPage) {
+        const linkHref = link.getAttribute("href");
+        link.classList.remove("active");
+
+        // 1. التحقق من الصفحات المنفصلة (about.html, service.html)
+        if (linkHref === currentPath && !currentHash) {
+            link.classList.add("active");
+        }
+        
+        // 2. التحقق من الروابط التي تحتوي على Hash (مثل index.html#w)
+        if (currentHash && linkHref.includes(currentHash)) {
             link.classList.add("active");
         }
     });
+}
 
-    // ثانياً: مراقبة السكاشن لتفعيل الروابط الداخلية (مثل Home و Works)
-    if (sections.length > 0) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5 // السكشن يعتبر نشطاً عندما يظهر 50% منه
-        };
+// أولاً: تشغيل التحديث عند تحميل الصفحة
+updateActiveLink();
 
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute("id");
-                    
-                    navLinks.forEach(link => {
-                        link.classList.remove("active");
-                        // نبحث عن الرابط الذي ينتهي بـ # والـ id الخاص بالسكشن
-                        if (link.getAttribute("href").endsWith(`#${id}`)) {
-                            link.classList.add("active");
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
+// ثانياً: مراقبة السكاشن لتفعيل الروابط أثناء السكرول (للصفحة الرئيسية)
+if (sections.length > 0) {
+    const observerOptions = {
+        root: null,
+        threshold: 0.6 // تفعيل الرابط عندما يظهر 60% من السكشن
+    };
 
-        sections.forEach(section => sectionObserver.observe(section));
-    }
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+                
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    // مطابقة الرابط مع الـ ID الحالي
+                    if (link.getAttribute("href").includes(`#${id}`)) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }, observerOptions);
 
+    sections.forEach(section => sectionObserver.observe(section));
+}
+
+// تحديث الحالة عند تغيير الـ Hash يدوياً (مثلاً عند الضغط على الرابط)
+window.addEventListener("hashchange", updateActiveLink);
     //9. vid--> view
     const videoElement = document.querySelector('#color'); // الفيديو بتاعك
 
